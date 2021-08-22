@@ -8,20 +8,21 @@ import scss from './LoginPage.module.css';
 const styles = {
   primaryBtn: {
     color: '#4A56E2',
-    background: 'white',
-    width: 300,
-    height: 50,
-    border: '1px solid #4A56E2',
-    borderRadius: '20px',
-  },
-  secondaryBtn: {
-    color: '#4A56E2',
     background: '#24CCA7',
     width: 300,
     height: 50,
     marginTop: '20px',
     marginBottom: '20px',
     border: 'none',
+    borderRadius: '20px',
+  },
+  secondaryBtn: {
+    color: '#4A56E2',
+    background: 'white',
+    width: 300,
+    height: 50,
+
+    border: '1px solid #4A56E2',
     borderRadius: '20px',
   },
 };
@@ -62,11 +63,11 @@ const LoginPage = () => {
               />
 
               <div className={scss.btnGroup}>
-                <Button variant="primary" type="submit" style={styles.secondaryBtn}>
+                <Button variant="primary" type="submit" style={styles.primaryBtn}>
                   ВХОД{' '}
                 </Button>
 
-                <Button variant="primary" type="submit" style={styles.primaryBtn}>
+                <Button variant="primary" type="submit" style={styles.secondaryBtn}>
                   РЕГИСТРАЦИЯ{' '}
                 </Button>
               </div>
