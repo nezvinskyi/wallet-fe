@@ -1,10 +1,12 @@
-import DoughnutChart from "./components/Chart";
+import Container from './components/Container'
+import DiagramTab from './components/DiagramTab';
+
 
 function App() {
-  return <>
+  return <Container>
   <div className="App">Wallet</div>
-  <DoughnutChart/>
-  </>
+  <DiagramTab/>
+  </Container>
 }
 
 export default App;

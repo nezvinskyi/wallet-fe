@@ -1,7 +1,9 @@
 .chartWrapper {
   position: relative;
-  height: 320px;
-  width: 320px;
+  max-height: 320px;
+  min-height: 280px;
+  max-width: 320px;
+  min-width: 280px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -10,5 +12,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26, 53px;
   transform: translate(-50%, -50%);
 }

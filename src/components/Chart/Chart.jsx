@@ -46,6 +46,7 @@ const hryvnaSign = '\u20B4';
   <Doughnut className="chart" data={data} />
   <span className={styles.balance}>{hryvnaSign} {balance}</span>
 </div>
-)  
+)
+  
 };
 
