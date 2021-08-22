@@ -1,9 +1,15 @@
-import { LoginPage } from './pages/';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
+import { LoginPage, DashboardPage } from './pages/';
 
 function App() {
   return (
     <div className="App">
-      <LoginPage />
+      <Switch>
+        <Route path={'/home'} exact component={DashboardPage} />
+        <LoginPage />
+      </Switch>
     </div>
   );
 }
