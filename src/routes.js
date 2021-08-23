@@ -1,5 +1,5 @@
 export default {
-  home: '/',
+  home: '/home',
   diagram: '/diagram',
   currency: '/currency',
   contacts: '/contacts',
