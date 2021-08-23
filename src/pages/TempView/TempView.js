@@ -12,6 +12,12 @@ const TempView = () => {
         <li>
           <Link to="/login">LoginPage -/login- Виталий</Link>
         </li>
+        <li>
+          <Link to="/register">RegistrationPage -/register- Виталий</Link>
+        </li>
+        <li>
+          <Link to="/diagram-tab">DiagramTab -/diagram-tab- Rina</Link>
+        </li>
       </ul>
     </Container>
   );

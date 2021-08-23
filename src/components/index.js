@@ -1,3 +1,4 @@
-import { Header } from './Header';
+import AppBar from './AppBar';
+import DiagramTab from './DiagramTab';
 
-export { Header };
+export { AppBar, DiagramTab };

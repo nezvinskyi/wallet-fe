@@ -3,18 +3,19 @@ import LogoWallet from './LogoWallet';
 
 import './AppBar.css';
 
-export default function AppBar() {
-    const isAuthenticated = false;
+const AppBar = () => {
+  const isAuthenticated = false;
 
-    return (
-        <>
-            {isAuthenticated || (
-                <header className="header">
-                    <LogoWallet />
-                    <UserMenu />
-                </header>
-            )}
-        </>
-    )
-    
-}
+  return (
+    <>
+      {isAuthenticated || (
+        <header className="header">
+          <LogoWallet />
+          <UserMenu />
+        </header>
+      )}
+    </>
+  );
+};
+
+export default AppBar;
