@@ -1,0 +1,52 @@
+select {
+  width: 100%;
+  height: 50px;
+  outline-style: none;
+  border: solid 1px rgba(0, 0, 0, 1);
+  border-radius: 40px;
+  list-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 12px 20px 14px;
+  box-sizing: border-box;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.yearPicker {
+  margin-top: 20px;
+}
+
+.pickerFirstOpt {
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .monthPicker,
+  .yearPicker {
+    width: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+  }
+
+  .monthPicker,
+  .yearPicker {
+    width: 166px;
+  }
+
+  .monthPicker {
+    margin-right: 20px;
+  }
+
+  .yearPicker {
+    margin-top: 0px;
+  }
+}
