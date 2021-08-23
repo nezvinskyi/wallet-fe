@@ -1,26 +1,28 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
-import { LoginPage, RegistrationPage, DashboardPage, TempView } from './pages/';
+import ContainerAppWrapper from './components/ContainerAppWrapper';
+import { LoginPage, RegistrationPage, DashboardPage, TempView, StatisticPage } from './pages/';
 
 import { Header, Navigation, Currency } from './components';
-import DiagramTab from './components/DiagramTab'
+import DiagramTab from './components/DiagramTab';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Navigation />
+    <ContainerAppWrapper>
+      <div className="App">
+        <Header />
+        <Navigation />
 
-      <Switch>
-        <Route path={'/'} exact component={TempView} />
-        <Route path={'/home'} exact component={DashboardPage} />
-        <Route path={'/diagram'} exact component={DiagramTab} />
-        <Route path={'/currency'} exact component={Currency} />
-        <Route path={'/login'} exact component={LoginPage} />
-        <Route path={'/register'} exact component={RegistrationPage} />
-      </Switch>
-    </div>
+        <Switch>
+          <Route path={'/'} exact component={TempView} />
+          <Route path={'/home'} exact component={DashboardPage} />
+          <Route path={'/statistic'} exact component={StatisticPage} />
+          <Route path={'/login'} exact component={LoginPage} />
+          <Route path={'/register'} exact component={RegistrationPage} />
+          <Route path={'/currency'} exact component={Currency} />;
+        </Switch>
+      </div>
+    </ContainerAppWrapper>
   );
 }
 
