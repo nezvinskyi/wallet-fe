@@ -3,8 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import { LoginPage, RegistrationPage, DashboardPage, TempView } from './pages/';
 
-import { Header, Navigation, Currency } from './components'
-import DiagramTab from './components/DiagramTab'
+import { Header, Navigation, Currency } from './components';
 
 function App() {
   return (
@@ -13,14 +12,12 @@ function App() {
       <Navigation />
 
       <Switch>
-        <Route path={'/'} exact component={DashboardPage} />
+        <Route path={'/'} exact component={TempView} />
         <Route path={'/home'} exact component={DashboardPage} />
-        <Route path={'/diagram'} exact component={DiagramTab} />
         <Route path={'/currency'} exact component={Currency} />
         <Route path={'/login'} exact component={LoginPage} />
         <Route path={'/register'} exact component={RegistrationPage} />
       </Switch>
-
     </div>
   );
 }
