@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import { Header, Navigation, Currency } from '../../components';
+import { Button, Container } from 'react-bootstrap';
+import { Header, Navigation, Currency, OperationsTable } from '../../components';
 import { dashBoardImg } from './img';
 import style from './Style.module.css';
 
@@ -17,11 +17,12 @@ const inlineStyles = {
 
 const DashboardPage = () => {
   return (
-    <>
+    <Container>
       <Header />
-      <Navigation />
-      <Currency />
       <div className={style.dashboardPage}>
+        <Navigation />
+        <Currency />
+        <OperationsTable />
         DashboardPage
         <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
         <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
@@ -29,7 +30,7 @@ const DashboardPage = () => {
           <img src={dashBoardImg.addBtnBg} alt="" />
         </Button>
       </div>
-    </>
+    </Container>
   );
 };
 
