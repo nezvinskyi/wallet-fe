@@ -18,9 +18,11 @@ const TempView = () => {
         <li>
           <Link to="/statistic">StatisticPage -/login- Rina</Link>
         </li>
+        <li>
+          <Link to="/currency">Currency component -/login- Denis</Link>
+        </li>
       </ul>
     </Container>
   );
 };
-
 export default TempView;
