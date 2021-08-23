@@ -4,6 +4,8 @@
 // import authOperations from '../redux/auth/auth-operations';
 import { Button, Container } from 'react-bootstrap';
 import scss from './RegistrationPage.module.css';
+import image from './images/registration-image.png';
+import imaje from './images/Ellipse1.png';
 
 const styles = {
   primaryBtn: {
@@ -31,6 +33,8 @@ const RegistrationPage = () => {
   return (
     <div className={scss.container}>
       <div className={scss.imageWrapper}>
+        <img src={image} alt="pic of woman" className={scss.registrationPic} />
+        <img src={imaje} alt="ellipse" className={scss.ellipsePic} />
         <h1 className={scss.title}>Finance App</h1>
       </div>
 

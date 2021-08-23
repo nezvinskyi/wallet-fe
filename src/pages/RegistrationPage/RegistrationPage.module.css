@@ -2,17 +2,53 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .imageWrapper {
   width: 40%;
-  height: 200px;
-  background-color: green;
+  height: 720px;
+  background-color: #e5e5e5;
+  text-align: center;
+}
+
+@media (min-width: 300px) and (max-width: 767px) {
+  .imageWrapper {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .imageWrapper {
+    width: 40%;
+    height: 360px;
+    background-color: #e5e5e5;
+    text-align: center;
+  }
 }
 
 .formWrapper {
   width: 60%;
   background-color: yellow;
   border-radius: 20px;
+  outline: 1px solid red;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .formWrapper {
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    /* outline: 1px solid red; */
+  }
 }
 
 .title {
@@ -26,6 +62,20 @@
   width: 540px;
   height: 468px;
   margin: 0 auto;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .form {
+    /* display: flex;
+    flex-direction: column; */
+    width: 320px;
+    height: 468px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    align-items: center;
+  }
 }
 .inputItem {
   font-size: 18px;
@@ -36,10 +86,45 @@
   width: 410px;
   margin: 0 auto;
   margin-bottom: 15px;
+  align-items: center;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .inputItem {
+    font-size: 18px;
+    line-height: 1.5;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    width: 280px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    align-items: center;
+  }
 }
 
 .btnGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.registrationPic {
+  width: 413px;
+  height: 452px;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .registrationPic {
+    width: 260px;
+    height: 274px;
+  }
+}
+
+.ellipsePic {
+  position: absolute;
+  left: -53.33px;
+  top: 271px;
+  width: 254px;
+  height: 212px;
 }

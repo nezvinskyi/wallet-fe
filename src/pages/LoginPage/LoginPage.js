@@ -4,6 +4,8 @@
 // import authOperations from '../redux/auth/auth-operations';
 import { Button, Container } from 'react-bootstrap';
 import scss from './LoginPage.module.css';
+import image from './images/login-image.png';
+import imaje from './images/Ellipse1.png';
 
 const styles = {
   primaryBtn: {
@@ -16,64 +18,80 @@ const styles = {
     border: 'none',
     borderRadius: '20px',
   },
+  '@media (min-width: 300px)': {
+    primaryBtn: {
+      width: 280,
+      height: 50,
+    },
+  },
+
   secondaryBtn: {
     color: '#4A56E2',
     background: 'white',
     width: 300,
     height: 50,
-
     border: '1px solid #4A56E2',
     borderRadius: '20px',
+  },
+  '@media (min-width: 300px)': {
+    secondaryBtn: {
+      width: 280,
+      height: 50,
+    },
   },
 };
 
 const LoginPage = () => {
   return (
-    <div className={scss.container}>
-      <div className={scss.imageWrapper}>
-        <h1 className={scss.title}>Finance App</h1>
+    <Container>
+      <div className={scss.container}>
+        <div className={scss.imageWrapper}>
+          <img src={image} alt="pic of man" className={scss.loginPic} />
+          <img src={imaje} alt="ellipse" className={scss.ellipsePic} />
+          <h1 className={scss.title}>Finance App</h1>
+        </div>
+
+        <div className={scss.formWrapper}>
+          <Container>
+            <h1 className={scss.title}>Wallet</h1>
+            <form
+              className={scss.form}
+              // onSubmit={handleSubmit}
+
+              autoComplete="off"
+            >
+              <input
+                className={scss.inputItem}
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                // value={email}
+                // onChange={event => setEmail(event.target.value)}
+              />
+
+              <input
+                className={scss.inputItem}
+                type="password"
+                name="password"
+                placeholder="Пароль"
+                // value={password}
+                // onChange={event => setPassword(event.target.value)}
+              />
+
+              <div className={scss.btnGroup}>
+                <Button variant="primary" type="submit" style={styles.primaryBtn}>
+                  ВХОД{' '}
+                </Button>
+
+                <Button variant="primary" type="submit" style={styles.secondaryBtn}>
+                  РЕГИСТРАЦИЯ{' '}
+                </Button>
+              </div>
+            </form>
+          </Container>
+        </div>
       </div>
-
-      <div className={scss.formWrapper}>
-        <Container>
-          <h1 className={scss.title}>Wallet</h1>
-          <form
-            className={scss.form}
-            // onSubmit={handleSubmit}
-
-            autoComplete="off"
-          >
-            <input
-              className={scss.inputItem}
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              // value={email}
-              // onChange={event => setEmail(event.target.value)}
-            />
-
-            <input
-              className={scss.inputItem}
-              type="password"
-              name="password"
-              placeholder="Пароль"
-              // value={password}
-              // onChange={event => setPassword(event.target.value)}
-            />
-
-            <div className={scss.btnGroup}>
-              <Button variant="primary" type="submit" style={styles.primaryBtn}>
-                ВХОД{' '}
-              </Button>
-
-              <Button variant="primary" type="submit" style={styles.secondaryBtn}>
-                РЕГИСТРАЦИЯ{' '}
-              </Button>
-            </div>
-          </form>
-        </Container>
-      </div>
-    </div>
+    </Container>
   );
 };
 
