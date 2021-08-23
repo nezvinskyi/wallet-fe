@@ -1,0 +1,48 @@
+/* .visualhidden {
+  background-image: url('./addTransactionBtn.svg');
+  position: absolute;
+
+  left: 1151px;
+  top: 636px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  outline: none;
+  padding: 0;
+} */
+.dashboardPage {
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(50px);
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+}
+.addBtnBg {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  left: 1151px;
+  top: 636px;
+}
+
+.elipse_top {
+  position: absolute;
+  width: 520px;
+  height: 813px;
+  left: 844.41px;
+  top: -253px;
+  transform: rotate(21.94deg);
+  filter: blur(50px);
+  -webkit-filter: blur(150px);
+}
+
+.elipse_bottom {
+  position: absolute;
+  width: 618px;
+  height: 547px;
+  left: -53.33px;
+  top: 271px;
+  transform: rotate(16.86deg);
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
+}
