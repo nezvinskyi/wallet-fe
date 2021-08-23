@@ -16,7 +16,7 @@ const TempView = () => {
           <Link to="/register">RegistrationPage -/register- Виталий</Link>
         </li>
         <li>
-          <Link to="/diagram-tab">DiagramTab -/diagram-tab- Rina</Link>
+          <Link to="/statistic">StatisticPage -/login- Rina</Link>
         </li>
       </ul>
     </Container>
