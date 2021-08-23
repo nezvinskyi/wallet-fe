@@ -1,9 +1,20 @@
-import React from 'react';
+import UserMenu from './UserMenu';
+import LogoHeader from './LogoHeader';
 
-import style from './Style.module.css';
+import styles from './Header.module.css';
 
-const Header = () => {
-  return <div className={style.Header}>Header</div>;
-};
+export default function AppBar() {
+    const isAuthenticated = false;
 
-export default Header;
+    return (
+        <>
+            {isAuthenticated || (
+                <header className={styles.header}>
+                    <LogoHeader />
+                    <UserMenu />
+                </header>
+            )}
+        </>
+    )
+    
+}

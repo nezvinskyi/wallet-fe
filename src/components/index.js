@@ -1,3 +1,8 @@
 import { Header } from './Header';
-
-export { Header };
+import { Navigation } from './Navigation';
+import { Currency } from './Currency';
+export {
+    Header,
+    Navigation,
+    Currency
+};

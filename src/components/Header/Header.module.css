@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 280px;
+  height: 30px;
+  padding: 15px 20px;
+}
+
+.LogoWallet {
+  display: flex;
+  align-items: center;
+}
+
+.LogoWallet > span {
+  font: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 45px;
+  padding-left: 15px;
+}
+
+.UserMenu > button {
+  padding-left: 10px;
+}

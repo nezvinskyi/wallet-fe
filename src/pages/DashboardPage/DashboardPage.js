@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Button } from 'react-bootstrap';
-import { Header } from '../../components';
 import { dashBoardImg } from './img';
 import style from './Style.module.css';
 
@@ -18,7 +17,7 @@ const inlineStyles = {
 const DashboardPage = () => {
   return (
     <Container>
-      <Header />
+
       <div className={style.dashboardPage}>
         DashboardPage
         <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
