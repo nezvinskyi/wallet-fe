@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 37px;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 85px;
+    padding-right: 85px;
+    padding-bottom: 35px;
+  }
+}
