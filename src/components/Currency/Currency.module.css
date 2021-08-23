@@ -1,0 +1,9 @@
+.currency {
+  display: flex;
+  justify-content: center;
+  width: 280px;
+  height: 174px;
+  border-radius: 30px;
+  border-color: black;
+  border-style: solid;
+}

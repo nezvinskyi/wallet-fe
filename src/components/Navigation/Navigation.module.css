@@ -1,8 +1,9 @@
 .Navigation {
   display: flex;
-  width: 320px;
-  height: 64px;
-  justify-content: center;
+  width: 200px;
+  height: 60px;
+  padding: 0 60px;
+  justify-content: space-between;
 }
 
 /* .Navigation {
