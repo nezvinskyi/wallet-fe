@@ -1,22 +1,13 @@
-/* .visualhidden {
-  background-image: url('./addTransactionBtn.svg');
-  position: absolute;
-
-  left: 1151px;
-  top: 636px;
-  width: 44px;
-  height: 44px;
-  border: none;
-  outline: none;
-  padding: 0;
-} */
 .dashboardPage {
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(50px);
-  width: 1280px;
+  padding: 45px 85px;
+  display: flex;
+  text-align: -webkit-right;
   height: 720px;
+  background-color: #f9fbff;
+  backdrop-filter: blur(50px);
   overflow: hidden;
 }
+
 .addBtnBg {
   position: absolute;
   width: 44px;

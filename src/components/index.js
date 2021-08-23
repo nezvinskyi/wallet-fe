@@ -1,3 +1,4 @@
 import { Header } from './Header';
+import { OperationsTable } from './Table';
 
-export { Header };
+export { Header, OperationsTable };
