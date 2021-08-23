@@ -1,7 +1,9 @@
+import styles from './Currency.module.css';
+
 export default function Currency() {
-  return (
-    <>
-    <h1>Курс валют</h1>
-    </>
-  )
-}
+    return (
+        <div className={styles.currency}>
+            <h3>Курс валют</h3>
+        </div>
+    )
+};
