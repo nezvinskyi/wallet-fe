@@ -1,4 +1,4 @@
-export default {
+const routes = {
   home: '/home',
   diagram: '/diagram',
   currency: '/currency',
@@ -6,3 +6,5 @@ export default {
   login: '/login',
   register: '/register',
 };
+
+export default routes;
