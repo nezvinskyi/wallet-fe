@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
 import ContainerAppWrapper from './components/ContainerAppWrapper';
 import { LoginPage, RegistrationPage, DashboardPage, TempView, StatisticPage } from './pages/';
 
