@@ -3,18 +3,17 @@ import LogoHeader from './LogoHeader';
 
 import styles from './Header.module.css';
 
-export default function AppBar() {
-    const isAuthenticated = false;
+export default function Header() {
+  const isAuthenticated = true;
 
-    return (
-        <>
-            {isAuthenticated || (
-                <header className={styles.header}>
-                    <LogoHeader />
-                    <UserMenu />
-                </header>
-            )}
-        </>
-    )
-    
+  return (
+    <>
+      {isAuthenticated && (
+        <header className={styles.header}>
+          <LogoHeader />
+          <UserMenu />
+        </header>
+      )}
+    </>
+  );
 }

@@ -1,18 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ContainerAppWrapper from './components/ContainerAppWrapper';
 import { LoginPage, RegistrationPage, DashboardPage, TempView, StatisticPage } from './pages/';
 
-import { Header, Navigation, Currency } from './components';
-import DiagramTab from './components/DiagramTab';
+import { ContainerAppWrapper, Navigation, Currency } from './components';
 
 function App() {
   return (
     <ContainerAppWrapper>
       <div className="App">
-        <Header />
-        <Navigation />
-
         <Switch>
           <Route path={'/'} exact component={TempView} />
           <Route path={'/home'} exact component={DashboardPage} />
@@ -20,6 +15,7 @@ function App() {
           <Route path={'/login'} exact component={LoginPage} />
           <Route path={'/register'} exact component={RegistrationPage} />
           <Route path={'/currency'} exact component={Currency} />;
+          <Route path={'/navigation'} exact component={Navigation} />;
         </Switch>
       </div>
     </ContainerAppWrapper>

@@ -1,16 +1,15 @@
-import AppBar from '../../components/AppBar'
-import DiagramTab from '../../components/DiagramTab'
-import { Container } from 'react-bootstrap';
+import { Currency, Header, Navigation } from '../../components';
+import DiagramTab from '../../components/DiagramTab';
 
-import styles from './StatisticPage.module.css'
+import styles from './StatisticPage.module.css';
 
-export default function StatisticPage ()  {
-
-  return(
+export default function StatisticPage() {
+  return (
     <>
-    <AppBar/>
-    <DiagramTab/>
+      <Header />
+      <Navigation />
+      <Currency />
+      <DiagramTab />
     </>
   );
-};
-
+}
