@@ -7,7 +7,8 @@ import styles from './Style.module.css';
 
 const style = {
   table: {
-    // position: 'absolute',
+    position: 'relative',
+    zIndex: '100000',
     // right: '85px',
     // top: '45px',
     borderBottomCollor: 'red',
@@ -52,43 +53,55 @@ const style = {
 };
 
 const OperationsTable = () => {
+  const mainView = true;
+
   return (
     <Table responsive style={style.table}>
       <thead className={style.thead}>
         <tr className={styles.thead}>
-          <th style={style.thFirst}>Дата</th>
-          <th style={style.th}>Тип</th>
-          <th style={style.th}>Категория</th>
-          <th style={style.th}>Комментарий</th>
-          <th style={style.th}>Сумма</th>
-          <th style={style.thLast}>Баланс</th>
+        {mainView ? 
+    <>
+      <th style={style.thFirst}>Дата</th>
+      <th style={style.th}>Тип</th>
+    </> :null }
+      <th style= {(mainView )? style.th  : style.thFirst }>Категория</th>
+      {mainView ? 
+      <th style={style.th}>Комментарий</th>:null }
+      <th style={(mainView )? style.th  : style.thLast }>Сумма</th>
+      {mainView ? 
+      <th style={style.thLast}>Баланс</th>:null }
         </tr>
       </thead>
       {transaction.map(({ id, date, type, category, comment, sum, balance }) => (
         <tbody key={id}>
           <tr className={styles.tr} style={style.tr}>
-            <td style={style.td} data-label="Дата">
-              {date}
-            </td>
-            <td data-label="Тип" style={style.td}>
-              {type}
-            </td>
-            <td data-label="Категория" style={style.td}>
-              {category}
-            </td>
-            <td data-label="Комментарий" style={style.td}>
-              {comment}
-            </td>
-            <td data-label="Сумма" style={style.td}>
-              {sum}
-            </td>
-            <td data-label="Баланс" style={style.tdLast}>
-              {balance}
-            </td>
-          </tr>
-        </tbody>
-      ))}
-    </Table>
+          {mainView ? 
+    <>
+     <td style={style.td} data-label="Дата">
+        {date}
+      </td>
+      <td data-label="Тип" style={style.td}>
+        {type}
+      </td>
+    </> :null }
+      <td data-label="Категория" style={style.td}>
+        {category}
+      </td>
+      {mainView ? <td data-label="Комментарий" style={style.td}>
+        {comment}
+      </td> :null }
+      <td data-label="Сумма" style={style.td}>
+        {sum}
+      </td>
+      {mainView ? <td data-label="Баланс" style={style.tdLast}>
+        {balance}
+      </td> :null }
+      
+    </tr>
+  </tbody>
+))}
+</Table>
+
   );
 };
 
