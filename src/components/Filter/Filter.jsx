@@ -9,10 +9,10 @@ export default function Filter() {
   const months = ["Январь", "Февраль","Март","Апрель", "Май","Июнь","Июль","Август","Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
 
   return (
-  <form className={styles.wrapper}>
+  <form className={styles.wrapper} onChange={()=>{}}>
 
-    <select name="month" value='Месяц' className={styles.monthPicker} >
-  <option name="" value="" className={styles.pickerFirstOpt}>Месяц</option>
+    <select name="" value='Месяц' className={styles.monthPicker} >
+  <option name="" value="Месяц" className={styles.pickerFirstOpt}>Месяц</option>
   {months.map(month => (
           <option key={month} value={months.indexOf(month)}>
             {month}
@@ -21,7 +21,7 @@ export default function Filter() {
 </select>
 
 <select name="year" value='Год' className={styles.yearPicker}>
-<option name="" value="" className={styles.pickerFirstOpt}>Год</option>
+<option name="year" value="Год" className={styles.pickerFirstOpt}>Год</option>
         {years.map(year => (
           <option key={year} value={year}>
             {year}

@@ -63,8 +63,10 @@ const style = {
 };
 
 const OperationsTable = () => {
-  const mainView = true;
-
+  let mainView = true;
+  if (window.location.pathname !== '/home'){
+    mainView = false
+  }
   return (
     <Table responsive style={style.table}>
       <thead className={style.thead}>
