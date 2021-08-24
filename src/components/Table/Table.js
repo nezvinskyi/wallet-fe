@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
+
 import transaction from './exampleData';
-// import style from './Style.module.css';
+
+import styles from './Style.module.css';
 
 const style = {
   table: {
-    position: 'absolute',
-    right: '85px',
-    top: '45px',
+    // position: 'absolute',
+    // right: '85px',
+    // top: '45px',
+    borderBottomCollor: 'red',
     maxWidth: '700px',
     border: '0px solid white',
     borderCollapse: 'collapse',
@@ -23,14 +26,22 @@ const style = {
     borderStyle: 'hidden',
   },
   tr: {
-    // border: '1px solid red',
     border: '0px solid inherit',
   },
   th: {
     borderStyle: 'hidden',
   },
+
   td: {
+    borderBottomColor: '#BDBDBD',
     backgroundColor: 'inherit',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+  },
+  tdLast: {
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    borderBottom: 'none',
   },
   thead: {
     backgroundColor: 'white',
@@ -43,8 +54,8 @@ const style = {
 const OperationsTable = () => {
   return (
     <Table responsive style={style.table}>
-      <thead>
-        <tr style={style.thead}>
+      <thead className={style.thead}>
+        <tr className={styles.thead}>
           <th style={style.thFirst}>Дата</th>
           <th style={style.th}>Тип</th>
           <th style={style.th}>Категория</th>
@@ -53,18 +64,30 @@ const OperationsTable = () => {
           <th style={style.thLast}>Баланс</th>
         </tr>
       </thead>
-      <tbody>
-        {transaction.map(({ id, date, type, category, comment, sum, balance }) => (
-          <tr key={id} style={style.tr}>
-            <td style={style.td}>{date}</td>
-            <td>{type}</td>
-            <td>{category}</td>
-            <td>{comment}</td>
-            <td>{sum}</td>
-            <td>{balance}</td>
+      {transaction.map(({ id, date, type, category, comment, sum, balance }) => (
+        <tbody key={id}>
+          <tr className={styles.tr} style={style.tr}>
+            <td style={style.td} data-label="Дата">
+              {date}
+            </td>
+            <td data-label="Тип" style={style.td}>
+              {type}
+            </td>
+            <td data-label="Категория" style={style.td}>
+              {category}
+            </td>
+            <td data-label="Комментарий" style={style.td}>
+              {comment}
+            </td>
+            <td data-label="Сумма" style={style.td}>
+              {sum}
+            </td>
+            <td data-label="Баланс" style={style.tdLast}>
+              {balance}
+            </td>
           </tr>
-        ))}
-      </tbody>
+        </tbody>
+      ))}
     </Table>
   );
 };
