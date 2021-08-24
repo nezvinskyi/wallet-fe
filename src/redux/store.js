@@ -1,25 +1,42 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import userReducer from './user/user-reducers';
+import sessionReducer from './session/session-reducers';
+import globalReducer from './global/global-reducers';
 
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+const middleware = [
+  ...getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+];
 
-import { userLoginReducer, userRegisterReducer } from './reducers/userReducers';
-
-const reducer = combineReducers({
-  userLogin: userLoginReducer,
-  userRegister: userRegisterReducer,
-});
-
-const initialState = {
-  userLogin: null,
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
 };
 
-const middleware = [thunk];
+export const store = configureStore({
+  reducer: {
+    session: sessionReducer,
+    global: globalReducer,
+    // finance: financeReducer,
+    user: persistReducer(authPersistConfig, userReducer),
+  },
+  // devTools: process.env.NODE_ENV === 'development',
+  middleware,
+});
 
-const store = createStore(
-  reducer,
-  initialState,
-  composeWithDevTools(applyMiddleware(...middleware)),
-);
-
-export default store;
+export const persistor = persistStore(store);

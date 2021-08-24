@@ -1,11 +1,12 @@
-// import React, { useState } from 'react';
-// import { connect } from 'react-redux';
-// import { useDispatch } from 'react-redux';
-// import authOperations from '../redux/auth/auth-operations';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import { Button, Container } from 'react-bootstrap';
 import scss from './RegistrationPage.module.css';
 import image from './images/registration-image.png';
 import imaje from './images/Ellipse1.png';
+import { userOperations } from '../../redux/user';
 
 const styles = {
   primaryBtn: {
@@ -30,6 +31,25 @@ const styles = {
 };
 
 const RegistrationPage = () => {
+  const [name, setName] = useState('Dima');
+  const [email, setEmail] = useState('dima@mail.com');
+  const [password, setPassword] = useState('uaua1234');
+  const [confirmPassword, setConfirmPassword] = useState('uaua1234');
+
+  const dispatch = useDispatch();
+
+  const submitHandler = async e => {
+    e.preventDefault();
+
+    //TODO notifications
+    if (password !== confirmPassword) {
+      alert('Passwords no not match - переделать нотификации');
+      return;
+    }
+
+    dispatch(userOperations.register({ name, email, password }));
+  };
+
   return (
     <div className={scss.container}>
       <div className={scss.imageWrapper}>
@@ -41,54 +61,54 @@ const RegistrationPage = () => {
       <div className={scss.formWrapper}>
         <Container>
           <h1 className={scss.title}>Wallet</h1>
-          <form
-            className={scss.form}
-            // onSubmit={handleSubmit}
-
-            autoComplete="off"
-          >
+          <form className={scss.form} onSubmit={submitHandler} autoComplete="off">
             <input
               className={scss.inputItem}
               type="email"
               name="email"
+              required
               placeholder="E-mail"
-              // value={email}
-              // onChange={event => setEmail(event.target.value)}
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
 
             <input
               className={scss.inputItem}
               type="password"
               name="password"
+              required
               placeholder="Пароль"
-              // value={password}
-              // onChange={event => setPassword(event.target.value)}
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
 
             <input
               className={scss.inputItem}
               type="password"
-              name="password"
+              name="confirmPassword"
+              required
               placeholder="Подтвердите пароль"
-              // value={password}
-              // onChange={event => setPassword(event.target.value)}
+              value={confirmPassword}
+              onChange={e => setConfirmPassword(e.target.value)}
             />
 
             <input
               className={scss.inputItem}
               type="name"
               name="name"
+              required
               placeholder="Ваше имя"
-              // value={password}
-              // onChange={event => setPassword(event.target.value)}
+              value={name}
+              onChange={e => setName(e.target.value)}
             />
 
             <div className={scss.btnGroup}>
               <Button variant="primary" type="submit" style={styles.primaryBtn}>
-                РЕГИСТРАЦИЯ{' '}
+                РЕГИСТРАЦИЯ
               </Button>
-              <Button variant="primary" type="submit" style={styles.secondaryBtn}>
-                ВХОД{' '}
+
+              <Button variant="primary" type="button" style={styles.secondaryBtn}>
+                <Link to="/login">ВХОД</Link>
               </Button>
             </div>
           </form>

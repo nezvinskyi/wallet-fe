@@ -17,7 +17,7 @@ const config = {
 // };
 
 const registerUser = async (name, email, password) => {
-  const { data } = await axios.post('/api/v1/users', { name, email, password }, config);
+  const { data } = await axios.post('/api/v1/users/signup', { name, email, password }, config);
 
   // setToken(data.token);
 
