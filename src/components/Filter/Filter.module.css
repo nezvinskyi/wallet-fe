@@ -1,4 +1,5 @@
 select {
+  position: relative;
   width: 100%;
   height: 50px;
   outline-style: none;
@@ -10,7 +11,18 @@ select {
   appearance: none;
   padding: 12px 20px 14px;
   box-sizing: border-box;
+  background: transparent;
+  background-image: url('./arrow.svg');
+  background-repeat: no-repeat;
+  background-position: bottom 20px right 20px;
 }
+
+/* .selectArrow {
+  position: absolute;
+  width: 23px;
+  height: 28px;
+} */
+
 .wrapper {
   display: flex;
   flex-direction: column;

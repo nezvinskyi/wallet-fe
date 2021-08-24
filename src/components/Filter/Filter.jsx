@@ -1,5 +1,5 @@
 import styles from './Filter.module.css'
-
+import img from './arrow.svg'
 export default function Filter() {
   const currentYear = new Date().getFullYear();
   const years = []
@@ -21,6 +21,7 @@ export default function Filter() {
 </select>
 
 <select name="year" value='Год' className={styles.yearPicker}>
+  
 <option name="year" value="Год" className={styles.pickerFirstOpt}>Год</option>
         {years.map(year => (
           <option key={year} value={year}>
