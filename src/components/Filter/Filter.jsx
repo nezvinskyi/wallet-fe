@@ -6,7 +6,7 @@ export default function Filter() {
   for (let i = currentYear - 5; i <= currentYear + 5; i++) {
     years.push(i);
   }
-  const months = ["Январь", "Февраль","Март","Апрель", "Май","Июнь","Июль","Август","Сентябрь","Ноябрь","Октябрь", "Ноябрь", "Декабрь"]
+  const months = ["Январь", "Февраль","Март","Апрель", "Май","Июнь","Июль","Август","Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
 
   return (
   <form className={styles.wrapper}>
@@ -14,7 +14,7 @@ export default function Filter() {
     <select name="month" value='Месяц' className={styles.monthPicker} >
   <option name="" value="" className={styles.pickerFirstOpt}>Месяц</option>
   {months.map(month => (
-          <option key={month} value={month}>
+          <option key={month} value={months.indexOf(month)}>
             {month}
           </option>
         ))}

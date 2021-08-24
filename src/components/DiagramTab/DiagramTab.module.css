@@ -5,3 +5,30 @@
   font-style: normal;
   margin-bottom: 10px;
 }
+.statisticWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .diagramWrapper {
+    width: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .statisticWrapper {
+    flex-direction: row;
+  }
+
+  .diagramWrapper {
+    width: 320px;
+    margin-right: 35px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .diagramWrapper {
+    margin-right: 30px;
+  }
+}
