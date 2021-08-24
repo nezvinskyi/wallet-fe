@@ -1,7 +1,14 @@
 import React from 'react';
 import { Button, Container } from 'react-bootstrap';
-import { Header, Navigation, Currency, OperationsTable } from '../../components';
+import {
+  Header,
+  Navigation,
+  Currency,
+  OperationsTable,
+  ContainerAppWrapper,
+} from '../../components';
 import { dashBoardImg } from './img';
+
 import style from './Style.module.css';
 
 const inlineStyles = {
@@ -17,20 +24,21 @@ const inlineStyles = {
 
 const DashboardPage = () => {
   return (
-    <Container>
-      <Header />
-      <div className={style.dashboardPage}>
-        <Navigation />
-        <Currency />
-        <OperationsTable />
-        DashboardPage
-        <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
-        <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
-        <Button className={style.addBtnBg} style={inlineStyles.addBtn}>
-          <img src={dashBoardImg.addBtnBg} alt="" />
-        </Button>
-      </div>
-    </Container>
+    <>
+      <ContainerAppWrapper>
+        <Header />
+        <div className={style.dashboardPage}>
+          <Navigation />
+          <Currency />
+          <OperationsTable />
+          <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
+          <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
+        </div>
+      </ContainerAppWrapper>
+      <Button className={style.addBtnBg} style={inlineStyles.addBtn}>
+        <img src={dashBoardImg.addBtnBg} alt="" />
+      </Button>
+    </>
   );
 };
 
