@@ -12,7 +12,7 @@ const style = {
     // right: '85px',
     // top: '45px',
     borderBottomCollor: 'red',
-    maxWidth: '700px',
+    // maxWidth: '700px',
     border: '0px solid white',
     borderCollapse: 'collapse',
   },
@@ -25,6 +25,7 @@ const style = {
     borderTopRightRadius: '30px',
     borderBottomRightRadius: '30px',
     borderStyle: 'hidden',
+    textAlign: 'right',
   },
   tr: {
     border: '0px solid inherit',
@@ -34,7 +35,7 @@ const style = {
   },
 
   td: {
-    borderBottomColor: '#BDBDBD',
+    borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
     paddingLeft: '15px',
     paddingRight: '15px',
@@ -42,7 +43,16 @@ const style = {
   tdLast: {
     paddingLeft: '15px',
     paddingRight: '15px',
-    borderBottom: 'none',
+    // borderBottom: 'none',
+    borderBottomColor: 'rgba(220, 220, 223, 1)',
+    textAlign: 'right',
+  },
+  tdFirst: {
+    borderBottomColor: 'rgba(220, 220, 223, 1)',
+    backgroundColor: 'inherit',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    textAlign: 'left',
   },
   thead: {
     backgroundColor: 'white',
@@ -58,49 +68,57 @@ const OperationsTable = () => {
   return (
     <Table responsive style={style.table}>
       <thead className={style.thead}>
-        <tr className={styles.thead}>
-        {mainView ? 
-    <>
-      <th style={style.thFirst}>Дата</th>
-      <th style={style.th}>Тип</th>
-    </> :null }
-      <th style= {(mainView )? style.th  : style.thFirst }>Категория</th>
-      {mainView ? 
-      <th style={style.th}>Комментарий</th>:null }
-      <th style={(mainView )? style.th  : style.thLast }>Сумма</th>
-      {mainView ? 
-      <th style={style.thLast}>Баланс</th>:null }
-        </tr>
+       {(mainView)?  
+         <tr className={styles.thead}>
+         <th style={style.thFirst}>Дата</th>
+         <th style={style.th}>Тип</th>
+         <th style= {style.th}>Категория</th>
+         <th style={style.th}>Комментарий</th>
+         <th style={style.th}>Сумма</th>
+         <th style={style.thLast}>Баланс</th>
+         </tr>
+         :
+         <tr className={style.thead}>
+         <th style= {style.thFirst}>Категория</th>
+         <th style={style.thLast}>Сумма</th>
+         </tr>
+       }
       </thead>
-      {transaction.map(({ id, date, type, category, comment, sum, balance }) => (
-        <tbody key={id}>
-          <tr className={styles.tr} style={style.tr}>
-          {mainView ? 
-    <>
-     <td style={style.td} data-label="Дата">
-        {date}
-      </td>
-      <td data-label="Тип" style={style.td}>
-        {type}
-      </td>
-    </> :null }
-      <td data-label="Категория" style={style.td}>
-        {category}
-      </td>
-      {mainView ? <td data-label="Комментарий" style={style.td}>
-        {comment}
-      </td> :null }
-      <td data-label="Сумма" style={style.td}>
-        {sum}
-      </td>
-      {mainView ? <td data-label="Баланс" style={style.tdLast}>
-        {balance}
-      </td> :null }
-      
-    </tr>
-  </tbody>
-))}
-</Table>
+      {(mainView)?  
+         transaction.map(({ id, date, type, category, comment, sum, balance }) => (
+          <tbody key={id}>
+           <tr className={styles.tr} style={style.tr}>
+             <td style={style.td} data-label="Дата">
+             {date}
+             </td>
+             <td data-label="Тип" style={style.td}>
+              {type}
+             </td>
+             <td data-label="Категория" style={style.td}>
+              {category}
+             </td>
+             <td data-label="Комментарий" style={style.td}>
+              {comment}
+             </td>
+             <td data-label="Сумма"  style={style.td}>
+              {sum}
+             </td>
+             <td data-label="Баланс" style={style.tdLast}>
+              {balance}
+             </td>
+            </tr>
+          </tbody>))
+          :
+          <tbody>
+       { transaction.map(({ id, category, sum  }) => (
+          <tr key={id} style={style.tr}>
+          <td style={style.tdFirst}>{category}</td>
+          <td style={style.tdLast}>{sum}</td>
+          </tr>
+        ))}
+          </tbody>
+       }
+  </Table>
 
   );
 };
