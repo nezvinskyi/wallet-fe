@@ -1,32 +1,44 @@
 import styles from './Currency.module.css';
-import React from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
+import { getCurrency } from '../../service/currency-api'
 
-export default class CurrencyList extends React.Component {
-  state = {
-    currencies: [],
-  };
-  //вынеси запрос в апи (services). создай там отдельный файл
-  componentDidMount() {
-    axios.get('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11').then(res => {
-      const currencies = res.data;
-      this.setState({ currencies });
-    });
-  }
+export default function CurrencyList() {
 
-  render() {
-    return (
-      <div className={styles.currency}>
-        <h3>Курс валют</h3>
-        <ul>
-          {this.state.currencies.map(currency => (
-            <li id={nanoid(10)} key={currency.ccy}>
-              {currency.ccy}, {currency.base_ccy}, {currency.buy}, {currency.sale}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-}
+  const [currencies, setCurrencies] = useState([]);
+
+  useEffect(() => {
+    const fetchCurrencies= async () => {
+      const data = await getCurrency()
+      setCurrencies(data)
+    };
+    fetchCurrencies()
+  }, [])
+
+  return (
+    <div className={styles.currency}>
+      <table>
+        <thead key={nanoid(3)}>
+          <tr>
+            <td>Валюта</td>
+            <td>Покупка</td>
+            <td>Продажа</td>
+          </tr>
+        </thead>
+        {currencies.map(((currency, index) => {
+          if (index < 3) {
+            return (
+              <tbody key={currency.ccy}>
+                <tr>
+                  <td>{currency.ccy}</td>
+                  <td>{currency.buy}</td>
+                  <td>{currency.sale}</td>
+                </tr>
+               </tbody>              
+            )
+          }
+        }))}
+      </table>
+    </div>
+  );
+};
