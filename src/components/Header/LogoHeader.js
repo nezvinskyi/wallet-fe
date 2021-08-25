@@ -1,4 +1,4 @@
-import logoWallet from '../../image/header/logo.svg';
+import Logo from '../Logo';
 
 import styles from './Header.module.css';
 
@@ -8,7 +8,7 @@ export default function LogoWallet() {
 
   return (
     <div className={styles.LogoWallet}>        
-      <img src={logoWallet} alt="logo" width="30" height="30" />
+      <Logo />
       <span>Wallet</span>
     </div>   
   )

@@ -21,7 +21,7 @@ const Navigation = () => {
       <li>
         {' '}
         <NavLink
-          to={routes.diagram}
+          to={routes.statistic}
           className={styles.NavigationLi}
           activeClassName={styles.NavLinkActive}
         >
