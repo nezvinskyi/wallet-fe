@@ -16,13 +16,13 @@ const initialState = {
 class AddTransactionForm extends Component {
   state = initialState;
 
-  async componentDidMount() {
-    const response = await axios.get(
-      `https://test-wallet-be.herokuapp.com/api/v99/transactions/allTrWithoutAuth`,
-    );
+  // async componentDidMount() {
+  //   const response = await axios.get(
+  //     `https://test-wallet-be.herokuapp.com/api/v99/transactions/allTrWithoutAuth`,
+  //   );
 
-    this.setState({ tr: response.data.result });
-  }
+  //   this.setState({ tr: response.data.result });
+  // }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -144,9 +144,10 @@ class AddTransactionForm extends Component {
             />
           </label>
           <br />
-          <button type="submit" onClick={() => this.props.onClose()}>
+          {/* <button type="submit" onClick={() => this.props.onClose()}>
             Add
-          </button>
+          </button> */}
+          <button type="submit">Add</button>
 
           {/* <button className={styles.button_x} onClick={() => this.props.onClose()}>
             X
