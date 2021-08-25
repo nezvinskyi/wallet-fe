@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { financeOperations } from '../../redux/finance';
-import { Button, Container } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import {
   Header,
   Navigation,
   Currency,
+  Balance,
   OperationsTable,
   ContainerAppWrapper,
+  AddTransactionBtn,
 } from '../../components';
 import { dashBoardImg } from './img';
 
@@ -46,11 +48,14 @@ const DashboardPage = ({ history }) => {
         <div className={style.dashboardPage}>
           <Navigation />
           <Currency />
+          <Balance />
           <OperationsTable />
           <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
           <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
+          <AddTransactionBtn />
         </div>
       </ContainerAppWrapper>
+      {/* //убрать? */}
       <Button onClick={handleClick} className={style.addBtnBg} style={inlineStyles.addBtn}>
         <img src={dashBoardImg.addBtnBg} alt="" />
       </Button>

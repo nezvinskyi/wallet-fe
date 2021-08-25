@@ -17,11 +17,13 @@ const style = {
     borderCollapse: 'collapse',
   },
   thFirst: {
+    backgroundColor: 'white',
     borderTopLeftRadius: '30px',
     borderBottomLeftRadius: '30px',
     borderStyle: 'hidden',
   },
   thLast: {
+    backgroundColor: 'white',
     borderTopRightRadius: '30px',
     borderBottomRightRadius: '30px',
     borderStyle: 'hidden',
@@ -31,6 +33,7 @@ const style = {
     border: '0px solid inherit',
   },
   th: {
+    backgroundColor: 'white',
     borderStyle: 'hidden',
   },
 
@@ -64,73 +67,64 @@ const style = {
 
 const OperationsTable = () => {
   let mainView = true;
-  if (window.location.pathname !== '/home'){
-    mainView = false
+  if (window.location.pathname !== '/home') {
+    mainView = false;
   }
   return (
     <Table responsive style={style.table}>
       <thead className={style.thead}>
-       {(mainView)?  
-         <tr className={styles.thead}>
-         <th style={style.thFirst}>Дата</th>
-         <th style={style.th}>Тип</th>
-         <th style= {style.th}>Категория</th>
-         <th style={style.th}>Комментарий</th>
-         <th style={style.th}>Сумма</th>
-         <th style={style.thLast}>Баланс</th>
-         </tr>
-         :
-         <tr className={style.thead}>
-         <th style= {style.thFirst}>Категория</th>
-         <th style={style.thLast}>Сумма</th>
-         </tr>
-       }
+        {mainView ? (
+          <tr className={styles.thead}>
+            <th style={style.thFirst}>Дата</th>
+            <th style={style.th}>Тип</th>
+            <th style={style.th}>Категория</th>
+            <th style={style.th}>Комментарий</th>
+            <th style={style.th}>Сумма</th>
+            <th style={style.thLast}>Баланс</th>
+          </tr>
+        ) : (
+          <tr className={style.thead}>
+            <th style={style.thFirst}>Категория</th>
+            <th style={style.thLast}>Сумма</th>
+          </tr>
+        )}
       </thead>
-      {(mainView)?  
-         transaction.map(({ id, date, type, category, comment, sum, balance }) => (
+      {mainView ? (
+        transaction.map(({ id, date, type, category, comment, sum, balance }) => (
           <tbody key={id}>
-           <tr className={styles.tr} style={style.tr}>
-             <td style={style.td} data-label="Дата">
-             {date}
-             </td>
-             <td data-label="Тип" style={style.td}>
-              {type}
-             </td>
-             <td data-label="Категория" style={style.td}>
-              {category}
-             </td>
-             <td data-label="Комментарий" style={style.td}>
-              {comment}
-             </td>
-             <td data-label="Сумма"  style={style.td}>
-              {sum}
-             </td>
-             <td data-label="Баланс" style={style.tdLast}>
-              {balance}
-             </td>
+            <tr className={styles.tr} style={style.tr}>
+              <td style={style.td} data-label="Дата">
+                {date}
+              </td>
+              <td data-label="Тип" style={style.td}>
+                {type}
+              </td>
+              <td data-label="Категория" style={style.td}>
+                {category}
+              </td>
+              <td data-label="Комментарий" style={style.td}>
+                {comment}
+              </td>
+              <td data-label="Сумма" style={style.td}>
+                {sum}
+              </td>
+              <td data-label="Баланс" style={style.tdLast}>
+                {balance}
+              </td>
             </tr>
-          </tbody>))
-          :
-          <tbody>
-       { transaction.map(({ id, category, sum  }) => (
-          <tr key={id} style={style.tr}>
-          <td style={style.tdFirst} className={styles.category}>{category}</td>
-          <td style={style.tdLast}>{sum}</td>
-          </tr>
-        ))}
-        <tr style={style.tr}>
-          <td style={style.tdFirst} className={styles.countText}>Расходы:</td>
-          <td style={style.tdLast} className={styles.outcome}>99383</td>
-          </tr>
-          
-           <tr style={style.tr}>
-           <td style={style.tdFirst} className={styles.countText}>Доходы:</td>
-           <td style={style.tdLast} className={styles.income}>6433</td>
-           </tr>
-           </tbody>
-       }
-  </Table>
-
+          </tbody>
+        ))
+      ) : (
+        <tbody>
+          {transaction.map(({ id, category, sum }) => (
+            <tr key={id} style={style.tr}>
+              <td style={style.tdFirst}>{category}</td>
+              <td style={style.tdLast}>{sum}</td>
+            </tr>
+          ))}
+        </tbody>
+      )}
+    </Table>
   );
 };
 
