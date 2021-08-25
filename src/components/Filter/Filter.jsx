@@ -1,5 +1,5 @@
 import styles from './Filter.module.css'
-import img from './arrow.svg'
+
 export default function Filter() {
   const currentYear = new Date().getFullYear();
   const years = []
@@ -9,9 +9,9 @@ export default function Filter() {
   const months = ["Январь", "Февраль","Март","Апрель", "Май","Июнь","Июль","Август","Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
 
   return (
-  <form className={styles.wrapper} onChange={()=>{}}>
+  <form className={styles.wrapper} >
 
-    <select name="" value='Месяц' className={styles.monthPicker} >
+    <select name="" value='Месяц' onChange={()=>{}} className={styles.monthPicker} >
   <option name="" value="Месяц" className={styles.pickerFirstOpt}>Месяц</option>
   {months.map(month => (
           <option key={month} value={months.indexOf(month)}>
@@ -20,7 +20,7 @@ export default function Filter() {
         ))}
 </select>
 
-<select name="year" value='Год' className={styles.yearPicker}>
+<select name="year" value='Год' className={styles.yearPicker}  onChange={()=>{}}>
   
 <option name="year" value="Год" className={styles.pickerFirstOpt}>Год</option>
         {years.map(year => (
