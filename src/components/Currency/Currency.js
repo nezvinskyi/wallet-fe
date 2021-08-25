@@ -21,7 +21,7 @@ export default class CurrencyList extends React.Component {
         <h3>Курс валют</h3>
         <ul>
           {this.state.currencies.map(currency => (
-            <li id={nanoid(10)}>
+            <li id={nanoid(10)} key={currency.ccy}>
               {currency.ccy}, {currency.base_ccy}, {currency.buy}, {currency.sale}
             </li>
           ))}
