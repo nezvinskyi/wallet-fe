@@ -41,3 +41,31 @@
     float: left;
   }
 }
+
+.countText {
+  font-weight: 700;
+}
+.income {
+  font-weight: 700;
+  color: rgba(36, 204, 167, 1);
+}
+.outcome {
+  font-weight: 700;
+  color: rgba(255, 101, 150, 1);
+}
+
+@media (min-width: 280px) {
+  .category::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-color: teal;
+    margin-right: 16px;
+    border-radius: 2px;
+    padding: 0;
+    display: inline-block;
+  }
+}
+.category {
+  text-align: center;
+}
