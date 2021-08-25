@@ -9,7 +9,7 @@ export default function Filter() {
   const months = ["Январь", "Февраль","Март","Апрель", "Май","Июнь","Июль","Август","Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
 
   return (
-  <form className={styles.wrapper} onChange={()=>{}}>
+  <form className={styles.wrapper} >
 
     <select name="" value='Месяц' onChange={()=>{}} className={styles.monthPicker} >
   <option name="" value="Месяц" className={styles.pickerFirstOpt}>Месяц</option>
