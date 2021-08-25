@@ -2,7 +2,14 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { LoginPage, RegistrationPage, DashboardPage, TempView, StatisticPage } from './pages/';
 
-import { ContainerAppWrapper, Navigation, Currency, PublicRoute, PrivatRoute } from './components';
+import {
+  ContainerAppWrapper,
+  Navigation,
+  Currency,
+  AddTransFormContainer,
+  PublicRoute,
+  PrivatRoute,
+} from './components';
 
 function App() {
   return (
@@ -21,6 +28,7 @@ function App() {
           <Route path={'/statistic'} exact component={StatisticPage} />
           <Route path={'/currency'} exact component={Currency} />;
           <Route path={'/navigation'} exact component={Navigation} />;
+          <Route path={'/add-tr-form'} exact component={AddTransFormContainer} />;
         </Switch>
       </div>
     </ContainerAppWrapper>
