@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { financeOperations } from '../../redux/finance';
 import { Button, Container } from 'react-bootstrap';
 import {
   Header,
@@ -10,6 +11,8 @@ import {
 import { dashBoardImg } from './img';
 
 import style from './Style.module.css';
+import { useDispatch } from 'react-redux';
+import { globalOperations } from '../../redux/global';
 
 const inlineStyles = {
   addBtn: {
@@ -22,7 +25,20 @@ const inlineStyles = {
   },
 };
 
-const DashboardPage = () => {
+const DashboardPage = ({ history }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(financeOperations.getTransactions());
+    dispatch(financeOperations.getCategories());
+  }, [dispatch]);
+
+  const handleClick = () => {
+    dispatch(globalOperations.openModalAddTransaction());
+    //TODO временно! подключить модалку!
+    history.push('/add-tr-form');
+  };
+
   return (
     <>
       <ContainerAppWrapper>
@@ -35,7 +51,7 @@ const DashboardPage = () => {
           <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
         </div>
       </ContainerAppWrapper>
-      <Button className={style.addBtnBg} style={inlineStyles.addBtn}>
+      <Button onClick={handleClick} className={style.addBtnBg} style={inlineStyles.addBtn}>
         <img src={dashBoardImg.addBtnBg} alt="" />
       </Button>
     </>

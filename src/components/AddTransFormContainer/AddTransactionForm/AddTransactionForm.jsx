@@ -1,10 +1,15 @@
+import moment from 'moment';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from './AddTransactionForm.module.css';
 // https://test-wallet-be.herokuapp.com/
+
+import { financeSelectors } from '../../../redux/finance';
+import { connect } from 'react-redux';
+
 const initialState = {
-  date: Date.now(),
+  date: moment(new Date()).format('YYYY-MM-DD'),
   type: 'expense',
 
   categoryId: '6121925660f79a0fd0c6d3f6',
@@ -23,6 +28,13 @@ class AddTransactionForm extends Component {
 
   //   this.setState({ tr: response.data.result });
   // }
+
+  componentDidMount() {
+    console.log('categories :>> ', this.props.categories);
+    this.props.categories.map(category => {
+      console.log('category.name :>> ', category.name);
+    });
+  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -58,6 +70,8 @@ class AddTransactionForm extends Component {
   };
 
   render() {
+    const categories = this.props.categories;
+    console.log(categories);
     return (
       <>
         <Link to="/">Home</Link>
@@ -127,6 +141,16 @@ class AddTransactionForm extends Component {
             />
           </label>
           <br />
+
+          <label htmlFor="">category </label>
+          <select>
+            {this.props.categories.map(category => (
+              <option key={category._id} value={category._id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+
           <label>
             Comments:
             <input
@@ -172,4 +196,8 @@ class AddTransactionForm extends Component {
   }
 }
 
-export default AddTransactionForm;
+const mapStateToProps = state => ({
+  categories: financeSelectors.getAllCategories(state),
+});
+
+export default connect(mapStateToProps)(AddTransactionForm);

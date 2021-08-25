@@ -2,14 +2,15 @@ import axios from 'axios';
 
 import './api-settings';
 
-export const getCategories = async token => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+export const getCategories = async () => {
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
 
-  const { data } = await axios.get('/api/v1/categories', config);
+  const { data } = await axios.get('/api/v1/categories');
+  console.log('data from api :>> ', data);
 
   return data;
 };

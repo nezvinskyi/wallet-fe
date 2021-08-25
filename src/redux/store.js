@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import userReducer from './user/user-reducers';
 import sessionReducer from './session/session-reducers';
 import globalReducer from './global/global-reducers';
+import financeReducer from './finance/finance-reducers';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -32,7 +33,7 @@ export const store = configureStore({
   reducer: {
     session: sessionReducer,
     global: globalReducer,
-    // finance: financeReducer,
+    finance: financeReducer,
     user: persistReducer(authPersistConfig, userReducer),
   },
   // devTools: process.env.NODE_ENV === 'development',

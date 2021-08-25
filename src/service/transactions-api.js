@@ -2,19 +2,18 @@ import axios from 'axios';
 
 import './api-settings';
 
-export const getTransactions = async token => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+const getTransactions = async () => {
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
 
-  const { data } = await axios.get('/api/v1/transactions', config);
-
+  const { data } = await axios.get('/api/v1/transactions');
   return data;
 };
 
-export const addTransaction = async (transaction, token) => {
+const addTransaction = async (transaction, token) => {
   const config = {
     'Content-Type': 'application/json',
     headers: {
@@ -65,3 +64,7 @@ export const addTransaction = async (transaction, token) => {
 
 //   return data;
 // };
+
+const api = { getTransactions, addTransaction };
+
+export default api;

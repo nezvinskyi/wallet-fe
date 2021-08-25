@@ -23,11 +23,11 @@ class Modal extends Component {
     if (e.currentTarget === e.target) {
       this.props.onClose();
     }
-  };
+	};
 
   render() {
     return createPortal(
-      <div className={styles.Modal__backdrop} onClick={this.handleBackdropClick}>
+			<div className={styles.Modal__backdrop} onClick={this.handleBackdropClick}>
         <div className={styles.Modal__content}>
           <button className={styles.button_x} onClick={() => this.props.onClose()}>
             X

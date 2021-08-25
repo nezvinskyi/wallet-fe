@@ -1,5 +1,6 @@
 import { combineReducers, createReducer } from '@reduxjs/toolkit';
 import * as userActions from '../user/user-actions';
+import * as globalActions from './global-actions';
 
 const isLoading = createReducer(false, {
   [userActions.registerRequest]: () => true,
@@ -18,8 +19,13 @@ const isLoading = createReducer(false, {
   [userActions.getCurrentUserError]: () => false,
 });
 
+const isModalAddTransactionOpen = createReducer(false, {
+  [globalActions.openModalAddTransaction]: () => true,
+  [globalActions.closeModalAddTransaction]: () => false,
+});
+
 export default combineReducers({
   isLoading,
   // isModalLogoutOpen
-  // isModalAddTransactionOpen
+  isModalAddTransactionOpen,
 });

@@ -41,7 +41,7 @@ const RegistrationPage = () => {
   const submitHandler = async e => {
     e.preventDefault();
 
-    //TODO notifications
+    //TODO dispatch error to redux
     if (password !== confirmPassword) {
       alert('Passwords no not match - переделать нотификации');
       return;
