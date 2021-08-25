@@ -6,6 +6,10 @@ import { Button, Container } from 'react-bootstrap';
 import scss from './LoginPage.module.css';
 import image from './images/login-image.png';
 import imaje from './images/Ellipse1.png';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { userOperations } from '../../redux/user';
+import { Link } from 'react-router-dom';
 
 const styles = {
   primaryBtn: {
@@ -42,6 +46,17 @@ const styles = {
 };
 
 const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
+
+  const submitHandler = async e => {
+    e.preventDefault();
+
+    dispatch(userOperations.login({ email, password }));
+  };
+
   return (
     <Container>
       <div className={scss.container}>
@@ -54,19 +69,14 @@ const LoginPage = () => {
         <div className={scss.formWrapper}>
           <Container>
             <h1 className={scss.title}>Wallet</h1>
-            <form
-              className={scss.form}
-              // onSubmit={handleSubmit}
-
-              autoComplete="off"
-            >
+            <form className={scss.form} onSubmit={submitHandler} autoComplete="off">
               <input
                 className={scss.inputItem}
                 type="email"
                 name="email"
                 placeholder="E-mail"
-                // value={email}
-                // onChange={event => setEmail(event.target.value)}
+                value={email}
+                onChange={event => setEmail(event.target.value)}
               />
 
               <input
@@ -74,17 +84,17 @@ const LoginPage = () => {
                 type="password"
                 name="password"
                 placeholder="Пароль"
-                // value={password}
-                // onChange={event => setPassword(event.target.value)}
+                value={password}
+                onChange={event => setPassword(event.target.value)}
               />
 
               <div className={scss.btnGroup}>
                 <Button variant="primary" type="submit" style={styles.primaryBtn}>
-                  ВХОД{' '}
+                  ВХОД
                 </Button>
 
                 <Button variant="primary" type="submit" style={styles.secondaryBtn}>
-                  РЕГИСТРАЦИЯ{' '}
+                  <Link to="/register">РЕГИСТРАЦИЯ</Link>
                 </Button>
               </div>
             </form>
