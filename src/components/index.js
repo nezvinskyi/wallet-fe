@@ -7,6 +7,7 @@ import Balance from './Balance';
 import PublicRoute from './PublicRoute';
 import PrivatRoute from './PrivatRoute';
 import AddTransFormContainer from './AddTransFormContainer';
+import AddTransactionBtn from './AddTransactionBtn';
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   PublicRoute,
   PrivatRoute,
   AddTransFormContainer,
+  AddTransactionBtn,
 };
