@@ -16,7 +16,14 @@ const token = createReducer(null, {
   [actions.logoutSuccess]: () => null,
 });
 
+const refreshToken = createReducer(null, {
+  [actions.registerSuccess]: (_, { payload }) => payload.rToken,
+  [actions.loginSuccess]: (_, { payload }) => payload.rToken,
+  [actions.logoutSuccess]: () => null,
+});
+
 export default combineReducers({
   userInfo,
   token,
+  refreshToken,
 });

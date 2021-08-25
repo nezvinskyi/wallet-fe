@@ -32,8 +32,12 @@ export const login = credentials => async dispatch => {
   dispatch(actions.loginRequest());
 
   try {
-    const { data } = await axios.post('/users/login', credentials);
+    const { email, password } = credentials;
+
+    const { data } = await api.loginUser(email, password);
     token.set(data.token);
+    localStorage.setItem('userInfo', JSON.stringify(data));
+
     dispatch(actions.loginSuccess(data));
   } catch (error) {
     dispatch(actions.loginError(error.message));
@@ -44,8 +48,9 @@ export const logout = () => async dispatch => {
   dispatch(actions.logoutRequest());
 
   try {
-    await axios.post('/users/logout');
+    await api;
     token.unset();
+    localStorage.removeItem('userInfo');
     dispatch(actions.logoutSuccess());
   } catch (error) {
     dispatch(actions.logoutError(error.message));

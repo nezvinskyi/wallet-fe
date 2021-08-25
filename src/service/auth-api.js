@@ -43,6 +43,8 @@ const updateUser = async (user, token) => {
   return data;
 };
 
-const api = { loginUser, registerUser, updateUser };
+const logout = async (user, token) => {};
+
+const api = { loginUser, registerUser, updateUser, logout };
 
 export default api;
