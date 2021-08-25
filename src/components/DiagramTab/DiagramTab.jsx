@@ -7,17 +7,20 @@ import styles from './DiagramTab.module.css';
 export default function DiagramTab() {
   return (
     <Container>
-      <section className={styles.statisticWrapper}>
-      <div className={styles.diagramWrapper}>
-      <h1 className={styles.heading}>Статистика</h1>
-      <DoughnutChart />
-      </div>
+      <section>
+       <div className={styles.statisticWrapper}>
+      
+        <div className={styles.diagramWrapper}>
+         <h1 className={styles.heading}>Статистика</h1>
+         <DoughnutChart />
+        </div>
 
-      <div>
-      <Filter/>
-      <Table/>
+        <div>
+         <Filter/>
+          <Table/>
+        </div>
       </div>
-      </section>
+     </section>
     </Container>
   );
 }
