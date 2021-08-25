@@ -14,18 +14,6 @@ import { dashBoardImg } from './img';
 
 import style from './Style.module.css';
 import { useDispatch } from 'react-redux';
-import { globalOperations } from '../../redux/global';
-
-const inlineStyles = {
-  addBtn: {
-    backgroundColor: '#24CCA7',
-    width: '44px',
-    height: '44px',
-    borderRadius: '50%',
-    padding: '0px',
-    border: 'none',
-  },
-};
 
 const DashboardPage = ({ history }) => {
   const dispatch = useDispatch();
@@ -34,12 +22,6 @@ const DashboardPage = ({ history }) => {
     dispatch(financeOperations.getTransactions());
     dispatch(financeOperations.getCategories());
   }, [dispatch]);
-
-  const handleClick = () => {
-    dispatch(globalOperations.openModalAddTransaction());
-    //TODO временно! подключить модалку!
-    history.push('/add-tr-form');
-  };
 
   return (
     <>
@@ -55,10 +37,6 @@ const DashboardPage = ({ history }) => {
           <AddTransactionBtn />
         </div>
       </ContainerAppWrapper>
-      {/* //убрать? */}
-      <Button onClick={handleClick} className={style.addBtnBg} style={inlineStyles.addBtn}>
-        <img src={dashBoardImg.addBtnBg} alt="" />
-      </Button>
     </>
   );
 };
