@@ -5,7 +5,7 @@ import styles from './AddTransactionForm.module.css';
 // https://test-wallet-be.herokuapp.com/
 const initialState = {
   date: Date.now(),
-  type: '',
+  type: 'expense',
 
   categoryId: '6121925660f79a0fd0c6d3f6',
   comments: 'Food',
@@ -43,6 +43,9 @@ class AddTransactionForm extends Component {
       `https://test-wallet-be.herokuapp.com/api/v99/transactions/postOneTrWithoutAuth`,
       data,
     );
+
+    this.props.onCloseModal();
+    this.reset();
   };
 
   reset = () => {
@@ -148,10 +151,6 @@ class AddTransactionForm extends Component {
             Add
           </button> */}
           <button type="submit">Add</button>
-
-          {/* <button className={styles.button_x} onClick={() => this.props.onClose()}>
-            X
-          </button> */}
         </form>
 
         {/* <br />
