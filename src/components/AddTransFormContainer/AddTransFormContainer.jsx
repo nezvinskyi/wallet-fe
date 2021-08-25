@@ -27,7 +27,7 @@ class AddTransFormContainer extends Component {
         </IconButton>
         {this.state.showModal && (
           <Modal onClose={this.toggleModal}>
-            <AddTransactionForm />
+            <AddTransactionForm onClose={this.toggleModal} />
           </Modal>
         )}
       </>

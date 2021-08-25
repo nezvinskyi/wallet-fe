@@ -144,7 +144,13 @@ class AddTransactionForm extends Component {
             />
           </label>
           <br />
-          <button type="submit">Add</button>
+          <button type="submit" onClick={() => this.props.onClose()}>
+            Add
+          </button>
+
+          {/* <button className={styles.button_x} onClick={() => this.props.onClose()}>
+            X
+          </button> */}
         </form>
 
         {/* <br />
