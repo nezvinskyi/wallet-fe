@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { Button, Container } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import scss from './RegistrationPage.module.css';
 import heroPic from './images/registration-image.png';
 // import imaje from './images/Ellipse1.png';
@@ -32,10 +32,10 @@ const styles = {
 };
 
 const RegistrationPage = () => {
-  const [name, setName] = useState('Dima');
-  const [email, setEmail] = useState('dima@mail.com');
-  const [password, setPassword] = useState('uaua1234');
-  const [confirmPassword, setConfirmPassword] = useState('uaua1234');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const dispatch = useDispatch();
 
