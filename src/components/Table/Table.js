@@ -94,14 +94,14 @@ function OperationsTable() {
         )}
       </thead>
       {mainView ? (
-        data.map(({ _id, type, category, comments }) => (
+        data.map(({ _id, date, type, category, comments, amount }) => (
           <tbody key={_id}>
             <tr className={styles.tr} style={style.tr}>
               <td style={style.td} data-label="Дата">
                 25.08.2010
               </td>
               <td data-label="Тип" style={style.td}>
-                {type}
+                {type === 'income' ? '+' : '-'}
               </td>
               <td data-label="Категория" style={style.td}>
                 {category}
@@ -110,7 +110,7 @@ function OperationsTable() {
                 {comments}
               </td>
               <td data-label="Сумма" style={style.td}>
-                300
+                {amount}
               </td>
               <td data-label="Баланс" style={style.tdLast}>
                 6 500
