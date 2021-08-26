@@ -10,7 +10,7 @@ export const getTransactions = () => async dispatch => {
       data: { result },
     } = await apiTans.getTransactions();
     dispatch(actions.getTransactionsSuccess(result));
-    console.log('data from redux operations TRANSACTIONS:>> ', result);
+    // console.log('data from redux operations TRANSACTIONS:>> ', result);
   } catch (error) {
     dispatch(actions.getTransactionsError(error.response?.data.message || error.message));
   }
@@ -24,7 +24,7 @@ export const getCategories = () => async dispatch => {
       data: { result },
     } = await apiCats.getCategories();
     dispatch(actions.getCategoriesSuccess(result));
-    console.log('data from redux operations CATS:>> ', result);
+    // console.log('data from redux operations CATS:>> ', result);
   } catch (error) {
     dispatch(actions.getCategoriesError(error.response?.data.message || error.message));
   }
