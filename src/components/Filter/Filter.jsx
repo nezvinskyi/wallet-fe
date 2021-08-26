@@ -1,9 +1,14 @@
+import { useState,useCallback } from 'react';
 import styles from './Filter.module.css';
 
 export default function Filter() {
+
+const [selectedMonth, setSelectedMonth] = useState('Месяц')
+const [selectedYear, setSelectedYear] = useState('Год')
+
   const currentYear = new Date().getFullYear();
   const years = [];
-  for (let i = currentYear - 5; i <= currentYear + 5; i++) {
+  for (let i = currentYear - 3; i <= currentYear + 5; i++) {
     years.push(i);
   }
   const months = [
@@ -21,9 +26,21 @@ export default function Filter() {
     'Декабрь',
   ];
 
+const selectMonthHandler = useCallback(
+  event => {
+    setSelectedMonth(event.target.value);
+  }, []
+)
+
+const selectYearHandler = useCallback(
+  event => {
+    setSelectedYear(event.target.value);
+  }, []
+)
+
   return (
     <form className={styles.wrapper}>
-      <select name="" value="Месяц" onChange={() => {}} className={styles.monthPicker}>
+      <select name="" value={selectedMonth} onChange={selectMonthHandler} className={styles.monthPicker}>
         <option name="" value="Месяц" className={styles.pickerFirstOpt}>
           Месяц
         </option>
@@ -34,7 +51,7 @@ export default function Filter() {
         ))}
       </select>
 
-      <select name="year" value="Год" className={styles.yearPicker} onChange={() => {}}>
+      <select name="year" value={selectedYear} className={styles.yearPicker} onChange={selectYearHandler}>
         <option name="year" value="Год" className={styles.pickerFirstOpt}>
           Год
         </option>
@@ -47,3 +64,4 @@ export default function Filter() {
     </form>
   );
 }
+
