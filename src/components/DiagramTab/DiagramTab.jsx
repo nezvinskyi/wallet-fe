@@ -1,6 +1,6 @@
 import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { getAllCategories } from '../../redux/finance/finance-selectors';
+import { financeSelectors } from '../../redux/finance';
 import DoughnutChart from '../Chart';
 import Filter from '../Filter'
 import Table from '../Table'
@@ -8,12 +8,13 @@ import styles from './DiagramTab.module.css';
 
 export default function DiagramTab() {
   // const realTransactions= useSelector()
-const categories = useSelector(getAllCategories)
-console.log(categories);
+  const balance = useSelector(financeSelectors.getBalance)
+  const allTransaction = useSelector(financeSelectors.getAllTransactions)
+
   const transactions = {
    categories:['Основные расходы', 'Продукты', 'Машина', 'Забота о себе', 'Забота о детях', 'Товары для дома', 'Образование', 'Досуг', 'Другие расходы'],
    values: [8700.00, 3800.75, 1500.80, 800.00, 2208.50, 300.00, 3400.00, 1230.00, 610.00],
-   balance: 24000.00,
+   balance: balance,
    colors: ['rgba(254, 208, 87, 1)',
    'rgba(255, 216, 208, 1)',
    'rgba(253, 148, 152, 1)',
@@ -39,7 +40,9 @@ console.log(categories);
          <Filter/>
           <Table/>
         </div>
+        
       </div>
+
      </section>
     </Container>
   );
