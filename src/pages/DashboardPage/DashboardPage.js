@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { financeOperations } from '../../redux/finance';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import {
   Header,
   Navigation,
@@ -21,6 +21,7 @@ const DashboardPage = ({ history }) => {
   useEffect(() => {
     dispatch(financeOperations.getTransactions());
     dispatch(financeOperations.getCategories());
+    dispatch(financeOperations.getBalance());
   }, [dispatch]);
 
   return (

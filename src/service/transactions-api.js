@@ -13,15 +13,26 @@ const getTransactions = async () => {
   return data;
 };
 
-const addTransaction = async (transaction, token) => {
-  const config = {
-    'Content-Type': 'application/json',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+const getBalance = async () => {
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
 
-  const { data } = await axios.post('/api/v1/memos/add', transaction, config);
+  const { data } = await axios.get('/api/v1/transactions/balance');
+  return data;
+};
+
+const addTransaction = async transaction => {
+  // const config = {
+  //   'Content-Type': 'application/json',
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
+
+  const { data } = await axios.post('/api/v1/memos/add', transaction);
 
   return data;
 };
@@ -65,6 +76,6 @@ const addTransaction = async (transaction, token) => {
 //   return data;
 // };
 
-const api = { getTransactions, addTransaction };
+const api = { getTransactions, addTransaction, getBalance };
 
 export default api;

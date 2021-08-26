@@ -1,26 +1,38 @@
 import { combineReducers, createReducer } from '@reduxjs/toolkit';
 
-import * as actions from '../user/user-actions';
+import * as userActions from '../user/user-actions';
+import * as financeActions from '../finance/finance-actions';
 
 const isAuthenticated = createReducer(false, {
-  [actions.registerSuccess]: () => true,
-  [actions.loginSuccess]: () => true,
-  [actions.getCurrentUserSuccess]: () => true,
-  [actions.registerError]: () => false,
-  [actions.loginError]: () => false,
-  [actions.getCurrentUserError]: () => false,
-  [actions.logoutSuccess]: () => false,
+  [userActions.registerSuccess]: () => true,
+  [userActions.loginSuccess]: () => true,
+  [userActions.getCurrentUserSuccess]: () => true,
+  [userActions.registerError]: () => false,
+  [userActions.loginError]: () => false,
+  [userActions.getCurrentUserError]: () => false,
+  [userActions.logoutSuccess]: () => false,
 });
 
 const error = createReducer(null, {
-  [actions.registerRequest]: () => null,
-  [actions.loginRequest]: () => null,
-  [actions.logoutRequest]: () => null,
-  [actions.getCurrentUserRequest]: () => null,
-  [actions.registerError]: (_, { payload }) => payload,
-  [actions.loginError]: (_, { payload }) => payload,
-  [actions.logoutError]: (_, { payload }) => payload,
-  [actions.getCurrentUserError]: (_, { payload }) => payload,
+  [userActions.registerRequest]: () => null,
+  [userActions.loginRequest]: () => null,
+  [userActions.logoutRequest]: () => null,
+  [userActions.getCurrentUserRequest]: () => null,
+
+  [userActions.registerError]: (_, { payload }) => payload,
+  [userActions.loginError]: (_, { payload }) => payload,
+  [userActions.logoutError]: (_, { payload }) => payload,
+  [userActions.getCurrentUserError]: (_, { payload }) => payload,
+
+  [financeActions.addTransactionRequest]: () => null,
+  [financeActions.getBalanceRequest]: () => null,
+  [financeActions.getCategoriesRequest]: () => null,
+  [financeActions.getTransactionsRequest]: () => null,
+
+  [financeActions.addTransactionError]: (_, { payload }) => payload,
+  [financeActions.getBalanceError]: (_, { payload }) => payload,
+  [financeActions.getCategoriesError]: (_, { payload }) => payload,
+  [financeActions.addTransactionError]: (_, { payload }) => payload,
 });
 
 export default combineReducers({

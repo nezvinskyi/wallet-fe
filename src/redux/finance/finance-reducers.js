@@ -12,7 +12,12 @@ const categories = createReducer([], {
   // [actions.add]: (state, { payload }) => [...state, payload],
 });
 
+const balance = createReducer([], {
+  [actions.getBalanceSuccess]: (_, { payload }) => payload,
+});
+
 export default combineReducers({
   transactions,
   categories,
+  balance,
 });

@@ -1,4 +1,4 @@
-import { createSelector } from '@reduxjs/toolkit';
+// import { createSelector } from '@reduxjs/toolkit';
 
 export const getAllTransactions = state => {
   return state.finance.transactions;
@@ -6,6 +6,10 @@ export const getAllTransactions = state => {
 
 export const getAllCategories = state => {
   return state.finance.categories;
+};
+
+export const getBalance = state => {
+  return state.finance.balance;
 };
 
 // export const getFilter = state => state.contacts.filter;
