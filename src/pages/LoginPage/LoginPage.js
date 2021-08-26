@@ -1,7 +1,7 @@
 import { Button, Container } from 'react-bootstrap';
 import scss from './LoginPage.module.css';
+import Logo from '../../components/Logo';
 import image from './images/login-image.png';
-import imaje from './images/Ellipse1.png';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { userOperations } from '../../redux/user';
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const styles = {
   primaryBtn: {
-    color: '#4A56E2',
+    color: '#ffffff',
     background: '#24CCA7',
     width: 300,
     height: 50,
@@ -18,7 +18,7 @@ const styles = {
     border: 'none',
     borderRadius: '20px',
   },
-  '@media (min-width: 300px)': {
+  '@media screen and max-width: 700px': {
     primaryBtn: {
       width: 280,
       height: 50,
@@ -33,7 +33,7 @@ const styles = {
     border: '1px solid #4A56E2',
     borderRadius: '20px',
   },
-  '@media (min-width: 300px)': {
+  '@media screen and min-width: 300px': {
     secondaryBtn: {
       width: 280,
       height: 50,
@@ -56,16 +56,21 @@ const LoginPage = () => {
   return (
     // <Container>
     <div className={scss.container}>
-      <div className={scss.imageWrapper}>
-        <img src={image} alt="pic of man" className={scss.loginPic} />
-        {/* <img src={imaje} alt="ellipse" className={scss.ellipsePic} /> */}
+      <div className={scss.imageContainer}>
+        <div className>
+          <img src={image} alt="pic of man" className={scss.loginPic} />
+          {/* <img src={imaje} alt="ellipse" className={scss.ellipsePic} /> */}
+        </div>
         <h1 className={scss.title}>Finance App</h1>
       </div>
 
-      <div className={scss.formWrapper}>
-        <Container>
-          <h1 className={scss.title}>Wallet</h1>
+      <div className={scss.formContainer}>
+        <div className={scss.formWrapper}>
+          <div className={scss.logo}>
+            <Logo />
+          </div>
           <form className={scss.form} onSubmit={submitHandler} autoComplete="off">
+            <label htmlFor="" className={scss.inputLabelMail}></label>
             <input
               className={scss.inputItem}
               type="email"
@@ -75,6 +80,7 @@ const LoginPage = () => {
               onChange={event => setEmail(event.target.value)}
             />
 
+            <label htmlFor="" className={scss.inputLabelPassword}></label>
             <input
               className={scss.inputItem}
               type="password"
@@ -94,10 +100,9 @@ const LoginPage = () => {
               </Button>
             </div>
           </form>
-        </Container>
+        </div>
       </div>
     </div>
-    // </Container>
   );
 };
 
