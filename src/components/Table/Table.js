@@ -65,8 +65,8 @@ const style = {
   },
 };
 
-const OperationsTable = () => {
-  let mainView = true;
+const OperationsTable = ({viewCondition}) => {
+  let mainView = viewCondition;
   if (window.location.pathname !== '/home') {
     mainView = false;
   }
