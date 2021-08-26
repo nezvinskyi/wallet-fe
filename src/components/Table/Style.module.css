@@ -59,7 +59,7 @@
 }
 
 @media (min-width: 280px) {
-  .category::before {
+  /* .category::before {
     content: '';
     width: 24px;
     height: 24px;
@@ -68,8 +68,18 @@
     border-radius: 2px;
     padding: 0;
     display: inline-block;
-  }
+  } */
 }
 .category {
   text-align: center;
+}
+
+.colorBlock {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  background-color: teal;
+  margin-right: 16px;
+  /* margin-top: 15px;  */
 }

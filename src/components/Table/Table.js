@@ -118,7 +118,7 @@ const OperationsTable = ({viewCondition}) => {
         <tbody>
           {transaction.map(({ id, category, sum }) => (
             <tr key={id} style={style.tr}>
-              <td style={style.tdFirst}>{category}</td>
+              <td style={style.tdFirst}><div className={styles.colorBlock}></div>{category}</td>
               <td style={style.tdLast}>{sum}</td>
             </tr>
           ))}
