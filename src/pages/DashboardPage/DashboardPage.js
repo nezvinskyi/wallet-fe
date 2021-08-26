@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { financeOperations } from '../../redux/finance';
+import { globalSelectors } from '../../redux/global';
 import {
   Header,
   Navigation,
@@ -8,11 +10,12 @@ import {
   OperationsTable,
   ContainerAppWrapper,
   AddTransactionBtn,
+  Modal,
+  AddTransactionForm,
 } from '../../components';
 import { dashBoardImg } from './img';
 
 import style from './Style.module.css';
-import { useDispatch } from 'react-redux';
 
 const DashboardPage = ({ history }) => {
   const dispatch = useDispatch();
@@ -22,6 +25,8 @@ const DashboardPage = ({ history }) => {
     dispatch(financeOperations.getCategories());
     dispatch(financeOperations.getBalance());
   }, [dispatch]);
+
+  const isModalOpen = useSelector(globalSelectors.getIsModalAddTransactionOpen);
 
   return (
     <ContainerAppWrapper>
@@ -45,6 +50,11 @@ const DashboardPage = ({ history }) => {
         <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
         <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
         <AddTransactionBtn />
+        {isModalOpen && (
+          <Modal>
+            <AddTransactionForm />
+          </Modal>
+        )}
       </div>
     </ContainerAppWrapper>
   );

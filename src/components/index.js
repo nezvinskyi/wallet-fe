@@ -6,8 +6,9 @@ import OperationsTable from './Table';
 import Balance from './Balance';
 import PublicRoute from './PublicRoute';
 import PrivatRoute from './PrivatRoute';
-// import AddTransFormContainer from './AddTransFormContainer';
 import AddTransactionBtn from './AddTransactionBtn';
+import Modal from './Modal';
+import AddTransactionForm from './AddTransactionForm';
 
 export {
   Header,
@@ -18,6 +19,7 @@ export {
   OperationsTable,
   PublicRoute,
   PrivatRoute,
-  // AddTransFormContainer,
   AddTransactionBtn,
+  Modal,
+  AddTransactionForm,
 };
