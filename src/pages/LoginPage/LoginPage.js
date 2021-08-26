@@ -1,4 +1,4 @@
-import { Button, Container } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import scss from './LoginPage.module.css';
 import Logo from '../../components/Logo';
 import heroPic from './images/login-image.png';
