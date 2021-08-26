@@ -1,6 +1,15 @@
 .headWrapper {
   background-color: black;
 }
+.table {
+  max-width: 700px;
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+  .table {
+    max-width: 700px;
+  }
+}
 
 @media (max-width: 767px) {
   .thead {
@@ -8,7 +17,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .tr {
     max-width: 280px;
     display: flex;
@@ -44,6 +53,16 @@
   td {
     background-color: #fff;
   }
+  .category::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-color: teal;
+    margin-right: 16px;
+    border-radius: 2px;
+    padding: 0;
+    display: inline-block;
+  }
 }
 
 .countText {
@@ -58,18 +77,6 @@
   color: rgba(255, 101, 150, 1);
 }
 
-@media (min-width: 280px) {
-  .category::before {
-    content: '';
-    width: 24px;
-    height: 24px;
-    background-color: teal;
-    margin-right: 16px;
-    border-radius: 2px;
-    padding: 0;
-    display: inline-block;
-  }
-}
 .category {
   text-align: center;
 }

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { financeOperations } from '../../redux/finance';
-// import { Button } from 'react-bootstrap';
 import {
   Header,
   Navigation,
@@ -25,20 +24,29 @@ const DashboardPage = ({ history }) => {
   }, [dispatch]);
 
   return (
-    <>
-      <ContainerAppWrapper>
-        <Header />
-        <div className={style.dashboardPage}>
-          <Navigation />
-          <Currency />
-          <Balance />
-          <OperationsTable />
-          <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
-          <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
-          <AddTransactionBtn />
+    <ContainerAppWrapper>
+      <Header />
+      <div className={style.dashboardPage}>
+        <div className={style.rightBarWrapper}>
+          <div className={style.navigationWrapper}>
+            <Navigation />
+          </div>
+          <div className={style.balanceWrapper}>
+            <Balance />
+          </div>
+
+          <div className={style.currencyWrapper}>
+            <Currency />
+          </div>
         </div>
-      </ContainerAppWrapper>
-    </>
+        <div className={style.operationsTable}>
+          <OperationsTable />
+        </div>
+        <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
+        <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
+        <AddTransactionBtn />
+      </div>
+    </ContainerAppWrapper>
   );
 };
 

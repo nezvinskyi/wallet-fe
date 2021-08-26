@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'react-bootstrap';
-
-import transaction from './exampleData';
+import { useSelector } from 'react-redux';
+// import transaction from './exampleData';
+import { getAllTransactions } from '../../redux/finance/finance-selectors';
 
 import styles from './Style.module.css';
 
 const style = {
   table: {
     position: 'relative',
-    zIndex: '100000',
-    // right: '85px',
-    // top: '45px',
+    zIndex: '2',
     borderBottomCollor: 'red',
-    // maxWidth: '700px',
     border: '0px solid white',
     borderCollapse: 'collapse',
   },
@@ -65,13 +63,19 @@ const style = {
   },
 };
 
-const OperationsTable = () => {
+function OperationsTable() {
+  const data = useSelector(getAllTransactions);
+
+  // console.log(data);
+
+  // data.map({ _id, amount, category, comments, date, type });
+
   let mainView = true;
   if (window.location.pathname !== '/home') {
     mainView = false;
   }
   return (
-    <Table responsive style={style.table}>
+    <Table responsive style={style.table} className={styles.table}>
       <thead className={style.thead}>
         {mainView ? (
           <tr className={styles.thead}>
@@ -90,11 +94,11 @@ const OperationsTable = () => {
         )}
       </thead>
       {mainView ? (
-        transaction.map(({ id, date, type, category, comment, sum, balance }) => (
-          <tbody key={id}>
+        data.map(({ _id, type, category, comments }) => (
+          <tbody key={_id}>
             <tr className={styles.tr} style={style.tr}>
               <td style={style.td} data-label="Дата">
-                {date}
+                25.08.2010
               </td>
               <td data-label="Тип" style={style.td}>
                 {type}
@@ -103,29 +107,29 @@ const OperationsTable = () => {
                 {category}
               </td>
               <td data-label="Комментарий" style={style.td}>
-                {comment}
+                {comments}
               </td>
               <td data-label="Сумма" style={style.td}>
-                {sum}
+                300
               </td>
               <td data-label="Баланс" style={style.tdLast}>
-                {balance}
+                6 500
               </td>
             </tr>
           </tbody>
         ))
       ) : (
         <tbody>
-          {transaction.map(({ id, category, sum }) => (
-            <tr key={id} style={style.tr}>
+          {data.map(({ _id, category, sum }) => (
+            <tr key={_id} style={style.tr}>
               <td style={style.tdFirst}>{category}</td>
-              <td style={style.tdLast}>{sum}</td>
+              <td style={style.tdLast}>300</td>
             </tr>
           ))}
         </tbody>
       )}
     </Table>
   );
-};
+}
 
 export default OperationsTable;
