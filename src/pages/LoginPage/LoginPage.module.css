@@ -3,6 +3,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  background-image: url('./images/ellipse-bottom.svg');
+  background-position: right bottom; /*Positioning*/
+  background-repeat: no-repeat; /*Prevent showing multiple background images*/
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {

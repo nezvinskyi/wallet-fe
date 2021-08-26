@@ -1,7 +1,3 @@
-// import React, { useState } from 'react';
-// import { connect } from 'react-redux';
-// import { useDispatch } from 'react-redux';
-// import authOperations from '../redux/auth/auth-operations';
 import { Button, Container } from 'react-bootstrap';
 import scss from './LoginPage.module.css';
 import image from './images/login-image.png';
@@ -58,50 +54,50 @@ const LoginPage = () => {
   };
 
   return (
-    <Container>
-      <div className={scss.container}>
-        <div className={scss.imageWrapper}>
-          <img src={image} alt="pic of man" className={scss.loginPic} />
-          <img src={imaje} alt="ellipse" className={scss.ellipsePic} />
-          <h1 className={scss.title}>Finance App</h1>
-        </div>
-
-        <div className={scss.formWrapper}>
-          <Container>
-            <h1 className={scss.title}>Wallet</h1>
-            <form className={scss.form} onSubmit={submitHandler} autoComplete="off">
-              <input
-                className={scss.inputItem}
-                type="email"
-                name="email"
-                placeholder="E-mail"
-                value={email}
-                onChange={event => setEmail(event.target.value)}
-              />
-
-              <input
-                className={scss.inputItem}
-                type="password"
-                name="password"
-                placeholder="Пароль"
-                value={password}
-                onChange={event => setPassword(event.target.value)}
-              />
-
-              <div className={scss.btnGroup}>
-                <Button variant="primary" type="submit" style={styles.primaryBtn}>
-                  ВХОД
-                </Button>
-
-                <Button variant="primary" type="submit" style={styles.secondaryBtn}>
-                  <Link to="/register">РЕГИСТРАЦИЯ</Link>
-                </Button>
-              </div>
-            </form>
-          </Container>
-        </div>
+    // <Container>
+    <div className={scss.container}>
+      <div className={scss.imageWrapper}>
+        <img src={image} alt="pic of man" className={scss.loginPic} />
+        {/* <img src={imaje} alt="ellipse" className={scss.ellipsePic} /> */}
+        <h1 className={scss.title}>Finance App</h1>
       </div>
-    </Container>
+
+      <div className={scss.formWrapper}>
+        <Container>
+          <h1 className={scss.title}>Wallet</h1>
+          <form className={scss.form} onSubmit={submitHandler} autoComplete="off">
+            <input
+              className={scss.inputItem}
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={event => setEmail(event.target.value)}
+            />
+
+            <input
+              className={scss.inputItem}
+              type="password"
+              name="password"
+              placeholder="Пароль"
+              value={password}
+              onChange={event => setPassword(event.target.value)}
+            />
+
+            <div className={scss.btnGroup}>
+              <Button variant="primary" type="submit" style={styles.primaryBtn}>
+                ВХОД
+              </Button>
+
+              <Button variant="primary" type="submit" style={styles.secondaryBtn}>
+                <Link to="/register">РЕГИСТРАЦИЯ</Link>
+              </Button>
+            </div>
+          </form>
+        </Container>
+      </div>
+    </div>
+    // </Container>
   );
 };
 
