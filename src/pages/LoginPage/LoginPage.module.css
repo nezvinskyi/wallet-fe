@@ -23,13 +23,20 @@
   padding-top: 75px;
   padding-bottom: 75px;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .imageContainer {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 540px;
+  }
+}
 @media screen and (max-width: 767px) {
   .imageContainer {
     display: none;
   }
 }
 
-.loginPic {
+.loginPicWrapper {
   display: block;
   width: 435px;
   height: 420px;
@@ -38,10 +45,14 @@
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .loginPic {
+  .loginPicWrapper {
     width: 260px;
     height: 250px;
   }
+}
+
+.loginPic {
+  width: 100%;
 }
 
 .title {
@@ -58,10 +69,18 @@
   padding-top: 75px;
   padding-bottom: 75px;
 }
+@media screen and (max-width: 1279px) {
+  .formContainer {
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+}
 
 .formWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
   display: flex;
   width: 540px;
@@ -71,8 +90,8 @@
 }
 
 .logo {
-  text-align: center;
-  margin-bottom: 50px;
+  /* text-align: center; */
+  margin-bottom: 35px;
 }
 .form {
   display: flex;
@@ -84,7 +103,7 @@
   outline: none;
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  width: 410px;
+  max-width: 410px;
   margin: 0 auto;
   margin-bottom: 40px;
   align-items: center;

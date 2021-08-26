@@ -57,7 +57,7 @@ const LoginPage = () => {
     // <Container>
     <div className={scss.container}>
       <div className={scss.imageContainer}>
-        <div className>
+        <div className={scss.loginPicWrapper}>
           <img src={image} alt="pic of man" className={scss.loginPic} />
           {/* <img src={imaje} alt="ellipse" className={scss.ellipsePic} /> */}
         </div>
