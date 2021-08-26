@@ -28,6 +28,7 @@
     flex-direction: row;
     justify-content: space-around;
     width: 540px;
+    padding-bottom: 0;
   }
 }
 @media screen and (max-width: 767px) {
@@ -36,7 +37,7 @@
   }
 }
 
-.loginPicWrapper {
+.heroPicWrapper {
   display: block;
   width: 435px;
   height: 420px;
@@ -45,13 +46,14 @@
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .loginPicWrapper {
+  .heroPicWrapper {
     width: 260px;
     height: 250px;
+    margin-bottom: 0px;
   }
 }
 
-.loginPic {
+.heroPic {
   width: 100%;
 }
 
@@ -84,9 +86,9 @@
   background-color: #fff;
   display: flex;
   width: 540px;
-  height: 470px;
+  /* height: 470px; */
   border-radius: 20px;
-  padding: 40px 65px;
+  padding: 25px 40px 65px;
 }
 
 .logo {
@@ -99,14 +101,12 @@
 }
 .inputItem {
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.8;
   outline: none;
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  max-width: 410px;
-  margin: 0 auto;
+  width: 410px;
   margin-bottom: 40px;
-  align-items: center;
 }
 
 input {
@@ -124,7 +124,7 @@ input::placeholder {
   content: '';
   position: absolute;
   left: 10px;
-  top: 7px;
+  top: 8px;
   width: 20px;
   height: 16px;
   background: url('./images/email-icon.svg') center / contain no-repeat;

@@ -3,128 +3,162 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  background-image: url('./images/ellipse-bottom.svg'), url('./images/ellipse-top.svg');
+  background-position: left bottom, right top;
+  background-repeat: no-repeat, no-repeat;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .container {
-    display: flex;
     flex-direction: column;
-    align-items: center;
   }
 }
 
-.imageWrapper {
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 40%;
-  height: 720px;
-  background-color: #e5e5e5;
-  text-align: center;
-}
 
-@media (min-width: 300px) and (max-width: 767px) {
-  .imageWrapper {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .imageContainer {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 540px;
+    padding-bottom: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .imageContainer {
     display: none;
   }
 }
 
+.heroPicWrapper {
+  display: block;
+  width: 435px;
+  height: 420px;
+  align-self: center;
+  margin-bottom: 30px;
+}
+
 @media (min-width: 768px) and (max-width: 1279px) {
-  .imageWrapper {
-    width: 40%;
-    height: 360px;
-    background-color: #e5e5e5;
-    text-align: center;
+  .heroPicWrapper {
+    width: 260px;
+    height: 250px;
+    margin-bottom: 0px;
+  }
+}
+
+.heroPic {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  width: 60%;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+@media screen and (max-width: 1279px) {
+  .formContainer {
+    background-color: transparent;
+    backdrop-filter: none;
   }
 }
 
 .formWrapper {
-  width: 60%;
-  background-color: yellow;
-  border-radius: 20px;
-  outline: 1px solid red;
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .formWrapper {
-    width: 60%;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
-    /* outline: 1px solid red; */
-  }
-}
-
-.title {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  width: 540px;
+  /* height: 470px; */
+  border-radius: 20px;
+  padding: 25px 40px 65px;
 }
 
+.logo {
+  /* text-align: center; */
+  margin-bottom: 35px;
+}
 .form {
   display: flex;
   flex-direction: column;
-  width: 540px;
-  height: 468px;
-  margin: 0 auto;
-  margin-bottom: 15px;
-  align-items: center;
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .form {
-    /* display: flex;
-    flex-direction: column; */
-    width: 320px;
-    height: 468px;
-    margin: 0 auto;
-    margin-bottom: 15px;
-    align-items: center;
-  }
 }
 .inputItem {
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.8;
   outline: none;
   border: none;
   border-bottom: 1px solid #e0e0e0;
   width: 410px;
-  margin: 0 auto;
-  margin-bottom: 15px;
-  align-items: center;
+  margin-bottom: 40px;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
-  .inputItem {
-    font-size: 18px;
-    line-height: 1.5;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid #e0e0e0;
-    width: 280px;
-    margin: 0 auto;
-    margin-bottom: 15px;
-    align-items: center;
-  }
+input {
+  padding-left: 40px;
+}
+input::placeholder {
+  color: #bdbdbd;
+}
+
+.inputLabelMail {
+  position: relative;
+}
+
+.inputLabelMail:before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  width: 20px;
+  height: 16px;
+  background: url('./images/email-icon.svg') center / contain no-repeat;
+}
+
+.inputLabelPassword {
+  position: relative;
+}
+.inputLabelPassword:before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 4px;
+  width: 16px;
+  height: 21px;
+  background: url('./images/password-icon.svg') center / contain no-repeat;
+}
+
+.inputLabelUser {
+  position: relative;
+}
+
+.inputLabelUser:before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 5px;
+  width: 16px;
+  height: 21px;
+  background: url('./images/user-icon.svg') center / contain no-repeat;
 }
 
 .btnGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.registrationPic {
-  width: 413px;
-  height: 452px;
-}
-
-@media (min-width: 768px) and (max-width: 1279px) {
-  .registrationPic {
-    width: 260px;
-    height: 274px;
-  }
-}
-
-.ellipsePic {
-  position: absolute;
-  left: -53.33px;
-  top: 271px;
-  width: 254px;
-  height: 212px;
 }

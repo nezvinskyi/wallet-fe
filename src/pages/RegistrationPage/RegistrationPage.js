@@ -4,13 +4,14 @@ import { useDispatch } from 'react-redux';
 
 import { Button, Container } from 'react-bootstrap';
 import scss from './RegistrationPage.module.css';
-import image from './images/registration-image.png';
-import imaje from './images/Ellipse1.png';
+import heroPic from './images/registration-image.png';
+// import imaje from './images/Ellipse1.png';
 import { userOperations } from '../../redux/user';
+import Logo from '../../components/Logo';
 
 const styles = {
   primaryBtn: {
-    color: '#4A56E2',
+    color: '#ffffff',
     background: '#24CCA7',
     width: 300,
     height: 50,
@@ -52,16 +53,21 @@ const RegistrationPage = () => {
 
   return (
     <div className={scss.container}>
-      <div className={scss.imageWrapper}>
-        <img src={image} alt="pic of woman" className={scss.registrationPic} />
-        <img src={imaje} alt="ellipse" className={scss.ellipsePic} />
+      <div className={scss.imageContainer}>
+        <div className={scss.heroPicWrapper}>
+          <img src={heroPic} alt="pic of woman" className={scss.heroPic} />
+        </div>
+
         <h1 className={scss.title}>Finance App</h1>
       </div>
 
-      <div className={scss.formWrapper}>
-        <Container>
-          <h1 className={scss.title}>Wallet</h1>
+      <div className={scss.formContainer}>
+        <div className={scss.formWrapper}>
+          <div className={scss.logo}>
+            <Logo />
+          </div>
           <form className={scss.form} onSubmit={submitHandler} autoComplete="off">
+            <label htmlFor="" className={scss.inputLabelMail}></label>
             <input
               className={scss.inputItem}
               type="email"
@@ -72,6 +78,7 @@ const RegistrationPage = () => {
               onChange={e => setEmail(e.target.value)}
             />
 
+            <label htmlFor="" className={scss.inputLabelPassword}></label>
             <input
               className={scss.inputItem}
               type="password"
@@ -82,6 +89,7 @@ const RegistrationPage = () => {
               onChange={e => setPassword(e.target.value)}
             />
 
+            <label htmlFor="" className={scss.inputLabelPassword}></label>
             <input
               className={scss.inputItem}
               type="password"
@@ -92,6 +100,7 @@ const RegistrationPage = () => {
               onChange={e => setConfirmPassword(e.target.value)}
             />
 
+            <label htmlFor="" className={scss.inputLabelUser}></label>
             <input
               className={scss.inputItem}
               type="name"
@@ -112,7 +121,7 @@ const RegistrationPage = () => {
               </Button>
             </div>
           </form>
-        </Container>
+        </div>
       </div>
     </div>
   );

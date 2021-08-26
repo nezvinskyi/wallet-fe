@@ -1,7 +1,7 @@
 import { Button, Container } from 'react-bootstrap';
 import scss from './LoginPage.module.css';
 import Logo from '../../components/Logo';
-import image from './images/login-image.png';
+import heroPic from './images/login-image.png';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { userOperations } from '../../redux/user';
@@ -57,9 +57,8 @@ const LoginPage = () => {
     // <Container>
     <div className={scss.container}>
       <div className={scss.imageContainer}>
-        <div className={scss.loginPicWrapper}>
-          <img src={image} alt="pic of man" className={scss.loginPic} />
-          {/* <img src={imaje} alt="ellipse" className={scss.ellipsePic} /> */}
+        <div className={scss.heroPicWrapper}>
+          <img src={heroPic} alt="pic of man" className={scss.heroPic} />
         </div>
         <h1 className={scss.title}>Finance App</h1>
       </div>
