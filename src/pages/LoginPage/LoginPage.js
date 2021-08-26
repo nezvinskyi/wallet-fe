@@ -42,8 +42,8 @@ const styles = {
 };
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('dima@mail.com');
+  const [password, setPassword] = useState('uaua1234');
 
   const dispatch = useDispatch();
 

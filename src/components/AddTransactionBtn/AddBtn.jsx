@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from 'react-bootstrap';
 import { ContainerAppWrapper } from '../../components';
 import { BtnImg } from './img';
-import { globalOperations } from '../../redux/global';
+import { globalOperations, globalSelectors } from '../../redux/global';
 
 import style from './Style.module.css';
-import { useHistory } from 'react-router-dom';
 
 import Modal from '../Modal';
 import AddTransactionForm from '../AddTransactionForm';
@@ -25,21 +24,22 @@ const inlineStyles = {
 
 const AddTransactionBtn = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
-  const [showModal, setModal] = useState(false);
-  const toggleModal = () => {
-    setModal(!showModal);
+  const isModalOpen = useSelector(globalSelectors.getIsModalAddTransactionOpen);
+
+  const openModal = () => {
+    dispatch(globalOperations.openModalAddTransaction());
   };
+
   return (
     <>
-      <Button onClick={toggleModal} className={style.addBtnBg} style={inlineStyles.addBtn}>
+      <Button onClick={openModal} className={style.addBtnBg} style={inlineStyles.addBtn}>
         <img src={BtnImg.addBtnBg} alt="" />
       </Button>
 
-      {showModal && (
-        <Modal onClose={toggleModal}>
-          <AddTransactionForm onCloseModal={toggleModal} />
+      {isModalOpen && (
+        <Modal>
+          <AddTransactionForm />
         </Modal>
       )}
     </>
