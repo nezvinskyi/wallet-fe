@@ -1,9 +1,9 @@
 import moment from 'moment';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import api from '../../service/transactions-api';
-import styles from './AddTransactionForm.module.css';
+// import styles from './AddTransactionForm.module.css';
 
 import { financeSelectors } from '../../redux/finance';
 

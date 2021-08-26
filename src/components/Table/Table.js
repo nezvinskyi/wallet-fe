@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 // import transaction from './exampleData';

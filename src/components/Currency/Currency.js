@@ -1,19 +1,18 @@
 import styles from './Currency.module.css';
 import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
-import { getCurrency } from '../../service/currency-api'
+import { getCurrency } from '../../service/currency-api';
 
 export default function CurrencyList() {
-
   const [currencies, setCurrencies] = useState([]);
 
   useEffect(() => {
-    const fetchCurrencies= async () => {
-      const data = await getCurrency()
-      setCurrencies(data)
+    const fetchCurrencies = async () => {
+      const data = await getCurrency();
+      setCurrencies(data);
     };
-    fetchCurrencies()
-  }, [])
+    fetchCurrencies();
+  }, []);
 
   return (
     <div className={styles.currency}>
@@ -25,7 +24,7 @@ export default function CurrencyList() {
             <td>Продажа</td>
           </tr>
         </thead>
-        {currencies.map(((currency, index) => {
+        {currencies.map((currency, index) => {
           if (index < 3) {
             return (
               <tbody key={currency.ccy}>
@@ -34,11 +33,11 @@ export default function CurrencyList() {
                   <td>{currency.buy}</td>
                   <td>{currency.sale}</td>
                 </tr>
-               </tbody>              
-            )
+              </tbody>
+            );
           }
-        }))}
+        })}
       </table>
     </div>
   );
-};
+}
