@@ -1,0 +1,14 @@
+.Logo {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.Logo > span {
+  font: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 45px;
+  padding-left: 15px;
+}
