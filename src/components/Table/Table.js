@@ -122,6 +122,14 @@ const OperationsTable = ({viewCondition}) => {
               <td style={style.tdLast}>{sum}</td>
             </tr>
           ))}
+          <tr style={style.tr}>
+          <td style={style.tdFirst} className={styles.countText}>Расходы:</td>
+          <td style={style.tdLast} className={styles.outcome}>99383</td>
+          </tr>
+           <tr style={style.tr}>
+           <td style={style.tdFirst} className={styles.countText}>Доходы:</td>
+           <td style={style.tdLast} className={styles.income}>6433</td>
+           </tr>
         </tbody>
       )}
     </Table>
