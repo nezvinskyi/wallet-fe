@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { Button } from 'react-bootstrap';
@@ -8,6 +8,9 @@ import { globalOperations } from '../../redux/global';
 
 import style from './Style.module.css';
 import { useHistory } from 'react-router-dom';
+
+import Modal from '../Modal';
+import AddTransactionForm from '../AddTransactionForm';
 
 const inlineStyles = {
   addBtn: {
@@ -24,15 +27,22 @@ const AddTransactionBtn = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleClick = () => {
-    dispatch(globalOperations.openModalAddTransaction());
-    //TODO временно! подключить модалку!
-    history.push('/add-tr-form');
+  const [showModal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!showModal);
   };
   return (
-    <Button onClick={handleClick} className={style.addBtnBg} style={inlineStyles.addBtn}>
-      <img src={BtnImg.addBtnBg} alt="" />
-    </Button>
+    <>
+      <Button onClick={toggleModal} className={style.addBtnBg} style={inlineStyles.addBtn}>
+        <img src={BtnImg.addBtnBg} alt="" />
+      </Button>
+
+      {showModal && (
+        <Modal onClose={toggleModal}>
+          <AddTransactionForm onCloseModal={toggleModal} />
+        </Modal>
+      )}
+    </>
   );
 };
 

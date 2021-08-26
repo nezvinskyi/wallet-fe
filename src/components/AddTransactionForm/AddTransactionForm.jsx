@@ -3,9 +3,8 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from './AddTransactionForm.module.css';
-// https://test-wallet-be.herokuapp.com/
 
-import { financeSelectors } from '../../../redux/finance';
+import { financeSelectors } from '../../redux/finance';
 import { connect } from 'react-redux';
 
 const initialState = {
@@ -20,21 +19,6 @@ const initialState = {
 
 class AddTransactionForm extends Component {
   state = initialState;
-
-  // async componentDidMount() {
-  //   const response = await axios.get(
-  //     `https://test-wallet-be.herokuapp.com/api/v99/transactions/allTrWithoutAuth`,
-  //   );
-
-  //   this.setState({ tr: response.data.result });
-  // }
-
-  componentDidMount() {
-    console.log('categories :>> ', this.props.categories);
-    this.props.categories.map(category => {
-      console.log('category.name :>> ', category.name);
-    });
-  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -51,10 +35,7 @@ class AddTransactionForm extends Component {
     };
     console.log(data);
 
-    axios.post(
-      `https://test-wallet-be.herokuapp.com/api/v99/transactions/postOneTrWithoutAuth`,
-      data,
-    );
+    axios.post(`http://localhost:5000/api/v1/transactions`, data);
 
     this.props.onCloseModal();
     this.reset();
@@ -71,7 +52,7 @@ class AddTransactionForm extends Component {
 
   render() {
     const categories = this.props.categories;
-    console.log(categories);
+    // console.log(categories);
     return (
       <>
         <Link to="/">Home</Link>
@@ -131,7 +112,7 @@ class AddTransactionForm extends Component {
             </label>
           </div>
 
-          <label>
+          {/* <label>
             Category:
             <input
               type="text"
@@ -140,9 +121,9 @@ class AddTransactionForm extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <br />
+          <br /> */}
 
-          <label htmlFor="">category </label>
+          {/* <label htmlFor="">category </label> */}
           <select>
             {this.props.categories.map(category => (
               <option key={category._id} value={category._id}>

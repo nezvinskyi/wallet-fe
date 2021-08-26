@@ -6,7 +6,7 @@ import OperationsTable from './Table';
 import Balance from './Balance';
 import PublicRoute from './PublicRoute';
 import PrivatRoute from './PrivatRoute';
-import AddTransFormContainer from './AddTransFormContainer';
+// import AddTransFormContainer from './AddTransFormContainer';
 import AddTransactionBtn from './AddTransactionBtn';
 
 export {
@@ -18,6 +18,6 @@ export {
   OperationsTable,
   PublicRoute,
   PrivatRoute,
-  AddTransFormContainer,
+  // AddTransFormContainer,
   AddTransactionBtn,
 };
