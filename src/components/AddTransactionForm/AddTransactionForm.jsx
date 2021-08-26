@@ -2,9 +2,11 @@ import moment from 'moment';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import api from '../../service/transactions-api';
 import styles from './AddTransactionForm.module.css';
 
 import { financeSelectors } from '../../redux/finance';
+
 import { connect } from 'react-redux';
 
 const initialState = {
@@ -35,9 +37,10 @@ class AddTransactionForm extends Component {
     };
     console.log(data);
 
-    axios.post(`http://localhost:5000/api/v1/transactions`, data);
+    // axios.post(`http://localhost:5000/api/v1/transactions`, data);
+    api.addTransaction(data);
 
-    this.props.onCloseModal();
+    // this.props.onCloseModal();
     this.reset();
   };
 
@@ -51,7 +54,7 @@ class AddTransactionForm extends Component {
   };
 
   render() {
-    const categories = this.props.categories;
+    // const categories = this.props.categories;
     // console.log(categories);
     return (
       <>

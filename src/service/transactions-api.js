@@ -32,7 +32,7 @@ const addTransaction = async transaction => {
   //   },
   // };
 
-  const { data } = await axios.post('/api/v1/memos/add', transaction);
+  const { data } = await axios.post('/api/v1/transactions', transaction);
 
   return data;
 };
