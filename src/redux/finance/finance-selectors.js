@@ -1,4 +1,4 @@
-// import { createSelector } from '@reduxjs/toolkit';
+import { createSelector } from '@reduxjs/toolkit';
 
 export const getAllTransactions = state => {
   return state.finance.transactions;
@@ -14,9 +14,9 @@ export const getBalance = state => {
 
 // export const getFilter = state => state.contacts.filter;
 
-// export const getAllSortedContacts = createSelector([getAllContacts], contacts => {
-//   return [...contacts].sort((a, b) => a.name.localeCompare(b.name));
-// });
+export const getAllSortedContacts = createSelector([getAllTransactions], transactions => {
+  return [...transactions].sort((a, b) => b.date.localeCompare(a.date));
+});
 
 // export const getFilteredSortedContacts = createSelector(
 //   [getAllContacts, getFilter],
