@@ -139,37 +139,29 @@ const OperationsTable = ({ viewCondition, color }) => {
         ))
       ) : (
         <tbody>
-          {transactions.map(({ id, category, sum }) => {
-            const rgb = color.filter(item => item.id === id);
-            return (
-              <tr key={id} style={style.tr}>
-                <td style={style.tdFirst}>
-                  <div className={styles.colorBlock} style={{ background: rgb[0]?.color }}></div>
-                  {category}
-                </td>
-                <td style={style.tdLast}>{sum}</td>
-              </tr>
-            );
-          })}
-          <tr style={style.tr}>
-            <td style={style.tdFirst} className={styles.countText}>
-              Расходы:
-            </td>
-            <td style={style.tdLast} className={styles.outcome}>
-              99383
-            </td>
-          </tr>
-          <tr style={style.tr}>
-            <td style={style.tdFirst} className={styles.countText}>
-              Доходы:
-            </td>
-            <td style={style.tdLast} className={styles.income}>
-              6433
-            </td>
-          </tr>
-        </tbody>
-      )}
-    </Table>
+  {transactions.map(({ _id, categoryId, amount }) => {
+    const rgb = color.filter(item => item.id === categoryId._id);
+    return (
+      <tr key={_id} style={style.tr}>
+        <td style={style.tdFirst}>
+          <div className={styles.colorBlock} style={{ background: rgb[0]?.color }}></div>
+          {categoryId?.name}
+        </td>
+        <td style={style.tdLast}>{amount}</td>
+      </tr>
+    );
+  })}
+  <tr style={style.tr}>
+    <td style={style.tdFirst} className={styles.countText}>Расходы:</td>
+    <td style={style.tdLast} className={styles.outcome}>99383</td>
+  </tr>
+  <tr style={style.tr}>
+    <td style={style.tdFirst} className={styles.countText}>Доходы:</td>
+    <td style={style.tdLast} className={styles.income}>6433</td>
+  </tr>
+</tbody>
+)}
+</Table >
   );
 };
 
