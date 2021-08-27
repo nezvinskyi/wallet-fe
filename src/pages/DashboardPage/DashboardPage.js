@@ -32,29 +32,31 @@ const DashboardPage = ({ history }) => {
   const isModalOpen = useSelector(globalSelectors.getIsModalAddTransactionOpen);
 
   return (
-    <>
-      <ContainerAppWrapper>
-        <Header />
-        <div className={style.dashboardPage}>
-          <Navigation viewChanger={setMainView} />
-          <Currency />
-          <Balance />
-          {mainView ? <OperationsTable viewCondition={mainView} /> : <DiagramTab />}
-          <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
-          <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
-
-          <AddTransactionBtn />
+    <ContainerAppWrapper>
+      <Header />
+      <div className={style.dashboardPage}>
+        <div className={style.backdrop}>
+          <div className={style.leftContainer}>
+            <div className={style.navAndBalanceContainer}>
+              <Navigation viewChanger={setMainView} />
+              <Balance />
+            </div>
+            <div className={style.currencyContainer}>
+              <Currency />
+            </div>
+          </div>
+          <div className={style.rightContainer}>
+            {mainView ? <OperationsTable viewCondition={mainView} /> : <DiagramTab />}
+          </div>
         </div>
-        <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
-        <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
-        <AddTransactionBtn />
-        {isModalOpen && (
-          <Modal>
-            <AddTransactionForm />
-          </Modal>
-        )}
-      </ContainerAppWrapper>
-    </>
+      </div>
+      <AddTransactionBtn />
+      {isModalOpen && (
+        <Modal>
+          <AddTransactionForm />
+        </Modal>
+      )}
+    </ContainerAppWrapper>
   );
 };
 

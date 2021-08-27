@@ -1,22 +1,70 @@
 .dashboardPage {
-  background-repeat: no-repeat;
   background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(50px);
-  max-width: 1280px;
-  min-height: 720px;
+  background-image: url('./img/ellipse-bottom.svg'), url('./img/ellipse-top.svg');
+  background-position: left bottom, right top;
+  background-repeat: no-repeat, no-repeat;
   overflow: hidden;
 }
 
+.backdrop {
+  backdrop-filter: blur(150px);
+
+  width: 100%;
+  height: 100%;
+  outline: red dotted 2px;
+
+  display: flex;
+}
+@media (max-width: 1279px) {
+  .backdrop {
+    flex-direction: column;
+  }
+}
+
+.leftContainer {
+  flex: 1;
+  padding-top: 40px;
+  outline: red dotted 2px;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .leftContainer {
+    display: flex;
+  }
+}
+.currencyContainer {
+  padding-top: 30px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .currencyContainer {
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .currencyContainer {
+    display: none;
+  }
+}
+
+.rightContainer {
+  flex: 3;
+  padding-top: 40px;
+
+  outline: red dotted 2px;
+}
+
+/* 
 @media (min-width: 1280px) {
   .dashboardPage {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 45px 85px;
+    padding: 45px 85px; 
   }
-}
+} */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .rightBarTabletWrapper {
     display: flex;
   }
@@ -32,8 +80,9 @@
   .currencyWrapper {
     display: none;
   }
-}
-@media (min-width: 768px) and (max-width: 1280px) {
+} */
+
+/* @media (min-width: 768px) and (max-width: 1280px) { 
   .dashboardPage {
     max-width: 768px;
     display: flex;
@@ -59,7 +108,9 @@
 
     z-index: 1;
   }
-}
+} */
+
+/* 
 @media (max-width: 768px) {
   .dashboardPage {
     min-height: 720px;
@@ -79,9 +130,9 @@
   .elipse_bottom {
     display: none;
   }
-}
+} */
 @media (min-width: 768px) {
-  .elipse_top {
+  /* .elipse_top {
     position: absolute;
     width: 520px;
     height: 813px;
@@ -90,7 +141,7 @@
     transform: rotate(21.94deg);
     filter: blur(50px);
     -webkit-filter: blur(150px);
-  }
+  } */
 
   table.table-3 {
     border-collapse: collapse;
@@ -145,7 +196,8 @@
       border-bottom: 0;
     }
   }
-  .elipse_bottom {
+
+  /* .elipse_bottom {
     z-index: 1;
     position: absolute;
     width: 618px;
@@ -155,5 +207,5 @@
     transform: rotate(16.86deg);
     filter: blur(50px);
     -webkit-filter: blur(50px);
-  }
+  } */
 }
