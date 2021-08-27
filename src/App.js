@@ -16,15 +16,10 @@ function App() {
     <ContainerAppWrapper>
       <div className="App">
         <Switch>
-          <PublicRoute
-            restricted
-            redirectTo="/home"
-            path="/register"
-            component={RegistrationPage}
-          />
-          <PublicRoute restricted redirectTo="/home" path="/login" component={LoginPage} />
-          <Route path={'/'} exact component={TempView} />
-          <PrivatRoute path="/home" component={DashboardPage} redirectTo="/login" />
+          <PublicRoute restricted redirectTo="/" path="/register" component={RegistrationPage} />
+          <PublicRoute restricted redirectTo="/" path="/login" component={LoginPage} />
+          <Route path={'/home'} exact component={TempView} />
+          <PrivatRoute path="/" exact component={DashboardPage} redirectTo="/login" />
           <Route path={'/statistic'} exact component={StatisticPage} />
           <Route path={'/currency'} exact component={Currency} />;
           <Route path={'/navigation'} exact component={Navigation} />;
