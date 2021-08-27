@@ -1,138 +1,171 @@
 import moment from 'moment';
-import { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import api from '../../service/transactions-api';
+import { globalOperations } from '../../redux/global';
 import { financeSelectors } from '../../redux/finance';
 import styles from './AddTransactionForm.module.css';
 import { BtnImg } from './img';
 
-class AddTransactionForm extends Component {
-  state = {
-    date: moment(new Date()).format('YYYY-MM-DD'),
-    type: false,
-    categoryId: this.props.categories[0]._id,
-    comments: '',
-    amount: '0.00',
+const stylesJSX = {
+  primaryBtn: {
+    color: '#ffffff',
+    background: '#24CCA7',
+    width: 300,
+    height: 50,
+    marginTop: '20px',
+    marginBottom: '20px',
+    border: 'none',
+    borderRadius: '20px',
+  },
+  '@media screen and max-width: 700px': {
+    primaryBtn: {
+      width: 280,
+      height: 50,
+    },
+  },
+
+  secondaryBtn: {
+    color: '#4A56E2',
+    background: 'white',
+    width: 300,
+    height: 50,
+    border: '1px solid #4A56E2',
+    borderRadius: '20px',
+  },
+  '@media screen and min-width: 300px': {
+    secondaryBtn: {
+      width: 280,
+      height: 50,
+    },
+  },
+};
+
+const AddTransactionForm = () => {
+  const [date, setDate] = useState(moment(new Date()).format('YYYY-MM-DD'));
+  const [type, setType] = useState(false);
+  const [amount, setAmount] = useState('0.00');
+  const categories = useSelector(financeSelectors.getAllCategories);
+  const [categoryId, setCategoryId] = useState(categories[0]._id);
+  const [comments, setComments] = useState('');
+
+  const dispatch = useDispatch();
+
+  const onClose = () => {
+    dispatch(globalOperations.closeModalAddTransaction());
   };
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  const changeDate = e => {
+    setDate(e.target.value);
   };
-
-  handleChangeType = e => {
-    this.setState(prevState => ({
-      type: !prevState.type,
-    }));
+  const changeAmount = e => {
+    setAmount(e.target.value);
   };
+  const categoryChange = e => {
+    setCategoryId(e.target.value);
+  };
+  const commentsChange = e => {
+    setComments(e.target.value);
+  };
+  const changeType = useCallback(() => setType(!type));
 
-  stateType = () => {
-    const { type } = this.state;
+  const stateType = () => {
     if (type === true) {
       return 'income';
     }
     return 'expense';
   };
 
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     const data = {
-      date: this.state.date,
-      type: this.stateType(),
-      categoryId: this.state.categoryId,
-      comments: this.state.comments,
-      amount: this.state.amount,
+      date,
+      type: stateType(),
+      categoryId,
+      comments,
+      amount,
     };
     console.log(data);
 
     api.addTransaction(data);
 
-    this.reset();
-
-    this.setState({});
+    reset();
   };
 
-  reset = () => {
-    this.setState({
-      date: moment(new Date()).format('YYYY-MM-DD'),
-      type: false,
-      comments: '',
-      amount: '',
-    });
+  const reset = () => {
+    setAmount('');
+    setComments('');
   };
 
-  sentData = () => {
-    console.log(this.state);
-    this.reset();
-  };
-
-  render() {
-    return (
-      <>
-        <form onSubmit={this.handleSubmit}>
-          <div className={styles.typeWrapper}>
-            <div>Доход</div>
-            <label htmlFor="myToggle" className={styles.toggle}>
-              <input
-                name="type"
-                className={styles.toggle__input}
-                type="checkbox"
-                value={this.state.type}
-                onChange={this.handleChangeType}
-                id="myToggle"
-              ></input>
-              <div className={styles.toggle__fill}></div>
-            </label>
-            <div>Расход</div>
-          </div>
-
-          <br />
-
-          <select onChange={this.handleChange} name="categoryId">
-            {this.props.categories.map(category => (
-              <option key={category._id} value={category._id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
-
-          <label>
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <h1 className={styles.title}>Добавить транзакцию</h1>
+        <div className={styles.typeWrapper}>
+          <span className={styles.transType}>
+            <span className={styles.income}>Доход</span>
+          </span>
+          <label htmlFor="myToggle" className={styles.toggle}>
             <input
-              type="number"
-              name="amount"
-              value={this.state.amount}
-              onChange={this.handleChange}
-            />
+              name="type"
+              className={styles.toggle__input}
+              type="checkbox"
+              value={type}
+              onChange={changeType}
+              id="myToggle"
+            ></input>
+            <div className={styles.toggle__fill}></div>
           </label>
+          <span className={styles.transType}>
+            <span className={styles.expense}>Расход</span>
+          </span>
+        </div>
 
-          <label className={styles.item}>
-            <input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
-          </label>
+        <div className={styles.amountAndData__wrapper}>
+          <input
+            type="number"
+            name="amount"
+            className={styles.modal__input}
+            value={amount}
+            onChange={changeAmount}
+            required
+          />
 
-          <label>
-            Comments:
-            <input
-              type="text"
-              name="comments"
-              value={this.state.comments}
-              onChange={this.handleChange}
-            />
-          </label>
+          <input type="date" name="date" value={date} onChange={changeDate} />
+        </div>
 
-          <br />
-          <br />
-          <button type="submit">Добвить</button>
-          <br />
-          <br />
-          <h4 style={{ color: 'red' }}>Comments and amount are required</h4>
-        </form>
-      </>
-    );
-  }
-}
+        <select onChange={categoryChange} name="categoryId">
+          {categories.map(category => (
+            <option key={category._id} value={category._id}>
+              {category.name}
+            </option>
+          ))}
+        </select>
 
-const mapStateToProps = state => ({
-  categories: financeSelectors.getAllCategories(state),
-});
+        <div className={styles.textareaWrapper}>
+          <textarea
+            name="comments"
+            value={comments}
+            onChange={commentsChange}
+            className={styles.modal__message}
+            placeholder="Комментарий"
+            required
+          ></textarea>
+        </div>
 
-export default connect(mapStateToProps)(AddTransactionForm);
+        <div className={styles.btnGroup}>
+          <Button variant="primary" type="submit" style={stylesJSX.primaryBtn}>
+            ДОБАВИТЬ
+          </Button>
+
+          <Button onClick={onClose} variant="primary" type="submit" style={stylesJSX.secondaryBtn}>
+            ОТМЕНА
+          </Button>
+        </div>
+      </form>
+    </>
+  );
+};
+
+export default AddTransactionForm;

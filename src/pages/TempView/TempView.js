@@ -24,9 +24,6 @@ const TempView = () => {
         <li>
           <Link to="/navigation">Navigation component -/navigation- Denis</Link>
         </li>
-        <li>
-          <Link to="/add-tr-form">AddTransactionForm -/add-tr-form- Andrij</Link>
-        </li>
       </ul>
     </Container>
   );
