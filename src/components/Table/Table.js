@@ -65,11 +65,9 @@ const style = {
   },
 };
 
-const OperationsTable = ({viewCondition}) => {
-  let mainView = viewCondition;
-  if (window.location.pathname !== '/home') {
-    mainView = false;
-  }
+const OperationsTable = ({viewCondition, color}) => {
+  const mainView = viewCondition;
+ 
   return (
     <Table responsive style={style.table}>
       <thead className={style.thead}>
@@ -116,12 +114,14 @@ const OperationsTable = ({viewCondition}) => {
         ))
       ) : (
         <tbody>
-          {transaction.map(({ id, category, sum }) => (
+          {transaction.map(({ id, category, sum }) => {
+            const rgb =  color.filter(item => item.id === id)
+            return (
             <tr key={id} style={style.tr}>
-              <td style={style.tdFirst}><div className={styles.colorBlock}></div>{category}</td>
+              <td style={style.tdFirst}><div className={styles.colorBlock} style={{background:rgb[0].color}} ></div>{category}</td>
               <td style={style.tdLast}>{sum}</td>
-            </tr>
-          ))}
+            </tr>)
+          })}
           <tr style={style.tr}>
           <td style={style.tdFirst} className={styles.countText}>Расходы:</td>
           <td style={style.tdLast} className={styles.outcome}>99383</td>

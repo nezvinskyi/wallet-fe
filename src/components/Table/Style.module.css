@@ -75,11 +75,12 @@
 }
 
 .colorBlock {
+  position: relative;
+  top: 3px;
   display: inline-block;
   width: 24px;
   height: 24px;
   border-radius: 2px;
   background-color: teal;
   margin-right: 16px;
-  /* margin-top: 15px;  */
 }
