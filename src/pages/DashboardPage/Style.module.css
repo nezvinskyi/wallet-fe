@@ -1,9 +1,10 @@
 .dashboardPage {
   background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(50px);
-  background-image: url('./img/ellipse-bottom.svg'), url('./img/ellipse-top.svg');
-  background-position: left bottom, right top;
-  background-repeat: no-repeat, no-repeat;
+  background-image: url('./img/bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow: hidden;
 }
 

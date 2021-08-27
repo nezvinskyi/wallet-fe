@@ -15,7 +15,6 @@ import {
   Modal,
   AddTransactionForm,
 } from '../../components';
-import { dashBoardImg } from './img';
 
 import style from './Style.module.css';
 
