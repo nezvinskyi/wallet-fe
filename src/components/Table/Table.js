@@ -62,17 +62,11 @@ const style = {
   },
 };
 
-function OperationsTable() {
-  const data = useSelector(getAllTransactions);
+const OperationsTable = ({ viewCondition, color }) => {
+  const transactions = useSelector(getAllTransactions);
 
-  // console.log(data);
+  const mainView = viewCondition;
 
-  // data.map({ _id, amount, category, comments, date, type });
-
-  let mainView = true;
-  if (window.location.pathname !== '/home') {
-    mainView = false;
-  }
   return (
     <Table responsive style={style.table} className={styles.table}>
       <thead className={style.thead}>
@@ -93,7 +87,7 @@ function OperationsTable() {
         )}
       </thead>
       {mainView ? (
-        data.map(({ _id, date, type, category, comments, amount }) => (
+        transactions.map(({ _id, date, type, category, comments, amount }) => (
           <tbody key={_id}>
             <tr className={styles.tr} style={style.tr}>
               <td style={style.td} data-label="Дата">
@@ -119,16 +113,38 @@ function OperationsTable() {
         ))
       ) : (
         <tbody>
-          {data.map(({ _id, category, sum }) => (
-            <tr key={_id} style={style.tr}>
-              <td style={style.tdFirst}>{category}</td>
-              <td style={style.tdLast}>300</td>
-            </tr>
-          ))}
+          {transactions.map(({ id, category, sum }) => {
+            const rgb = color.filter(item => item.id === id);
+            return (
+              <tr key={id} style={style.tr}>
+                <td style={style.tdFirst}>
+                  <div className={styles.colorBlock} style={{ background: rgb[0].color }}></div>
+                  {category}
+                </td>
+                <td style={style.tdLast}>{sum}</td>
+              </tr>
+            );
+          })}
+          <tr style={style.tr}>
+            <td style={style.tdFirst} className={styles.countText}>
+              Расходы:
+            </td>
+            <td style={style.tdLast} className={styles.outcome}>
+              99383
+            </td>
+          </tr>
+          <tr style={style.tr}>
+            <td style={style.tdFirst} className={styles.countText}>
+              Доходы:
+            </td>
+            <td style={style.tdLast} className={styles.income}>
+              6433
+            </td>
+          </tr>
         </tbody>
       )}
     </Table>
   );
-}
+};
 
 export default OperationsTable;

@@ -5,12 +5,12 @@ import home from '../../image/navigation/home.svg';
 import diagram from '../../image/navigation/diagram.svg';
 import currency from '../../image/navigation/currency.svg';
 
-const Navigation = () => {
+const Navigation = ({viewChanger}) => {
   return (
     <ul className={styles.Navigation}>
       <li>
         {' '}
-        <NavLink to={routes.home} className={styles.NavLink} activeClassName={styles.NavLinkActive}>
+        <NavLink to={routes.home} className={styles.NavLink} activeClassName={styles.NavLinkActive} onClick={()=>viewChanger(true)}>
           <span>
             <img src={home} alt="home" width="44" height="44" />
             {/* Главная */}
@@ -21,9 +21,10 @@ const Navigation = () => {
       <li>
         {' '}
         <NavLink
-          to={routes.statistic}
+          to={routes.home}
           className={styles.NavigationLi}
           activeClassName={styles.NavLinkActive}
+          onClick={()=>viewChanger(false)}
         >
           <span>
             <img src={diagram} alt="diagram" width="44" height="44" />

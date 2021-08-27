@@ -77,6 +77,29 @@
   color: rgba(255, 101, 150, 1);
 }
 
+@media (min-width: 280px) {
+  /* .category::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-color: teal;
+    margin-right: 16px;
+    border-radius: 2px;
+    padding: 0;
+    display: inline-block;
+  } */
+}
 .category {
   text-align: center;
+}
+
+.colorBlock {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  background-color: teal;
+  margin-right: 16px;
 }

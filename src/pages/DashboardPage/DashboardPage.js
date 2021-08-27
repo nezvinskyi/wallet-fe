@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { financeOperations } from '../../redux/finance';
 import { globalSelectors } from '../../redux/global';
+import React, { useEffect, useState } from 'react';
+import DiagramTab from '../../components/DiagramTab';
+// import { Button } from 'react-bootstrap';
 import {
   Header,
   Navigation,
@@ -19,6 +21,7 @@ import style from './Style.module.css';
 
 const DashboardPage = ({ history }) => {
   const dispatch = useDispatch();
+  const [mainView, setMainView] = useState(true);
 
   useEffect(() => {
     dispatch(financeOperations.getTransactions());
@@ -29,23 +32,18 @@ const DashboardPage = ({ history }) => {
   const isModalOpen = useSelector(globalSelectors.getIsModalAddTransactionOpen);
 
   return (
-    <ContainerAppWrapper>
-      <Header />
-      <div className={style.dashboardPage}>
-        <div className={style.rightBarWrapper}>
-          <div className={style.navigationWrapper}>
-            <Navigation />
-          </div>
-          <div className={style.balanceWrapper}>
-            <Balance />
-          </div>
+    <>
+      <ContainerAppWrapper>
+        <Header />
+        <div className={style.dashboardPage}>
+          <Navigation viewChanger={setMainView} />
+          <Currency />
+          <Balance />
+          {mainView ? <OperationsTable viewCondition={mainView} /> : <DiagramTab />}
+          <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
+          <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
 
-          <div className={style.currencyWrapper}>
-            <Currency />
-          </div>
-        </div>
-        <div className={style.operationsTable}>
-          <OperationsTable />
+          <AddTransactionBtn />
         </div>
         <img className={style.elipse_top} src={dashBoardImg.ellipseTop} alt="" />
         <img className={style.elipse_bottom} src={dashBoardImg.ellipseBottom} alt="" />
@@ -55,8 +53,8 @@ const DashboardPage = ({ history }) => {
             <AddTransactionForm />
           </Modal>
         )}
-      </div>
-    </ContainerAppWrapper>
+      </ContainerAppWrapper>
+    </>
   );
 };
 

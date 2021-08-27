@@ -1,6 +1,6 @@
 const transaction = [
   {
-    id: 1,
+    id: "612663e26ff2885ca454662f",
     date: '04.01.19',
     type: '-',
     category: 'Разное',
@@ -9,7 +9,7 @@ const transaction = [
     balance: '6 900.00',
   },
   {
-    id: 2,
+    id: "6126647352796137f0f9a16b",
     date: '05.02.19',
     type: '+',
     category: 'Депозит',
@@ -18,7 +18,7 @@ const transaction = [
     balance: '7 800.00',
   },
   {
-    id: 3,
+    id: "61278871099e747d24dd9f28",
     date: '07.02.19',
     type: '-',
     category: 'Ресторан',
@@ -27,7 +27,7 @@ const transaction = [
     balance: '7 300.00',
   },
   {
-    id: 4,
+    id: "6127c5622450ab5d00458090",
     date: '20.03.19',
     type: '+',
     category: 'Зарплата',
