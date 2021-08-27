@@ -19,7 +19,7 @@ import { dashBoardImg } from './img';
 
 import style from './Style.module.css';
 
-const DashboardPage = ({ history }) => {
+const DashboardPage = () => {
   const dispatch = useDispatch();
   const [mainView, setMainView] = useState(true);
 

@@ -118,7 +118,7 @@ const OperationsTable = ({ viewCondition, color }) => {
             return (
               <tr key={id} style={style.tr}>
                 <td style={style.tdFirst}>
-                  <div className={styles.colorBlock} style={{ background: rgb[0].color }}></div>
+                  <div className={styles.colorBlock} style={{ background: rgb[0]?.color }}></div>
                   {category}
                 </td>
                 <td style={style.tdLast}>{sum}</td>
