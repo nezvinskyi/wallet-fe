@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 // import transaction from './exampleData';
@@ -92,7 +93,7 @@ const OperationsTable = ({ viewCondition, color }) => {
             <tbody key={_id}>
               <tr className={styles.tr} style={style.tr}>
                 <td style={style.td} data-label="Дата">
-                  {date}
+                  {moment(date).format('DD.MM.YYYY')}
                 </td>
                 <td data-label="Тип" style={style.td}>
                   {type === 'income' ? '+' : '-'}
