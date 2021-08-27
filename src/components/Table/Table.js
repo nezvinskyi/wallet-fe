@@ -2,6 +2,7 @@ import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 // import transaction from './exampleData';
 import { getAllTransactions } from '../../redux/finance/finance-selectors';
+import moment from 'moment';
 
 import styles from './Style.module.css';
 
@@ -65,10 +66,6 @@ const style = {
 function OperationsTable() {
   const data = useSelector(getAllTransactions);
 
-  // console.log(data);
-
-  // data.map({ _id, amount, category, comments, date, type });
-
   let mainView = true;
   if (window.location.pathname !== '/home') {
     mainView = false;
@@ -97,7 +94,7 @@ function OperationsTable() {
           <tbody key={_id}>
             <tr className={styles.tr} style={style.tr}>
               <td style={style.td} data-label="Дата">
-                25.08.2010
+                {moment(date).format('YYYY.MM.DD')}
               </td>
               <td data-label="Тип" style={style.td}>
                 {type === 'income' ? '+' : '-'}
