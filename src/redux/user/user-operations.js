@@ -60,7 +60,7 @@ export const logout = () => async dispatch => {
 
 export const getCurrentUser = () => async (dispatch, getState) => {
   const {
-    auth: { token: persistedToken },
+    user: { token: persistedToken },
   } = getState();
 
   if (!persistedToken) {
@@ -72,7 +72,7 @@ export const getCurrentUser = () => async (dispatch, getState) => {
   dispatch(actions.getCurrentUserRequest());
 
   try {
-    const { data } = await axios.get('/users/current');
+    const { data } = await api.getCurrentUser();
     dispatch(actions.getCurrentUserSuccess(data));
   } catch (error) {
     dispatch(actions.getCurrentUserError(error.response?.data.message || error.message));

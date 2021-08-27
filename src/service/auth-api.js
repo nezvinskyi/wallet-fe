@@ -32,8 +32,13 @@ const updateUser = async user => {
   return data;
 };
 
+const getCurrentUser = async () => {
+  const { data } = await axios.get('api/v1/users/current');
+  return data;
+};
+
 const logout = async (user, token) => {};
 
-const api = { loginUser, registerUser, updateUser, logout };
+const api = { loginUser, registerUser, updateUser, logout, getCurrentUser };
 
 export default api;

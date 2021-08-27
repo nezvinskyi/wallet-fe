@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { LoginPage, RegistrationPage, DashboardPage, TempView, StatisticPage } from './pages/';
 
 import { ContainerAppWrapper, Navigation, Currency, PublicRoute, PrivatRoute } from './components';
+import { useDispatch } from 'react-redux';
+import { userOperations } from './redux/user';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(userOperations.getCurrentUser());
+  }, [dispatch]);
+
   return (
     <ContainerAppWrapper>
       <div className="App">
