@@ -87,30 +87,32 @@ const OperationsTable = ({ viewCondition, color }) => {
         )}
       </thead>
       {mainView ? (
-        transactions.map(({ _id, date, type, category, comments, amount }) => (
-          <tbody key={_id}>
-            <tr className={styles.tr} style={style.tr}>
-              <td style={style.td} data-label="Дата">
-                25.08.2010
-              </td>
-              <td data-label="Тип" style={style.td}>
-                {type === 'income' ? '+' : '-'}
-              </td>
-              <td data-label="Категория" style={style.td}>
-                {category}
-              </td>
-              <td data-label="Комментарий" style={style.td}>
-                {comments}
-              </td>
-              <td data-label="Сумма" style={style.td}>
-                {amount}
-              </td>
-              <td data-label="Баланс" style={style.tdLast}>
-                6 500
-              </td>
-            </tr>
-          </tbody>
-        ))
+        transactions.map(
+          ({ _id, date, type, categoryId: { name: category }, comments, amount }) => (
+            <tbody key={_id}>
+              <tr className={styles.tr} style={style.tr}>
+                <td style={style.td} data-label="Дата">
+                  {date}
+                </td>
+                <td data-label="Тип" style={style.td}>
+                  {type === 'income' ? '+' : '-'}
+                </td>
+                <td data-label="Категория" style={style.td}>
+                  {category}
+                </td>
+                <td data-label="Комментарий" style={style.td}>
+                  {comments}
+                </td>
+                <td data-label="Сумма" style={style.td}>
+                  {amount}
+                </td>
+                <td data-label="Баланс" style={style.tdLast}>
+                  6 500
+                </td>
+              </tr>
+            </tbody>
+          ),
+        )
       ) : (
         <tbody>
           {transactions.map(({ id, category, sum }) => {
