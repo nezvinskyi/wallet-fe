@@ -6,29 +6,41 @@ import Filter from '../Filter'
 import Table from '../Table'
 import styles from './DiagramTab.module.css';
 import categoryColors from './colors'
+import {getCurrentValues, getCurrentCategories, getCurrentColors} from './statsInfo'
 
 
 export default function DiagramTab() {
   const balance = useSelector(financeSelectors.getBalance)
   const allTransactions = useSelector(financeSelectors.getAllTransactions)
-  const allCategories = useSelector(financeSelectors.getAllCategories)
+  // const allCategories = useSelector(financeSelectors.getAllCategories)
+  // const currentCategories =  allTransactions.map((transaction) => transaction.categoryId.name)
+  // const currentValues =  allTransactions.map((transaction) => transaction.amount)
   
-  const currentCategories =  allTransactions.map((transaction) => transaction.categoryId.name)
-  let currentColors =[]
-  allTransactions.forEach((transaction) => {
-  const categoryId = transaction.categoryId._id
-    categoryColors.map((color) => {
-    if(color.id === categoryId){
-      currentColors.push(color.color)
-    }} )
-  })
-  const currentValues =  allTransactions.map((transaction) => transaction.amount)
-  
+  // const getCurrentValues = (transactions) => {
+  //  return transactions.map((transaction) => transaction.amount)
+  // }
+
+  //   const getCurrentCategories = (transactions)=>{
+  //     return transactions.map((transaction) => transaction.categoryId.name)
+  //   }
+  //   const getCurrentColors = (transactions) =>{
+  //   let currentColors =[]
+  //   allTransactions.forEach((transaction) => {
+  //   const categoryId = transaction.categoryId._id
+  //     categoryColors.map((color) => {
+  //     if(color.id === categoryId){
+  //       currentColors.push(color.color)
+  //     }} )
+  //   })
+
+  //   return currentColors
+  // }
+
   const transactions = {
-   categories:currentCategories,
-   values: currentValues,
+   categories:getCurrentCategories(allTransactions),
+   values: getCurrentValues(allTransactions),
    balance: balance,
-   colors: currentColors,
+   colors: getCurrentColors(allTransactions),
     }
   
   return (
