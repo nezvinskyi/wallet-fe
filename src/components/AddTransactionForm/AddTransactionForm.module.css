@@ -82,7 +82,7 @@
   height: var(--height);
   width: var(--height);
   background: #24cca7;
-  /* background-image: url('./img/addBtnBg.svg'); */
+  background-image: url('./img/addBtnBg.svg');
   background-repeat: no-repeat;
   background-size: 60%;
   background-position: center;
@@ -94,6 +94,10 @@
 .toggle__input:checked ~ .toggle__fill::after {
   content: '';
   background: #ff6596;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  background-image: url('./img/addBtnBgMinus.svg');
 }
 
 .toggle__input:checked ~ .toggle__fill::after {
