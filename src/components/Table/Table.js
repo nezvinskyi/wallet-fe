@@ -87,7 +87,7 @@ const style = {
 };
 
 const OperationsTable = ({ viewCondition, color }) => {
-  const transactions = useSelector(financeSelectors.getAllSortedContacts);
+  const transactions = useSelector(financeSelectors.getAllSortedTransactions);
   const balance = useSelector(financeSelectors.getBalance);
 
   localStorage.setItem('balance', balance);

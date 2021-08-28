@@ -14,7 +14,7 @@ export const getBalance = state => {
 
 // export const getFilter = state => state.contacts.filter;
 
-export const getAllSortedContacts = createSelector([getAllTransactions], transactions => {
+export const getAllSortedTransactions = createSelector([getAllTransactions], transactions => {
   return [...transactions].sort((a, b) => b.date.localeCompare(a.date));
 });
 
