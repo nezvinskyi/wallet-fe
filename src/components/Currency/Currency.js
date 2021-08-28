@@ -35,6 +35,8 @@ export default function CurrencyList() {
                 </tr>
               </tbody>
             );
+          } else {
+            return null;
           }
         })}
       </table>
