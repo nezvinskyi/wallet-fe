@@ -42,13 +42,13 @@ export const getBalance = () => async dispatch => {
   }
 };
 
-export const addTransaction = values => async dispatch => {
+export const addTransaction = transaction => async dispatch => {
   dispatch(actions.addTransactionRequest());
 
   try {
-    const response = await apiTrans.addTransaction(values);
+    const { data } = await apiTrans.addTransaction(transaction);
 
-    dispatch(actions.addTransactionSuccess(response.data.result));
+    dispatch(actions.addTransactionSuccess(data.result));
   } catch (error) {
     console.log('error from finance operations/add Transaction>>', error.message);
     dispatch(actions.addTransactionError(error.response?.data.message || error.message));
