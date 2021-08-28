@@ -50,19 +50,6 @@ const AddTransactionForm = () => {
   const [categoryId, setCategoryId] = useState(categories[0]._id);
   const [comments, setComments] = useState('');
 
-  // =====================
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-
-  // const dispatch = useDispatch();
-
-  // const submitHandler = async e => {
-  //   e.preventDefault();
-
-  //   dispatch(userOperations.login({ email, password }));
-  // };
-  // =====================
-
   const dispatch = useDispatch();
 
   const onClose = () => {
@@ -81,7 +68,7 @@ const AddTransactionForm = () => {
   const commentsChange = e => {
     setComments(e.target.value);
   };
-  const changeType = useCallback(() => setType(!type));
+  const changeType = useCallback(() => setType(!type), [type]);
 
   const stateType = () => {
     if (type === true) {

@@ -9,7 +9,19 @@ const modalRootRef = document.getElementById('modal-root');
 const Modal = ({ children }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {});
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  });
+
+  const handleKeyDown = e => {
+    if (e.code === 'Escape') {
+      onClose();
+    }
+  };
 
   const onClose = () => {
     dispatch(globalOperations.closeModalAddTransaction());
