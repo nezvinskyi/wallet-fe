@@ -2,29 +2,67 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 320px;
-  height: 60px;
+  height: 80px;
 }
 
-/* .LogoWallet {
+@media screen and (max-width: 767px) {
+  .header {
+    height: 60px;
+  }
+}
+
+.userMenu {
   display: flex;
   align-items: center;
-  padding: 15px 20px;
 }
 
-.LogoWallet > span {
-  font: Poppins;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 30px;
-  line-height: 45px;
-  padding-left: 15px;
-} */
-
-.UserMenu {
-  padding: 18px 20px;
+.userName {
+  font-size: 18px;
+  color: var(--grey);
+  line-height: 26.53px;
+  margin-right: 15px;
 }
 
-.UserMenu > button {
-  padding-left: 10px;
+@media screen and (max-width: 767px) {
+  .userName {
+    margin-right: 10px;
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 30px;
+  background-color: var(--grey);
+  margin-right: 15px;
+}
+@media screen and (max-width: 767px) {
+  .divider {
+    display: none;
+  }
+}
+
+.exit {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logoutItem {
+  width: 18px;
+  height: 18px;
+  background-image: url('../../assets/images/header/exit-icon.svg');
+  background-repeat: no-repeat;
+}
+
+.logoutText {
+  font-size: 18px;
+  color: var(--grey);
+  line-height: 26.53px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .logoutText {
+    display: none;
+  }
 }

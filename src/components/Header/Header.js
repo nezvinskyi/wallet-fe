@@ -1,19 +1,15 @@
 import UserMenu from './UserMenu';
-import LogoHeader from './LogoHeader';
+import Logo from '../Logo';
 
 import styles from './Header.module.css';
 
-export default function Header() {
-  const isAuthenticated = true;
-
+const Header = () => {
   return (
-    <>
-      {isAuthenticated && (
-        <header className={styles.header}>
-          <LogoHeader />
-          <UserMenu />
-        </header>
-      )}
-    </>
+    <header className={styles.header}>
+      <Logo />
+      <UserMenu />
+    </header>
   );
-}
+};
+
+export default Header;
