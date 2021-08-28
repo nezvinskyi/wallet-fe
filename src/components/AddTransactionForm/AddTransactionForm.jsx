@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import api from '../../service/transactions-api';
 import { globalOperations } from '../../redux/global';
-import { financeSelectors } from '../../redux/finance';
+import { financeSelectors, financeOperations } from '../../redux/finance';
 import styles from './AddTransactionForm.module.css';
 import { BtnImg } from './img';
 
@@ -50,6 +50,19 @@ const AddTransactionForm = () => {
   const [categoryId, setCategoryId] = useState(categories[0]._id);
   const [comments, setComments] = useState('');
 
+  // =====================
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+
+  // const dispatch = useDispatch();
+
+  // const submitHandler = async e => {
+  //   e.preventDefault();
+
+  //   dispatch(userOperations.login({ email, password }));
+  // };
+  // =====================
+
   const dispatch = useDispatch();
 
   const onClose = () => {
@@ -72,9 +85,9 @@ const AddTransactionForm = () => {
 
   const stateType = () => {
     if (type === true) {
-      return 'income';
+      return 'expense';
     }
-    return 'expense';
+    return 'income';
   };
 
   const handleSubmit = e => {
@@ -86,9 +99,8 @@ const AddTransactionForm = () => {
       comments,
       amount,
     };
-    console.log(data);
 
-    api.addTransaction(data);
+    dispatch(financeOperations.addTransaction(data));
 
     reset();
   };
