@@ -7,6 +7,10 @@ import scss from './RegistrationPage.module.css';
 import heroPic from './images/registration-image.png';
 // import imaje from './images/Ellipse1.png';
 import { userOperations } from '../../redux/user';
+import { sessionOperations } from '../../redux/session';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Logo from '../../components/Logo';
 
 const styles = {
@@ -44,7 +48,11 @@ const RegistrationPage = () => {
 
     //TODO dispatch error to redux
     if (password !== confirmPassword) {
-      alert('Passwords no not match - переделать нотификации');
+      //Try to use notification
+      const errorMessage = 'Passwords no not match';
+      // alert('Passwords no not match - переделать нотификации');
+      dispatch(sessionOperations.setError(errorMessage));
+
       return;
     }
 
@@ -60,7 +68,6 @@ const RegistrationPage = () => {
 
         <h1 className={scss.title}>Finance App</h1>
       </div>
-
       <div className={scss.formContainer}>
         <div className={scss.formWrapper}>
           <div className={scss.logo}>
@@ -123,6 +130,7 @@ const RegistrationPage = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

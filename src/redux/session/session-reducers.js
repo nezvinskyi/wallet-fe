@@ -2,6 +2,7 @@ import { combineReducers, createReducer } from '@reduxjs/toolkit';
 
 import * as userActions from '../user/user-actions';
 import * as financeActions from '../finance/finance-actions';
+import * as sessionActions from './session-actions';
 
 const isAuthenticated = createReducer(false, {
   [userActions.registerSuccess]: () => true,
@@ -33,6 +34,9 @@ const error = createReducer(null, {
   [financeActions.getBalanceError]: (_, { payload }) => payload,
   [financeActions.getCategoriesError]: (_, { payload }) => payload,
   [financeActions.addTransactionError]: (_, { payload }) => payload,
+
+  [sessionActions.setError]: (_, { payload }) => payload,
+  [sessionActions.resetError]: () => null,
 });
 
 export default combineReducers({

@@ -6,7 +6,19 @@ import { ContainerAppWrapper, Navigation, Currency, PublicRoute, PrivatRoute } f
 import { useDispatch } from 'react-redux';
 import { userOperations } from './redux/user';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { sessionSelectors } from './redux/session';
+import { useSelector } from 'react-redux';
+
 function App() {
+  const error = useSelector(sessionSelectors.getError);
+  // toast(error);
+  useEffect(() => {
+    toast(error);
+  }, [error]);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(userOperations.getCurrentUser());
@@ -26,6 +38,7 @@ function App() {
           {/* <Route path={'/add-tr-form'} exact component={AddTransFormContainer} />; */}
         </Switch>
       </div>
+      <ToastContainer />
     </ContainerAppWrapper>
   );
 }
