@@ -3,7 +3,6 @@ import { financeOperations } from '../../redux/finance';
 import { globalSelectors } from '../../redux/global';
 import React, { useEffect, useState } from 'react';
 import DiagramTab from '../../components/DiagramTab';
-// import { Button } from 'react-bootstrap';
 import {
   Header,
   Navigation,
@@ -15,6 +14,7 @@ import {
   Modal,
   AddTransactionForm,
 } from '../../components';
+import { Container } from 'react-bootstrap';
 
 import style from './Style.module.css';
 
@@ -35,18 +35,20 @@ const DashboardPage = () => {
       <Header />
       <div className={style.dashboardPage}>
         <div className={style.backdrop}>
-          <div className={style.leftContainer}>
-            <div className={style.navAndBalanceContainer}>
-              <Navigation viewChanger={setMainView} />
-              <Balance />
+          <Container>
+            <div className={style.leftContainer}>
+              <div className={style.navAndBalanceContainer}>
+                <Navigation viewChanger={setMainView} />
+                <Balance />
+              </div>
+              <div className={style.currencyContainer}>
+                <Currency />
+              </div>
             </div>
-            <div className={style.currencyContainer}>
-              <Currency />
+            <div className={style.rightContainer}>
+              {mainView ? <OperationsTable viewCondition={mainView} /> : <DiagramTab />}
             </div>
-          </div>
-          <div className={style.rightContainer}>
-            {mainView ? <OperationsTable viewCondition={mainView} /> : <DiagramTab />}
-          </div>
+          </Container>
         </div>
       </div>
       <AddTransactionBtn />
