@@ -87,7 +87,7 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
                 data-label="Сумма"
                 style={type === 'income' ? inlineStyle.income : inlineStyle.expense}
               >
-                {amount}
+                {moneyFormat(amount)}
               </td>
               <td data-label="Баланс" style={inlineStyle.tdLast}>
                 {moneyFormat(calculateBalance(amount, type, idx))}
