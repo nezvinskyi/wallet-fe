@@ -1,33 +1,9 @@
 import moment from 'moment';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-// import transaction from './exampleData';
-import { getAllTransactions } from '../../redux/finance/finance-selectors';
+import { financeSelectors } from '../../redux/finance/';
 
 import styles from './Style.module.css';
-
-// const color = [
-//   {
-//     id: '612663e26ff2885ca454662f',
-//     color: 'rgba(254, 208, 87, 1)',
-//   },
-//   {
-//     id: '6126647352796137f0f9a16b',
-//     color: 'rgba(255, 216, 208, 1)',
-//   },
-//   {
-//     id: '61278871099e747d24dd9f28',
-//     color: 'rgba(197, 186, 255, 1)',
-//   },
-//   {
-//     id: '6127c5622450ab5d00458090',
-//     color: 'rgba(110, 120, 232, 1)',
-//   },
-//   {
-//     id: '6127c5732450ab5d00458093',
-//     color: '(74, 86, 226, 1)',
-//   },
-// ];
 
 const style = {
   table: {
@@ -89,9 +65,36 @@ const style = {
 };
 
 const OperationsTable = ({ viewCondition, color, transTotal }) => {
-  const transactions = useSelector(getAllTransactions);
+  const transactions = useSelector(financeSelectors.getAllSortedTransactions);
+  const categories = useSelector(financeSelectors.getAllCategories);
+  const balance = useSelector(financeSelectors.getBalance);
 
-  console.log(transactions);
+  localStorage.setItem('balance', balance);
+
+  const calculateBalance = (amount, type) => {
+    let previousDayBalance = +localStorage.getItem('balance');
+    if (type === 'income') {
+      localStorage.setItem('balance', previousDayBalance - amount);
+      return previousDayBalance;
+    }
+    if (type === 'expense') {
+      localStorage.setItem('balance', previousDayBalance + amount);
+      return previousDayBalance;
+    }
+    return localStorage.getItem('balance');
+  };
+
+  const findCategoryName = id => {
+    let catName;
+    categories.find(cat => {
+      if (cat._id === id) {
+        console.log('cat.name :>> ', cat.name);
+        catName = cat.name;
+        return null;
+      } else return null;
+    });
+    return catName;
+  };
 
   const mainView = viewCondition;
 
@@ -115,7 +118,7 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
         )}
       </thead>
       {mainView ? (
-        transactions.map(({ _id, date, type, categoryId, comments, amount }) => (
+        transactions.map(({ _id, date, type, categoryId, comments, amount }, idx) => (
           <tbody key={_id}>
             <tr className={styles.tr} style={style.tr}>
               <td style={style.td} data-label="Дата">
@@ -125,7 +128,7 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
                 {type === 'income' ? '+' : '-'}
               </td>
               <td data-label="Категория" style={style.td}>
-                {categoryId?.name}
+                {categoryId?.name || findCategoryName(categoryId)}
               </td>
               <td data-label="Комментарий" style={style.td}>
                 {comments}
@@ -134,7 +137,7 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
                 {amount}
               </td>
               <td data-label="Баланс" style={style.tdLast}>
-                6 500
+                {calculateBalance(amount, type, idx)}
               </td>
             </tr>
           </tbody>
