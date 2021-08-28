@@ -12,7 +12,7 @@ import {getCurrentValues, getCurrentCategories, getCurrentColors} from './statsI
 export default function DiagramTab() {
   const balance = useSelector(financeSelectors.getBalance)
   const allTransactions = useSelector(financeSelectors.getAllTransactions)
-  // const allCategories = useSelector(financeSelectors.getAllCategories)
+  const allCategories = useSelector(financeSelectors.getAllCategories)
   // const currentCategories =  allTransactions.map((transaction) => transaction.categoryId.name)
   // const currentValues =  allTransactions.map((transaction) => transaction.amount)
   
@@ -35,7 +35,7 @@ export default function DiagramTab() {
 
   //   return currentColors
   // }
-
+console.log(allCategories);
   const transactions = {
    categories:getCurrentCategories(allTransactions),
    values: getCurrentValues(allTransactions),
