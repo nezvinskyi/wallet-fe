@@ -42,6 +42,7 @@ const style = {
     borderTopLeftRadius: '30px',
     borderBottomLeftRadius: '30px',
     borderStyle: 'hidden',
+    paddingLeft: '30px',
   },
   thLast: {
     backgroundColor: 'white',
@@ -49,6 +50,7 @@ const style = {
     borderBottomRightRadius: '30px',
     borderStyle: 'hidden',
     textAlign: 'right',
+    paddingRight: '30px',
   },
   tr: {
     border: '0px solid inherit',
