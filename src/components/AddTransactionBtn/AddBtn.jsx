@@ -13,6 +13,9 @@ const inlineStyles = {
     borderRadius: '50%',
     padding: '0px',
     border: 'none',
+    position: 'fixed',
+    bottom: '2em',
+    right: '2em',
   },
 };
 
