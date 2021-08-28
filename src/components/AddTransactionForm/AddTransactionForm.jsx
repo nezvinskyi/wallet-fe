@@ -85,9 +85,9 @@ const AddTransactionForm = () => {
 
   const stateType = () => {
     if (type === true) {
-      return 'income';
+      return 'expense';
     }
-    return 'expense';
+    return 'income';
   };
 
   const handleSubmit = e => {
