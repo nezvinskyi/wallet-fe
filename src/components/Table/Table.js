@@ -2,67 +2,8 @@ import moment from 'moment';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { financeSelectors } from '../../redux/finance/';
-
-import styles from './Style.module.css';
-
-const style = {
-  table: {
-    position: 'relative',
-    zIndex: '2',
-    borderBottomCollor: 'red',
-    border: '0px solid white',
-    borderCollapse: 'collapse',
-  },
-  thFirst: {
-    backgroundColor: 'white',
-    borderTopLeftRadius: '30px',
-    borderBottomLeftRadius: '30px',
-    borderStyle: 'hidden',
-    paddingLeft: '30px',
-  },
-  thLast: {
-    backgroundColor: 'white',
-    borderTopRightRadius: '30px',
-    borderBottomRightRadius: '30px',
-    borderStyle: 'hidden',
-    textAlign: 'right',
-    paddingRight: '30px',
-  },
-  tr: {
-    border: '0px solid inherit',
-  },
-  th: {
-    backgroundColor: 'white',
-    borderStyle: 'hidden',
-  },
-
-  td: {
-    borderBottomColor: 'rgba(220, 220, 223, 1)',
-    backgroundColor: 'inherit',
-    paddingLeft: '15px',
-    paddingRight: '15px',
-  },
-  tdLast: {
-    paddingLeft: '15px',
-    paddingRight: '15px',
-    // borderBottom: 'none',
-    borderBottomColor: 'rgba(220, 220, 223, 1)',
-    textAlign: 'right',
-  },
-  tdFirst: {
-    borderBottomColor: 'rgba(220, 220, 223, 1)',
-    backgroundColor: 'inherit',
-    paddingLeft: '15px',
-    paddingRight: '15px',
-    textAlign: 'left',
-  },
-  thead: {
-    backgroundColor: 'white',
-    height: '58px',
-    lineHeight: '38px',
-    borderStyle: 'hidden',
-  },
-};
+import style from './Style.module.css';
+import inlineStyle from './inlineStyle';
 
 const OperationsTable = ({ viewCondition, color, transTotal }) => {
   const transactions = useSelector(financeSelectors.getAllSortedTransactions);
@@ -73,6 +14,7 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
 
   const calculateBalance = (amount, type) => {
     let previousDayBalance = +localStorage.getItem('balance');
+
     if (type === 'income') {
       localStorage.setItem('balance', previousDayBalance - amount);
       return previousDayBalance;
@@ -81,6 +23,7 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
       localStorage.setItem('balance', previousDayBalance + amount);
       return previousDayBalance;
     }
+
     return localStorage.getItem('balance');
   };
 
@@ -96,48 +39,58 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
     return catName;
   };
 
+  const moneyFormat = n => {
+    return parseFloat(n)
+      .toFixed(2)
+      .replace(/(\d)(?=(\d{3})+\.)/g, '$1 ');
+  };
+
   const mainView = viewCondition;
 
   return (
-    <Table responsive style={style.table} className={styles.table}>
+    <Table responsive style={inlineStyle.table} className={style.table}>
       <thead className={style.thead}>
         {mainView ? (
-          <tr className={styles.thead}>
-            <th style={style.thFirst}>Дата</th>
-            <th style={style.th}>Тип</th>
-            <th style={style.th}>Категория</th>
-            <th style={style.th}>Комментарий</th>
-            <th style={style.th}>Сумма</th>
-            <th style={style.thLast}>Баланс</th>
+          <tr className={style.thead}>
+            <th style={inlineStyle.thFirst}>Дата</th>
+            <th style={inlineStyle.th}>Тип</th>
+            <th style={inlineStyle.th}>Категория</th>
+            <th style={inlineStyle.th}>Комментарий</th>
+            <th style={inlineStyle.th}>Сумма</th>
+            <th style={inlineStyle.thLast}>Баланс</th>
           </tr>
         ) : (
           <tr className={style.thead}>
-            <th style={style.thFirst}>Категория</th>
-            <th style={style.thLast}>Сумма</th>
+            <th style={inlineStyle.thFirst}>Категория</th>
+            <th style={inlineStyle.thLast}>Сумма</th>
           </tr>
         )}
       </thead>
       {mainView ? (
         transactions.map(({ _id, date, type, categoryId, comments, amount }, idx) => (
           <tbody key={_id}>
-            <tr className={styles.tr} style={style.tr}>
-              <td style={style.td} data-label="Дата">
+            <tr className={style.tr} style={inlineStyle.tr}>
+              <td style={inlineStyle.td} data-label="Дата">
                 {moment(date).format('DD.MM.YYYY')}
               </td>
-              <td data-label="Тип" style={style.td}>
+              <td data-label="Тип" style={inlineStyle.td}>
                 {type === 'income' ? '+' : '-'}
               </td>
-              <td data-label="Категория" style={style.td}>
+              <td data-label="Категория" style={inlineStyle.td}>
                 {categoryId?.name || findCategoryName(categoryId)}
               </td>
-              <td data-label="Комментарий" style={style.td}>
+              <td data-label="Комментарий" style={inlineStyle.td}>
                 {comments}
               </td>
-              <td data-label="Сумма" style={style.td}>
+
+              <td
+                data-label="Сумма"
+                style={type === 'income' ? inlineStyle.income : inlineStyle.expense}
+              >
                 {amount}
               </td>
-              <td data-label="Баланс" style={style.tdLast}>
-                {calculateBalance(amount, type, idx)}
+              <td data-label="Баланс" style={inlineStyle.tdLast}>
+                {moneyFormat(calculateBalance(amount, type, idx))}
               </td>
             </tr>
           </tbody>
@@ -147,28 +100,28 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
           {transactions.map(({ _id, categoryId, amount }) => {
             const rgb = color.filter(item => item.id === categoryId._id);
             return (
-              <tr key={_id} style={style.tr}>
-                <td style={style.tdFirst}>
-                  <div className={styles.colorBlock} style={{ background: rgb[0]?.color }}></div>
+              <tr key={_id} style={inlineStyle.tr}>
+                <td style={inlineStyle.tdFirst}>
+                  <div className={style.colorBlock} style={{ background: rgb[0]?.color }}></div>
                   {categoryId?.name}
                 </td>
-                <td style={style.tdLast}>{amount}</td>
+                <td style={inlineStyle.tdLast}>{amount}</td>
               </tr>
             );
           })}
-          <tr style={style.tr}>
-            <td style={style.tdFirst} className={styles.countText}>
+          <tr style={inlineStyle.tr}>
+            <td style={inlineStyle.tdFirst} className={style.countText}>
               Расходы:
             </td>
-            <td style={style.tdLast} className={styles.outcome}>
+            <td style={inlineStyle.tdLast} className={style.outcome}>
               {transTotal?.expense}
             </td>
           </tr>
-          <tr style={style.tr}>
-            <td style={style.tdFirst} className={styles.countText}>
+          <tr style={inlineStyle.tr}>
+            <td style={inlineStyle.tdFirst} className={style.countText}>
               Доходы:
             </td>
-            <td style={style.tdLast} className={styles.income}>
+            <td style={inlineStyle.tdLast} className={style.income}>
               {transTotal?.income}
             </td>
           </tr>
