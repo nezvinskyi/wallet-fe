@@ -35,7 +35,7 @@ const DashboardPage = () => {
       <Header />
       <div className={style.dashboardPage}>
         <div className={style.backdrop}>
-          <Container>
+          <Container style={{ display: 'flex' }}>
             <div className={style.leftContainer}>
               <div className={style.navAndBalanceContainer}>
                 <Navigation viewChanger={setMainView} />
