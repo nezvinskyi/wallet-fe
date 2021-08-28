@@ -81,7 +81,7 @@
   left: 0;
   height: var(--height);
   width: var(--height);
-  background: #ff6596;
+  background: #24cca7;
   /* background-image: url('./img/addBtnBg.svg'); */
   background-repeat: no-repeat;
   background-size: 60%;
@@ -89,6 +89,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   border-radius: var(--border-radius);
   transition: transform 0.2s;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+  content: '';
+  background: #ff6596;
 }
 
 .toggle__input:checked ~ .toggle__fill::after {
@@ -111,7 +116,7 @@
 }
 
 .title {
-  weight: 400;
+  font-weight: 400;
   font-size: 30px;
   text-align: center;
 
