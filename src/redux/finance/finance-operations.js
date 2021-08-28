@@ -1,6 +1,7 @@
 import apiTans from '../../service/transactions-api';
 import * as apiCats from '../../service/categories-api';
 import * as actions from './finance-actions';
+import api from '../../service/transactions-api';
 
 export const getTransactions = () => async dispatch => {
   dispatch(actions.getTransactionsRequest());
@@ -39,5 +40,18 @@ export const getBalance = () => async dispatch => {
     dispatch(actions.getBalanceSuccess(balance));
   } catch (error) {
     dispatch(actions.getBalanceError(error.response?.data.message || error.message));
+  }
+};
+
+export const addTransaction = values => async dispatch => {
+  dispatch(actions.addTransactionRequest());
+
+  try {
+    const response = await api.addTransaction(values);
+
+    dispatch(actions.addTransactionSuccess(response.data.result));
+  } catch (error) {
+    console.log('error from finance operations/add Transaction>>', error.message);
+    dispatch(actions.addTransactionError(error.response?.data.message || error.message));
   }
 };
