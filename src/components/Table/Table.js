@@ -88,7 +88,7 @@ const style = {
   },
 };
 
-const OperationsTable = ({ viewCondition, color }) => {
+const OperationsTable = ({ viewCondition, color, transTotal }) => {
   const transactions = useSelector(getAllTransactions);
 
   console.log(transactions);
@@ -155,11 +155,11 @@ const OperationsTable = ({ viewCondition, color }) => {
   })}
   <tr style={style.tr}>
     <td style={style.tdFirst} className={styles.countText}>Расходы:</td>
-    <td style={style.tdLast} className={styles.outcome}>99383</td>
+    <td style={style.tdLast} className={styles.outcome}>{transTotal?.expense}</td>
   </tr>
   <tr style={style.tr}>
     <td style={style.tdFirst} className={styles.countText}>Доходы:</td>
-    <td style={style.tdLast} className={styles.income}>6433</td>
+    <td style={style.tdLast} className={styles.income}>{transTotal?.income}</td>
   </tr>
 </tbody>
 )}

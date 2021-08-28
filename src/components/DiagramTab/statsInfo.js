@@ -21,3 +21,25 @@ export const getCurrentColors = (transactions) =>{
    return currentColors
 }
  
+export const getTotal = (transactions) => {
+  let total = {
+    expense: 0,
+    income: 0,
+  }
+      
+  transactions.forEach((transaction) =>{
+    switch(transaction.type){
+      case "expense":
+        total.expense = total.expense + transaction.amount;
+        break;
+
+        case "income":
+          total.income = total.income + transaction.amount;
+          break;
+default:
+  console.log('invalid type');
+    }
+  })
+
+  return total
+}
