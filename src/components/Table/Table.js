@@ -88,6 +88,7 @@ const style = {
 
 const OperationsTable = ({ viewCondition, color }) => {
   const transactions = useSelector(financeSelectors.getAllSortedTransactions);
+  const categories = useSelector(financeSelectors.getAllCategories);
   const balance = useSelector(financeSelectors.getBalance);
 
   localStorage.setItem('balance', balance);
@@ -103,6 +104,18 @@ const OperationsTable = ({ viewCondition, color }) => {
       return previousDayBalance;
     }
     return localStorage.getItem('balance');
+  };
+
+  const findCategoryName = id => {
+    let catName;
+    categories.find(cat => {
+      if (cat._id === id) {
+        console.log('cat.name :>> ', cat.name);
+        catName = cat.name;
+        return null;
+      } else return null;
+    });
+    return catName;
   };
 
   const mainView = viewCondition;
@@ -137,7 +150,7 @@ const OperationsTable = ({ viewCondition, color }) => {
                 {type === 'income' ? '+' : '-'}
               </td>
               <td data-label="Категория" style={style.td}>
-                {categoryId?.name}
+                {categoryId?.name || findCategoryName(categoryId)}
               </td>
               <td data-label="Комментарий" style={style.td}>
                 {comments}
