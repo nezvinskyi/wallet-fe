@@ -21,14 +21,13 @@ import style from './Style.module.css';
 const DashboardPage = () => {
   const dispatch = useDispatch();
   const [mainView, setMainView] = useState(true);
+  const isModalOpen = useSelector(globalSelectors.getIsModalAddTransactionOpen);
 
   useEffect(() => {
     dispatch(financeOperations.getTransactions());
     dispatch(financeOperations.getCategories());
     dispatch(financeOperations.getBalance());
   }, [dispatch]);
-
-  const isModalOpen = useSelector(globalSelectors.getIsModalAddTransactionOpen);
 
   return (
     <ContainerAppWrapper>
@@ -39,7 +38,7 @@ const DashboardPage = () => {
             <div className={style.leftContainer}>
               <div className={style.navAndBalanceContainer}>
                 <Navigation viewChanger={setMainView} />
-                <Balance />
+                <Balance isModalOpen={isModalOpen} />
               </div>
               <div className={style.currencyContainer}>
                 <Currency />

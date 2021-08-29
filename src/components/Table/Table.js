@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { financeSelectors } from '../../redux/finance/';
@@ -56,7 +57,7 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
             <th style={inlineStyle.th}>Тип</th>
             <th style={inlineStyle.th}>Категория</th>
             <th style={inlineStyle.th}>Комментарий</th>
-            <th style={inlineStyle.th}>Сумма</th>
+            <th style={inlineStyle.thSumm}>Сумма</th>
             <th style={inlineStyle.thLast}>Баланс</th>
           </tr>
         ) : (
