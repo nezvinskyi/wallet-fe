@@ -108,7 +108,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
               </tr>
             );
           })}
-          <tr style={inlineStyle.tr}>
+          <tr style={inlineStyle.tr} className={style.totalAmount}>
             <td style={inlineStyle.tdFirst} className={style.countText}>
               Расходы:
             </td>
@@ -116,7 +116,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
               {moneyFormat(total.expense)}
             </td>
           </tr>
-          <tr style={inlineStyle.tr}>
+          <tr style={inlineStyle.tr} className={style.totalAmount}>
             <td style={inlineStyle.tdFirst} className={style.countText}>
               Доходы:
             </td>
