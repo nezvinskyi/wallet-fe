@@ -13,6 +13,5 @@ export const getCurrency = async () => {
   const response = await fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11');
   const data = await response.json();
 
-  console.log('currency :>> ', data);
   return data;
 };
