@@ -9,6 +9,8 @@ import PrivatRoute from './PrivatRoute';
 import AddTransactionBtn from './AddTransactionBtn';
 import Modal from './Modal';
 import AddTransactionForm from './AddTransactionForm';
+import LoaderSpinner from './Loader';
+import LogoutModal from './LogoutModal';
 
 export {
   Header,
@@ -22,4 +24,6 @@ export {
   AddTransactionBtn,
   Modal,
   AddTransactionForm,
+  LoaderSpinner,
+  LogoutModal,
 };

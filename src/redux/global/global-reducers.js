@@ -24,8 +24,13 @@ const isModalAddTransactionOpen = createReducer(false, {
   [globalActions.closeModalAddTransaction]: () => false,
 });
 
+const isLogoutModalOpen = createReducer(false, {
+  [globalActions.openLogoutModal]: () => true,
+  [globalActions.closeLogoutModal]: () => false,
+});
+
 export default combineReducers({
   isLoading,
-  // isModalLogoutOpen
   isModalAddTransactionOpen,
+  isLogoutModalOpen,
 });

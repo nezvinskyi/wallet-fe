@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { LoginPage, RegistrationPage, DashboardPage, TempView, StatisticPage } from './pages/';
 
-import { ContainerAppWrapper, Navigation, Currency, PublicRoute, PrivatRoute } from './components';
+import { ContainerAppWrapper, Navigation, Currency, PublicRoute, PrivatRoute, LoaderSpinner } from './components';
 import { useDispatch } from 'react-redux';
 import { userOperations } from './redux/user';
 
@@ -27,6 +27,7 @@ function App() {
   return (
     <ContainerAppWrapper>
       <div className="App">
+        <LoaderSpinner/>
         <Switch>
           <PublicRoute restricted redirectTo="/" path="/register" component={RegistrationPage} />
           <PublicRoute restricted redirectTo="/" path="/login" component={LoginPage} />
