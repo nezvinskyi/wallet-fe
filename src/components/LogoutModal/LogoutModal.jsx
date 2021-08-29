@@ -42,12 +42,14 @@ const Modal = ({ children }) => {
     <div className={styles.Modal__backdrop} onClick={e => handleBackdropClick(e)}>
       <div className={styles.Modal__content}>
         <h2>Вы действительно хотите выйти?</h2>
-        <button className={styles.button} onClick={onConfirm}>
-          Да
-        </button>
-        <button className={styles.button} onClick={onClose}>
-          Нет
-        </button>
+        <div className={styles.buttonsGroup}>
+          <button className={styles.button} onClick={onConfirm}>
+            Да
+          </button>
+          <button className={styles.button} onClick={onClose}>
+            Нет
+          </button>
+        </div>
         {children}
       </div>
     </div>,
