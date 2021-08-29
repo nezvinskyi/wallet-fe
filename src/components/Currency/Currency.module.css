@@ -40,11 +40,11 @@
   line-height: 24px;
 }
 
-thead {
+.currency thead {
   background: rgba(255, 255, 255, 0.2);
 }
 
-td {
+.currency td {
   background-color: none;
   color: #ffffff;
 }
@@ -58,7 +58,7 @@ td {
     height: 174px;
   }
 
-  thead {
+  .currency thead {
     display: flex;
     padding: 11px 20px 12px 20px;
     width: 240px;
@@ -68,7 +68,7 @@ td {
     line-height: 27px;
   }
 
-  tbody {
+  .currency tbody {
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
@@ -81,7 +81,7 @@ td {
   /* tbody:nth-last-child {
     margin-bottom: 23px;
   } */
-  tbody > tr {
+  .currency tbody > tr {
     width: 240px;
     height: 24px;
     margin-bottom: 10px;
@@ -90,12 +90,12 @@ td {
     margin: 23px 0;
   } */
 
-  tbody > tr > td {
+  .currency tbody > tr > td {
     width: 80px;
     height: 24px;
   }
 
-  thead > tr > td {
+  .currency thead > tr > td {
     width: 80px;
     height: 27px;
   }
@@ -108,7 +108,7 @@ td {
     height: 174px;
   }
 
-  thead {
+  .currency thead {
     display: flex;
     padding: 11px 20px 12px 20px;
     width: 294px;
@@ -118,7 +118,7 @@ td {
     line-height: 27px;
   }
 
-  tbody {
+  .currency tbody {
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
@@ -131,7 +131,7 @@ td {
   /* tbody:nth-last-child {
     margin-bottom: 23px;
   } */
-  tbody > tr {
+  .currency tbody > tr {
     width: 294px;
     height: 24px;
     margin-bottom: 10px;
@@ -140,7 +140,7 @@ td {
     margin: 23px 0;
   } */
 
-  td {
+  .currency td {
     width: 96px;
     height: 27px;
   }
@@ -152,7 +152,7 @@ td {
     width: 348px;
     height: 347px;
   }
-  thead {
+  .currency thead {
     display: flex;
     padding: 17px 30px 16px 30px;
     width: 288px;
@@ -162,7 +162,7 @@ td {
     line-height: 27px;
   }
 
-  tbody {
+  .currency tbody {
     display: flex;
     flex-direction: column;
     padding: 20px 30px;
@@ -176,14 +176,14 @@ td {
   /* tbody:nth-last-child {
     margin-bottom: 23px;
   } */
-  tbody > tr {
+  .currency tbody > tr {
     margin-bottom: 23px;
   }
   /* .tbodyTrIt {
     margin: 23px 0;
   } */
 
-  td {
+  .currency td {
     width: 96px;
     height: 27px;
   }
