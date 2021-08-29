@@ -10,10 +10,11 @@ const LoaderSpinner = () => {
         <div className={styles.LoaderBackdrop}>
             <div className={styles.LoaderContent}></div>
             <Loader
-              type="BallTriangle"
+              type="MutatingDots"
               color="#24CCA7"
-              height={150}
-              width={150}
+              secondaryColor='#4A56E2'
+              height={250}
+              width={250}
             />
         </div>,
         modalRootRef,
