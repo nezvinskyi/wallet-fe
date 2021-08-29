@@ -38,7 +38,7 @@ const DashboardPage = () => {
           <div className={style.leftContainer}>
             <div className={style.navAndBalanceContainer}>
               <Navigation viewChanger={setMainView} />
-              <Balance isModalOpen={isModalOpen} />
+              <Balance />
             </div>
             <div className={style.currencyContainer}>
               <Currency />

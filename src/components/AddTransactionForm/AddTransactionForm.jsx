@@ -121,7 +121,7 @@ const AddTransactionForm = () => {
     };
 
     dispatch(financeOperations.addTransaction(data));
-
+    dispatch(financeOperations.getBalance());
     reset();
   };
 
