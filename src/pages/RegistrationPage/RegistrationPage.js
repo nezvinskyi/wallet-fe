@@ -48,11 +48,8 @@ const RegistrationPage = () => {
 
     //TODO dispatch error to redux
     if (password !== confirmPassword) {
-      //Try to use notification
       const errorMessage = 'Passwords no not match';
-      // alert('Passwords no not match - переделать нотификации');
-      dispatch(sessionOperations.setError(errorMessage));
-
+      toast(errorMessage);
       return;
     }
 
