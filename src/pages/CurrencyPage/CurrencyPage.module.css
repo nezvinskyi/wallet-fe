@@ -1,0 +1,18 @@
+@media screen and (max-width: 767px) {
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .currency {
+    padding-top: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .currencyPage {
+    display: none;
+  }
+}
