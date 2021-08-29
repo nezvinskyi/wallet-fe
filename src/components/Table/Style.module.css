@@ -103,3 +103,7 @@
   background-color: teal;
   margin-right: 16px;
 }
+
+.totalAmount {
+  border-bottom-style: hidden;
+}

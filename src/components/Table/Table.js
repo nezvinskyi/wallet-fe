@@ -5,7 +5,7 @@ import { financeSelectors } from '../../redux/finance/';
 import style from './Style.module.css';
 import inlineStyle from './inlineStyle';
 
-const OperationsTable = ({ viewCondition, color, transTotal }) => {
+const OperationsTable = ({ viewCondition, statistic, total }) => {
   const transactions = useSelector(financeSelectors.getAllSortedTransactions);
   const categories = useSelector(financeSelectors.getAllCategories);
   const balance = useSelector(financeSelectors.getBalance);
@@ -97,32 +97,31 @@ const OperationsTable = ({ viewCondition, color, transTotal }) => {
         ))
       ) : (
         <tbody>
-          {transactions.map(({ _id, categoryId, amount }) => {
-            const rgb = color.filter(item => item.id === categoryId._id);
-            return (
-              <tr key={_id} style={inlineStyle.tr}>
+          {statistic.map(({ id, name, amount, color }) => {
+          return (
+              <tr key={id} style={inlineStyle.tr}>
                 <td style={inlineStyle.tdFirst}>
-                  <div className={style.colorBlock} style={{ background: rgb[0]?.color }}></div>
-                  {categoryId?.name}
+                  <div className={style.colorBlock} style={{ background: color }}></div>
+                  {name}
                 </td>
-                <td style={inlineStyle.tdLast}>{amount}</td>
+                <td style={inlineStyle.tdLast}>{moneyFormat(amount)}</td>
               </tr>
             );
           })}
-          <tr style={inlineStyle.tr}>
+          <tr style={inlineStyle.tr} className={style.totalAmount}>
             <td style={inlineStyle.tdFirst} className={style.countText}>
               Расходы:
             </td>
             <td style={inlineStyle.tdLast} className={style.outcome}>
-              {transTotal?.expense}
+              {moneyFormat(total.expense)}
             </td>
           </tr>
-          <tr style={inlineStyle.tr}>
+          <tr style={inlineStyle.tr} className={style.totalAmount}>
             <td style={inlineStyle.tdFirst} className={style.countText}>
               Доходы:
             </td>
             <td style={inlineStyle.tdLast} className={style.income}>
-              {transTotal?.income}
+              {moneyFormat(total.income)}
             </td>
           </tr>
         </tbody>
