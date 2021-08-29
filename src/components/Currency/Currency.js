@@ -18,27 +18,27 @@ export default function CurrencyList() {
     <div className={styles.currency}>
       <table>
         <thead key={nanoid(3)}>
-          <tr>
-            <td>Валюта</td>
-            <td>Покупка</td>
-            <td>Продажа</td>
+          <tr className={styles.theadTr}>
+            <td className={styles.tbodyTd_1}>Валюта</td>
+            <td className={styles.tbodyTd_2}>Покупка</td>
+            <td className={styles.tbodyTd_3}>Продажа</td>
           </tr>
         </thead>
-        {currencies.map((currency, index) => {
-          if (index < 3) {
-            return (
-              <tbody key={currency.ccy}>
-                <tr>
-                  <td>{currency.ccy}</td>
-                  <td>{currency.buy}</td>
-                  <td>{currency.sale}</td>
-                </tr>
-              </tbody>
-            );
-          } else {
-            return null;
-          }
-        })}
+        <tbody key={nanoid(3)}>
+          {currencies.map((currency, index) => {
+            if (index < 3) {
+              return (
+                  <tr className={styles.tbodyTr} key={nanoid(3)}>
+                    <td className={styles.tbodyTd_1}>{currency.ccy}</td>
+                    <td className={styles.tbodyTd_2}>{(parseInt(currency.buy*100, 10)/100).toFixed(2)}</td>
+                    <td className={styles.tbodyTd_3}>{(parseInt(currency.sale*100, 10)/100).toFixed(2)}</td>
+                  </tr>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </tbody>
       </table>
     </div>
   );
