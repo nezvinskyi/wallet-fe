@@ -4,13 +4,13 @@ import styles from './Header.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 // import { userSelectors, userOperations } from '../../redux/user';
 import { userSelectors } from '../../redux/user';
-import { globalOperations, globalSelectors } from '../../redux/global';
-import { LogoutModal } from '../../components';
+import { globalOperations, /* globalSelectors */ } from '../../redux/global';
+// import { LogoutModal } from '../../components';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(userSelectors.getUserName);
-  const logoutModalIsOpen = useSelector(globalSelectors.getIsLogoutModalOpen);
+  // const logoutModalIsOpen = useSelector(globalSelectors.getIsLogoutModalOpen);
   // const handleLogout = () => {
   //   console.log('Выйти');
   //   dispatch(userOperations.logout());
@@ -29,7 +29,7 @@ export default function UserMenu() {
         <div className={styles.logoutItem}></div>
         <div className={styles.logoutText}>Выйти</div>
       </div>
-      {logoutModalIsOpen && <LogoutModal />}
+      {/* {logoutModalIsOpen && <LogoutModal />} */}
     </div>
   );
 }

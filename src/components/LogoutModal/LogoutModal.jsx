@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+// import { Button } from 'react-bootstrap';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { globalOperations } from '../../redux/global';
@@ -26,6 +27,7 @@ const Modal = ({ children }) => {
 
   const onConfirm = () => {
     dispatch(userOperations.logout());
+    dispatch(globalOperations.closeLogoutModal());
   };
 
   const onClose = () => {
@@ -42,12 +44,14 @@ const Modal = ({ children }) => {
     <div className={styles.Modal__backdrop} onClick={e => handleBackdropClick(e)}>
       <div className={styles.Modal__content}>
         <h2>Вы действительно хотите выйти?</h2>
-        <button className={styles.button} onClick={onConfirm}>
-          Да
-        </button>
-        <button className={styles.button} onClick={onClose}>
-          Нет
-        </button>
+        <div className={styles.buttonsGroup}>
+          <button className={styles.button} onClick={onConfirm}>
+            Да
+          </button>
+          <button className={styles.button} onClick={onClose}>
+            Нет
+          </button>
+        </div>
         {children}
       </div>
     </div>,
