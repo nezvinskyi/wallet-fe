@@ -31,13 +31,13 @@ export const getStats = transactions =>{
     const categoryId = transaction.categoryId._id;
     
     categoryColors.forEach(color => {
-          if (color.id === categoryId) {
+          if (color.id === categoryId && transaction.type === "expense") {
           notFilteredStats.push( {
             id: transaction.categoryId._id,
             amount: transaction.amount,
             name: transaction.categoryId.name,
             color: color.color,
-          })
+          }) 
         }
       });
     });
