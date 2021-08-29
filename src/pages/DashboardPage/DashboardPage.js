@@ -33,22 +33,25 @@ const DashboardPage = () => {
     <ContainerAppWrapper>
       <Header />
       <div className={style.dashboardPage}>
-        <div className={style.backdrop}>
-          <Container style={{ display: 'flex' }}>
-            <div className={style.leftContainer}>
-              <div className={style.navAndBalanceContainer}>
-                <Navigation viewChanger={setMainView} />
-                <Balance isModalOpen={isModalOpen} />
-              </div>
-              <div className={style.currencyContainer}>
-                <Currency />
-              </div>
+        {/* <div className={style.backdrop}> */}
+        <Container className={style.backdrop}>
+          <div className={style.leftContainer}>
+            <div className={style.navAndBalanceContainer}>
+              <Navigation viewChanger={setMainView} />
+              <Balance isModalOpen={isModalOpen} />
             </div>
-            <div className={style.rightContainer}>
-              {mainView ? <OperationsTable viewCondition={mainView} /> : <DiagramTab />}
+            <div className={style.currencyContainer}>
+              <Currency />
             </div>
-          </Container>
-        </div>
+          </div>
+
+          <div className={style.divider}></div>
+
+          <div className={style.rightContainer}>
+            {mainView ? <OperationsTable viewCondition={mainView} /> : <DiagramTab />}
+          </div>
+        </Container>
+        {/* </div> */}
       </div>
       <AddTransactionBtn />
       {isModalOpen && (
