@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { financeSelectors } from '../../redux/finance';
 import styles from './Balance.module.css';
 
-// const balance = 24000.0;
+/* const balance = 24000.00; */
 const hryvnaSign = '\u20B4';
 
 export default function Currency() {
