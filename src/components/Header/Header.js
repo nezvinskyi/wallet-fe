@@ -6,12 +6,12 @@ import { Container } from 'react-bootstrap';
 
 const Header = () => {
   return (
-    <Container>
-      <header className={styles.header}>
+    <header>
+      <Container className={styles.header}>
         <Logo />
         <UserMenu />
-      </header>
-    </Container>
+      </Container>
+    </header>
   );
 };
 
