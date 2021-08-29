@@ -20,23 +20,13 @@
     align-items: center;
   }
 
-  .Navigation > li > a > div > div {
+  .NavLinkName {
+    display: none;
+  }
+
+  .Navigation > li > div > img {
     width: 44px;
     height: 44px;
-  }
-
-  .NavItemHome {
-    background-image: url('../../images/navigation/home.svg');
-    background-repeat: no-repeat;
-  }
-  .NavItemCurrency {
-    background-image: url('../../images/navigation/diagram.svg');
-    background-repeat: no-repeat;
-  }
-
-  .NavItemCurrency {
-    background-image: url('../../images/navigation/currency.svg');
-    background-repeat: no-repeat;
   }
 }
 
@@ -55,11 +45,7 @@
   }
 
   .isHidden {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+    display: none;
   }
 
   .Navigation > li > a > div {
@@ -87,8 +73,12 @@
     margin-top: 10px;
   }
 
-  .Navigation > li > a > div > div {
+  .Navigation > li > a > div > img {
     width: 18px;
     height: 18px;
+  }
+
+  .NavItemCurrency {
+    display: none;
   }
 }
