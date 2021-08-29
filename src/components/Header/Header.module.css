@@ -2,29 +2,100 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 320px;
-  height: 60px;
+  background-color: #ffffff;
 }
-
-/* .LogoWallet {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-}
-
-.LogoWallet > span {
-  font: Poppins;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 30px;
-  line-height: 45px;
-  padding-left: 15px;
-} */
 
 .UserMenu {
+  display: flex;
+  align-items: center;
+  height: 24px;
   padding: 18px 20px;
 }
 
-.UserMenu > button {
-  padding-left: 10px;
+.LogoName {
+  color: #bdbdbd;
 }
+
+.UserMenu > button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 18px;
+  height: 18px;
+  padding: 6px 0px 6px 10px;
+}
+
+.UserMenu > button:hover {
+  color: #bdbdbd;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .header {
+    width: 320px;
+    height: 60px;
+  }
+
+  .isHidden {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    width: 768px;
+    height: 80px;
+  }
+  .UserMenu {
+    width: 188px;
+    height: 30px;
+    justify-content: flex-end;
+    padding: 20px 40px;
+  }
+
+  .UserMenu > button {
+    width: 80px;
+    height: 24px;
+    padding-left: 15px;
+    border-left: 1px solid #bdbdbd;
+    color: #bdbdbd;
+  }
+
+  .LogoName {
+    padding-right: 15px;
+  }
+
+  .UserMenu > button > img {
+    padding-right: 10px;
+  }
+  .UserMenu > button > span {
+    width: 51px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header {
+    width: 1280px;
+  }
+  .UserMenu {
+    width: 188px;
+    height: 30px;
+    justify-content: flex-end;
+    padding: 20px 85px;
+  }
+}
+
+/* :hover .client-svg,
+&:focus .client-svg {
+  fill: getColor('accent');
+} */
+
+/* .is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+} */

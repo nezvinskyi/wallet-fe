@@ -1,14 +1,51 @@
 .Logo {
   display: flex;
+  width: 120px;
+  height: 30px;
   align-items: center;
   padding: 15px 20px;
 }
 
-.Logo > span {
-  font: Poppins;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 30px;
-  line-height: 45px;
-  padding-left: 15px;
+@media (min-width: 320px) and (max-width: 767px) {
+  .Logo > img {
+    width: 30px;
+    height: 30px;
+  }
+  .Logo > span {
+    font: Poppins;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 45px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .Logo {
+    width: 181px;
+    height: 40px;
+    padding: 20px 40px;
+  }
+
+  .Logo > img {
+    width: 40px;
+    height: 40px;
+  }
+  .Logo > span {
+    font: Poppins;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 45px;
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .Logo {
+    width: 181px;
+    height: 40px;
+    padding: 20px 85px;
+  }
 }

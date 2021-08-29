@@ -15,13 +15,15 @@ export default function UserMenu() {
     console.log('Выйти');
     dispatch(userOperations.logout());
   };
+  /* let width = window.innerWidth; */
 
   return (
     <div className={styles.UserMenu}>
-      <span>{name}</span>
+      <span className={styles.LogoName}>{name}</span>
       <button type="button" onClick={handleLogout} className="btn">
-        <img src={logout} alt="logout" width="30" height="30" />
-        {/* Выйти */}
+        <img src={logout} alt="logout" width="18" height="18" />
+        {/* { width > 766 && (<span className={styles.isHidden}>Выйти</span>)} */}
+        <span className={styles.isHidden}>Выйти</span>
       </button>
     </div>
   );

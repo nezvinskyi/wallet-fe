@@ -6,6 +6,7 @@ import diagram from '../../image/navigation/diagram.svg';
 import currency from '../../image/navigation/currency.svg';
 
 const Navigation = ({ viewChanger }) => {
+  let width = window.innerWidth;
   return (
     <ul className={styles.Navigation}>
       <li>
@@ -17,36 +18,47 @@ const Navigation = ({ viewChanger }) => {
         >
           <span>
             <img src={home} alt="home" width="44" height="44" />
-            {/* Главная */}
+            
+            {width > 766 && (
+              <span className={styles.NavLinkName}>Главная</span>
+            )}
           </span>
         </NavLink>
       </li>
 
-      <li>
+      <li className={styles.NavigationLi}>
         <NavLink
           to={routes.home}
-          className={styles.NavigationLi}
+          className={styles.NavLink}
           activeClassName={styles.NavLinkActive}
           onClick={() => viewChanger(false)}
         >
           <span>
             <img src={diagram} alt="diagram" width="44" height="44" />
-            {/* Статистика */}
+            {width > 766 && (
+              <span className={styles.NavLinkName}>Статистика</span>
+            )}
+            
           </span>
         </NavLink>
       </li>
 
-      <li>
+
+      
+      <li className={styles.isHidden}>
         <NavLink
           to={routes.currency}
           className={styles.NavLink}
           activeClassName={styles.NavLinkActive}
-        >
+         >
           <span>
             <img src={currency} alt="currency" width="44" height="44" />
           </span>
         </NavLink>
       </li>
+        
+         
+
     </ul>
   );
 };
