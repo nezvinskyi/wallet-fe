@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import Loader from "react-loader-spinner";
 import styles from './Spinner.module.css'
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const modalRootRef = document.getElementById('modal-root');
 
@@ -10,11 +10,14 @@ const LoaderSpinner = () => {
         <div className={styles.LoaderBackdrop}>
             <div className={styles.LoaderContent}></div>
             <Loader
-              type="MutatingDots"
+            //   type="MutatingDots"
+              type="TailSpin"
               color="#24CCA7"
-              secondaryColor='#4A56E2'
+            //   secondaryColor='#4A56E2'
               height={250}
               width={250}
+            //   radius={20}
+            //   timeout={3000}
             />
         </div>,
         modalRootRef,
