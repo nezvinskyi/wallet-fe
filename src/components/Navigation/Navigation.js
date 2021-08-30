@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import routes from '../../routes';
 import styles from './Navigation.module.css';
-import home from '../../images/navigation/home.svg';
-import diagram from '../../images/navigation/diagram.svg';
-import currency from '../../images/navigation/currency.svg';
+import home from '../../assets/images/navigation/home.svg';
+import diagram from '../../assets/images/navigation/diagram.svg';
+import currency from '../../assets/images/navigation/currency.svg';
 
 const Navigation = ({ viewChanger, mainView }) => {
   return (

@@ -13,3 +13,8 @@
     url('../assets/fonts/montserrat/montserrat-bold-webfont.woff'),
     url('../assets/fonts/montserrat/montserrat-bold-webfont.woff2');
 }
+
+@font-face {
+  font-family: 'Segoe';
+  src: url('../assets/fonts/segoe/SegoeUI.woff'), url('../assets/fonts/segoe/SegoeUI-Bold.woff');
+}

@@ -81,7 +81,7 @@ const AddTransactionForm = () => {
   const [type, setType] = useState(false);
   const [amount, setAmount] = useState('');
   const categories = useSelector(financeSelectors.categoriesForAddTrForm);
-  const [categoryId, setCategoryId] = useState(categories[7]._id);
+  const [categoryId, setCategoryId] = useState(categories[8]._id);
   const [comments, setComments] = useState('');
 
   const dispatch = useDispatch();

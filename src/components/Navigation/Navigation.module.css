@@ -7,11 +7,12 @@
 }
 
 .NavLinkActive {
-  fill: #4a56e2;
+  fill: green;
 }
 
 .navImgActive {
   box-shadow: 0px 3px 10px rgba(74, 86, 226, 0.5);
+  fill: green;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -60,7 +61,7 @@
   .NavLinkName {
     display: flex;
     align-items: center;
-    font-family: Poppins;
+    font-family: Segoe;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -72,7 +73,7 @@
   .NavLinkNameActive {
     display: flex;
     align-items: center;
-    font-family: Poppins;
+    font-family: Segoe;
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
