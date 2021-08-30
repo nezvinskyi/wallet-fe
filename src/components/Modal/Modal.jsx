@@ -34,8 +34,8 @@ const Modal = ({ children }) => {
   };
 
   return createPortal(
-    <div className={styles.Modal__backdrop} onClick={e => handleBackdropClick(e)}>
-      <div className={styles.Modal__content}>
+    <div className={styles.backdrop} onClick={e => handleBackdropClick(e)}>
+      <div className={styles.modal}>
         <button className={styles.button_x} onClick={onClose}>
           X
         </button>
@@ -47,43 +47,3 @@ const Modal = ({ children }) => {
 };
 
 export default Modal;
-
-// class Modal extends Component {
-//   componentDidMount() {
-//     window.addEventListener('keydown', this.handleKeyDown);
-//   }
-
-//   componentWillUnmount() {
-//     window.removeEventListener('keydown', this.handleKeyDown);
-//   }
-
-// onClose = () => {
-//   useDispatch()
-// };
-
-//   handleKeyDown = e => {
-//     if (e.code === 'Escape') {
-//       this.props.onClose();
-//     }
-//   };
-
-// handleBackdropClick = e => {
-//   if (e.currentTarget === e.target) {
-//     this.props.onClose();
-//   }
-// };
-
-//   render() {
-//     return createPortal(
-//       <div className={styles.Modal__backdrop} onClick={this.handleBackdropClick}>
-//         <div className={styles.Modal__content}>
-//           <button className={styles.button_x} onClick={onClose}>
-//             X
-//           </button>
-//           {this.props.children}
-//         </div>
-//       </div>,
-//       modalRootRef,
-//     );
-//   }
-// }

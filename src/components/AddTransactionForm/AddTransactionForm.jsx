@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { globalOperations } from '../../redux/global';
 import { financeSelectors, financeOperations } from '../../redux/finance';
+import Header from '../Header';
 import styles from './AddTransactionForm.module.css';
 
 import Select from 'react-select';
@@ -19,12 +20,8 @@ const customStyles = {
     borderRight: '0px solid white',
     borderTop: '0px solid white',
     borderBottom: '1px solid #e0e0e0',
-    // border: '0 !important',
-    // This line disable the blue border
-    // boxShadow: '0 !important',
     boxShadow: 'none',
     '&:hover': {
-      // border: '0 !important',
       border: '0 none',
     },
   }),
@@ -37,12 +34,20 @@ const customStyles = {
 };
 
 const stylesJSX = {
+  select: {
+    width: '410px',
+  },
+  '@media screen and (max-width: 767px)': {
+    select: {
+      width: '100%',
+    },
+  },
   primaryBtn: {
     color: '#ffffff',
     background: '#24CCA7',
     width: 300,
     height: 50,
-    marginTop: '20px',
+
     marginBottom: '20px',
     border: 'none',
     borderRadius: '20px',
@@ -76,7 +81,6 @@ const AddTransactionForm = () => {
   const [amount, setAmount] = useState('');
   const categories = useSelector(financeSelectors.categoriesForAddTrForm);
   const [categoryId, setCategoryId] = useState('');
-  // const [categoryId, setCategoryId] = useState(categories[0]._id);
   const [comments, setComments] = useState('');
 
   const dispatch = useDispatch();
@@ -92,9 +96,6 @@ const AddTransactionForm = () => {
     setAmount(e.target.value);
   };
 
-  const categoryChange = e => {
-    setCategoryId(e.target.value);
-  };
   const categoryChangeREACTSELECT = category => {
     setCategoryId(category._id);
   };
@@ -132,7 +133,10 @@ const AddTransactionForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <div className={styles.header}>
+        <Header />
+      </div>
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
         <h1 className={styles.title}>Добавить транзакцию</h1>
         <div className={styles.typeWrapper}>
           <span className={styles.transType}>
@@ -155,7 +159,7 @@ const AddTransactionForm = () => {
         </div>
 
         <div className={styles.categoryWrapper}>
-          <div style={{ width: '450px' }}>
+          <div style={stylesJSX.select}>
             <Select
               styles={customStyles}
               placeholder="Выберите категорию"
@@ -165,17 +169,6 @@ const AddTransactionForm = () => {
             />
           </div>
         </div>
-
-        {/* <div className={styles.categoryWrapper}>
-          <select name="categoryId" className={styles.select} onChange={categoryChange}>
-            <option>Выберите категорию</option>
-            {categories.map(category => (
-              <option className={styles.optionFilled} key={category._id} value={category._id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
-        </div> */}
 
         <div className={styles.amountAndData__wrapper}>
           <input
