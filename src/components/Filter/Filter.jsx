@@ -1,6 +1,6 @@
-// import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import styles from './Filter.module.css';
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 // import Select from 'react-select';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -40,18 +40,18 @@ export default function Filter() {
   // );
 
   //то что красивое
-  // const [selectedMonthForm, setSelectedMonthForm] = useState('Месяц');
-  // const [selectedYearForm, setSelectedYearForm] = useState('Год');
-  // const [showMonths, setShowMonths] = useState(false);
-  // const [showYears, setShowYears] = useState(false);
+  const [selectedMonthForm, setSelectedMonthForm] = useState('Месяц');
+  const [selectedYearForm, setSelectedYearForm] = useState('Год');
+  const [showMonths, setShowMonths] = useState(false);
+  const [showYears, setShowYears] = useState(false);
 
-  // const dropDownMonths = () => {
-  //   setShowMonths(!showMonths);
-  // };
+  const dropDownMonths = () => {
+    setShowMonths(!showMonths);
+  };
 
-  // const dropDownYears = () => {
-  //   setShowYears(!showYears);
-  // };
+  const dropDownYears = () => {
+    setShowYears(!showYears);
+  };
 
   // const selectMonth = month => {
   //   setSelectedMonthForm(month);
@@ -66,31 +66,40 @@ export default function Filter() {
   const filter = useSelector(financeSelectors.getFilter);
 
   const handleMonthChange = e => {
-    dispatch(financeOperations.addFilter({ month: e.target.value }));
-
+    const month = e.target.dataset.month
+    const monthid = e.target.dataset.monthid
+    dispatch(financeOperations.addFilter({ month: monthid }));
+    setSelectedMonthForm(month)
     console.log('filter :>> ', filter);
+    // console.log('month :>> ', month);
   };
 
   const handleYearChange = e => {
-    dispatch(financeOperations.addFilter({ year: e.target.value }));
+    const year = e.target.dataset.year
+    dispatch(financeOperations.addFilter({ year: year }));
+    setSelectedYearForm(year)
+    console.log('month :>> ', year);
   };
+  
 
   return (
     <>
-      {/* <div className={styles.wrapper}>
+      <div className={styles.wrapper}>
         <div className={(styles.selectBoxBox, styles.monthPicker)} onClick={dropDownMonths}>
           <div className={styles.selectBoxContainer}>
             <div className={styles.selectBoxSelectedItem}>{selectedMonthForm}</div>
-
+             
             <div
               style={{ display: showMonths ? 'block' : 'none' }}
               className={styles.selectBoxItems}
             >
-              {months.map(month => (
+              {months.map(({ id, name: month }) => (
                 <div
-                  key={nanoid()}
-                  onClick={() => selectMonth(month)}
+                  key={id}
+                  onClick={handleMonthChange}
                   className={selectedMonthForm === month ? styles.selected : styles.selectedM}
+                  data-month={month}
+                  data-monthid={id}
                 >
                   {month}
                 </div>
@@ -99,10 +108,10 @@ export default function Filter() {
           </div>
         </div>
 
-        <div className={(styles.selectBoxBox, styles.yearPicker)} onClick={dropDownYears}>
+        <div className={(styles.selectBoxBox, styles.yearPicker)} data-year='year' onClick={dropDownYears}>
           <div className={styles.selectBoxContainer}>
             <div className={styles.selectBoxSelectedItem}>{selectedYearForm}</div>
-
+            
             <div
               style={{ display: showYears ? 'block' : 'none' }}
               className={styles.selectBoxItems}
@@ -110,8 +119,9 @@ export default function Filter() {
               {years.map(year => (
                 <div
                   key={nanoid()}
-                  onClick={() => selectYear(year)}
+                  onClick={handleYearChange}
                   className={selectedYearForm === year ? styles.selected : styles.selectedM}
+                  data-year={year}
                 >
                   {year}
                 </div>
@@ -119,13 +129,13 @@ export default function Filter() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
-      <form className={styles.wrapper}>
+      {/* <form className={styles.wrapper}>
         <select
           name="month"
           // value={selectedMonthForm}
-          // className={styles.monthPicker}
+          className={styles.monthPicker}
           // onChange={selectMonthHandler}
           onChange={handleMonthChange}
         >
@@ -136,7 +146,7 @@ export default function Filter() {
             <option key={id} value={id}>
               {month}
             </option>
-          ))}
+          ))} */}
 
           {/* <option name="" value="Месяц" className={styles.pickerFirstOpt}>
             Месяц
@@ -146,7 +156,7 @@ export default function Filter() {
               {month}
             </option>
           ))} */}
-        </select>
+        {/* </select>
 
         <select
           name="year"
@@ -162,7 +172,7 @@ export default function Filter() {
             <option key={year} value={year}>
               {year}
             </option>
-          ))}
+          ))} */}
           {/* <option name="" value="Год" className={styles.pickerFirstOpt}>
             Год
           </option>
@@ -171,8 +181,8 @@ export default function Filter() {
               {year}
             </option>
           ))} */}
-        </select>
-      </form>
+        {/* </select>
+      </form> */}
     </>
   );
 }
