@@ -15,3 +15,5 @@ export const getCategoriesError = createAction('categories/getCategoriesError');
 export const getBalanceRequest = createAction('categories/getBalanceRequest');
 export const getBalanceSuccess = createAction('categories/getBalanceSuccess');
 export const getBalanceError = createAction('categories/getBalanceError');
+
+export const addFilter = createAction('transactions/addFilter')

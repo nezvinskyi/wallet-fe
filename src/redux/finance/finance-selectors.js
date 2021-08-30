@@ -29,12 +29,18 @@ export const getAllSortedTransactions = createSelector([getAllTransactions], tra
   return [...transactions].sort((a, b) => b.date.localeCompare(a.date));
 });
 
-// export const getFilteredSortedContacts = createSelector(
-//   [getAllContacts, getFilter],
-//   (contacts, filter) => {
-//     const normalizedFilter = filter.toLowerCase();
-//     return contacts
-//       .filter(({ name }) => name.toLowerCase().includes(normalizedFilter))
-//       .sort((a, b) => a.name.localeCompare(b.name));
-//   },
-// );
+export const getFilter = state => state.finance.filter;
+
+export const getFilteredTransactions = createSelector(
+  [getAllTransactions, getFilter],
+  (allTransactions, filter) => {
+    const { month, year } = filter;
+
+    return allTransactions.filter(transaction => {
+      if (transaction.year.includes(year) && transaction.month.includes(month)) {
+        return transaction;
+      }
+    });
+    // .sort((a, b) => a.date.localeCompare(b.date));
+  },
+);

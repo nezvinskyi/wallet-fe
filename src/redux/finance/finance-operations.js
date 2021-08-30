@@ -54,3 +54,7 @@ export const addTransaction = transaction => async dispatch => {
     dispatch(actions.addTransactionError(error.response?.data.message || error.message));
   }
 };
+
+export const addFilter = filter => async dispatch => {
+  dispatch(actions.addFilter(filter));
+};
