@@ -17,12 +17,6 @@ select {
   background-position: bottom 20px right 20px;
 }
 
-/* .selectArrow {
-  position: absolute;
-  width: 23px;
-  height: 28px;
-} */
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -64,4 +58,71 @@ select {
   .yearPicker {
     margin-top: 0px;
   }
+}
+
+.selectBoxContainer {
+  position: relative;
+  z-index: 10;
+  display: block;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 40px;
+}
+
+.selectBoxBox {
+  width: 100%;
+  /* position: absolute; */
+  /* left: 15px; */
+}
+
+.selectBoxSelectedItem {
+  display: inline-block;
+  position: relative;
+  z-index: 11;
+  width: 100%;
+  height: 50px;
+  outline-style: none;
+  border: solid 1px rgba(0, 0, 0, 1);
+  border-radius: 40px;
+  list-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 12px 20px 14px;
+  box-sizing: border-box;
+  background: transparent;
+  background-image: url('./arrow.svg');
+  background-repeat: no-repeat;
+  background-position: bottom 20px right 20px;
+  cursor: pointer;
+}
+
+.selectBoxItems {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(50px);
+  border-radius: 20px;
+  /* Note: backdrop-filter has minimal browser support */
+}
+
+.selectBoxItems div {
+  padding: 6px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.selectBoxItems div:hover,
+.selectBoxItems div:focus {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.selectBoxItems div:first-child {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.selectBoxItems div:last-child {
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
