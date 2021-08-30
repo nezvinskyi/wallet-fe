@@ -22,7 +22,7 @@
 .balance > p {
   display: flex;
   align-items: center;
-  width: 175px;
+  max-width: 240px;
   height: 36px;
   left: 125px;
   font-family: Segoe;

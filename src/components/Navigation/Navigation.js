@@ -65,14 +65,11 @@ const Navigation = ({ viewChanger, mainView }) => {
           activeClassName={styles.NavLinkActive}
         >
           <div>
-            <img
+            <img className={styles.isHidden}
               src={currency}
               alt="currency"
               width="44"
-              height="44"
-              /* className={!mainView && styles.navImgActive} */
-            />            
-
+              height="44" />
           </div>
         </NavLink>
       </li>
