@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap';
 
 const Header = () => {
   return (
-    <header>
+    <header className={styles.headerContainer}>
       <Container className={styles.header}>
         <Logo />
         <UserMenu />
