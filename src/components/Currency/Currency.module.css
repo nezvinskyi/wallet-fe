@@ -61,8 +61,8 @@
   .currency thead {
     display: flex;
     padding: 11px 20px 12px 20px;
-    width: 240px;
-    height: 27px;
+    /* width: 240px;
+    height: 27px; */
     font-weight: bold;
     font-size: 18px;
     line-height: 27px;
@@ -72,7 +72,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
-    width: 240px;
+    /* width: 240px; */
     background-image: url('../../assets/images/currency/bg-img-mobile.png');
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -111,8 +111,8 @@
   .currency thead {
     display: flex;
     padding: 11px 20px 12px 20px;
-    width: 294px;
-    height: 27px;
+    /* width: 294px;
+    height: 27px; */
     font-weight: bold;
     font-size: 18px;
     line-height: 27px;
@@ -122,7 +122,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
-    width: 294px;
+    /* width: 294px; */
     background-image: url('../../assets/images/currency/bg-img-tablet.png');
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -155,8 +155,8 @@
   .currency thead {
     display: flex;
     padding: 17px 30px 16px 30px;
-    width: 288px;
-    height: 27px;
+    /* width: 288px;
+    height: 27px; */
     font-weight: bold;
     font-size: 18px;
     line-height: 27px;
@@ -166,7 +166,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px 30px;
-    width: 288px;
+    /* width: 288px; */
     height: 248px;
     background-image: url('../../assets/images/currency/bg-img-desctop.png');
     background-repeat: no-repeat;

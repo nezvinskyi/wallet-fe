@@ -24,10 +24,11 @@ const Navigation = ({ viewChanger, mainView }) => {
               height="44"
               className={mainView && styles.navImgActive}
             />
-
-            <span className={mainView ? styles.NavLinkNameActive : styles.NavLinkName}>
-              Главная
-            </span>
+            <div className={styles.NavLinkNone}>
+              <span className={mainView ? styles.NavLinkNameActive : styles.NavLinkName}>
+                Главная
+              </span>
+            </div>
           </div>
         </NavLink>
       </li>
@@ -47,10 +48,12 @@ const Navigation = ({ viewChanger, mainView }) => {
               height="44"
               className={!mainView && styles.navImgActive}
             />
-
-            <span className={!mainView ? styles.NavLinkNameActive : styles.NavLinkName}>
-              Статистика
-            </span>
+            
+            <div className={styles.NavLinkNone}>
+              <span className={!mainView ? styles.NavLinkNameActive : styles.NavLinkName}>
+                Статистика
+              </span>
+            </div>
           </div>
         </NavLink>
       </li>
@@ -62,7 +65,14 @@ const Navigation = ({ viewChanger, mainView }) => {
           activeClassName={styles.NavLinkActive}
         >
           <div>
-            <img className={styles.isHidden} src={currency} alt="currency" width="44" height="44" />
+            <img
+              src={currency}
+              alt="currency"
+              width="44"
+              height="44"
+              /* className={!mainView && styles.navImgActive} */
+            />            
+
           </div>
         </NavLink>
       </li>

@@ -18,11 +18,15 @@
 @media (min-width: 320px) and (max-width: 767px) {
   .Navigation {
     display: flex;
-    width: 200px;
+    width: 280px;
     height: 60px;
-    padding: 0 60px;
+    padding: 0 40px;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .NavLinkNone {
+    display: none;
   }
 
   .NavLinkName {
