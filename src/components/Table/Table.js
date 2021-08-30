@@ -54,9 +54,9 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
         {mainView ? (
           <tr className={style.thead}>
             <th style={inlineStyle.thFirst}>Дата</th>
-            <th style={inlineStyle.th}>Тип</th>
-            <th style={inlineStyle.th}>Категория</th>
-            <th style={inlineStyle.th}>Комментарий</th>
+            <th style={inlineStyle.thLeftSide}>Тип</th>
+            <th style={inlineStyle.thLeftSide}>Категория</th>
+            <th style={inlineStyle.thLeftSide}>Комментарий</th>
             <th style={inlineStyle.thSumm}>Сумма</th>
             <th style={inlineStyle.thLast}>Баланс</th>
           </tr>
@@ -71,16 +71,16 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
         transactions.map(({ _id, date, type, categoryId, comments, amount }, idx) => (
           <tbody key={_id}>
             <tr className={style.tr} style={inlineStyle.tr}>
-              <td style={inlineStyle.td} data-label="Дата">
+              <td style={inlineStyle.tdLeftSide} data-label="Дата">
                 {moment(date).format('DD.MM.YYYY')}
               </td>
-              <td data-label="Тип" style={inlineStyle.td}>
+              <td data-label="Тип" style={inlineStyle.tdType}>
                 {type === 'income' ? '+' : '-'}
               </td>
-              <td data-label="Категория" style={inlineStyle.td}>
+              <td data-label="Категория" style={inlineStyle.tdLeftSide}>
                 {categoryId?.name || findCategoryName(categoryId)}
               </td>
-              <td data-label="Комментарий" style={inlineStyle.td}>
+              <td data-label="Комментарий" style={inlineStyle.tdLeftSide}>
                 {comments}
               </td>
 
@@ -99,7 +99,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
       ) : (
         <tbody>
           {statistic.map(({ id, name, amount, color }) => {
-          return (
+            return (
               <tr key={id} style={inlineStyle.tr}>
                 <td style={inlineStyle.tdFirst}>
                   <div className={style.colorBlock} style={{ background: color }}></div>

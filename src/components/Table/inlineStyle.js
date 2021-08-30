@@ -30,15 +30,20 @@ const inlineStyle = {
   tr: {
     border: '0px solid inherit',
   },
-  th: {
+  thLeftSide: {
     backgroundColor: 'white',
     borderStyle: 'hidden',
+    paddingRight: '10px',
   },
 
-  td: {
+  tdLeftSide: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
-    paddingLeft: '15px',
+  },
+  tdType: {
+    borderBottomColor: 'rgba(220, 220, 223, 1)',
+    backgroundColor: 'inherit',
+    paddingLeft: '19px',
     // paddingRight: '15px',
   },
   income: {
