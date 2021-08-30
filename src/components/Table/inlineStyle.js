@@ -6,11 +6,13 @@ const inlineStyle = {
     border: '0px solid white',
     borderCollapse: 'collapse',
   },
+
   thFirst: {
     backgroundColor: 'white',
     borderTopLeftRadius: '30px',
     borderBottomLeftRadius: '30px',
     borderStyle: 'hidden',
+    paddingLeft: '20px',
   },
   thSumm: {
     backgroundColor: 'white',
@@ -29,6 +31,12 @@ const inlineStyle = {
   tableTr: {
     border: '0px solid inherit',
   },
+  tableTypeTh: {
+    backgroundColor: 'white',
+    borderStyle: 'hidden',
+    paddingLeft: '0px',
+  },
+
   tableTh: {
     backgroundColor: 'white',
     borderStyle: 'hidden',
@@ -38,11 +46,28 @@ const inlineStyle = {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
   },
+  // '@media screen and (max-width: 767px)': {
+  //   tableDataTd: {
+  //     paddingLeft: '0px',
+  //   },
+  //   tableTypeTd: {
+  //     paddingLeft: '18px',
+  //   },
+  //   thFirst: {
+  //     paddingLeft: '0px',
+  //   },
+  // },
+  tableDataTd: {
+    borderBottomColor: 'rgba(220, 220, 223, 1)',
+    backgroundColor: 'inherit',
+    // paddingLeft: '20px',
+  },
+
   tableTypeTd: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
-    paddingLeft: '18px',
   },
+
   income: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
@@ -54,21 +79,18 @@ const inlineStyle = {
   expense: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
-
     paddingRight: '15px',
     color: '#FF6596',
     textAlign: 'right',
   },
   tdLast: {
     paddingRight: '15px',
-
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     textAlign: 'right',
   },
   tdFirst: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
-
     paddingRight: '15px',
     textAlign: 'left',
   },

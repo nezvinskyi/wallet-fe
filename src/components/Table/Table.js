@@ -53,7 +53,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
         {mainView ? (
           <tr className={style.thead}>
             <th style={inlineStyle.thFirst}>Дата</th>
-            <th style={inlineStyle.tableTh}>Тип</th>
+            <th style={inlineStyle.tableTypeTh}>Тип</th>
             <th style={inlineStyle.tableTh}>Категория</th>
             <th style={inlineStyle.tableTh}>Комментарий</th>
             <th style={inlineStyle.thSumm}>Сумма</th>
@@ -70,7 +70,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
         transactions.map(({ _id, date, type, categoryId, comments, amount }, idx) => (
           <tbody key={_id}>
             <tr className={style.tr} style={inlineStyle.tableTr}>
-              <td style={inlineStyle.tableTd} data-label="Дата">
+              <td style={inlineStyle.tableDataTd} className={style.tableDataTd} data-label="Дата">
                 {moment(date).format('DD.MM.YYYY')}
               </td>
               <td data-label="Тип" style={inlineStyle.tableTypeTd}>
