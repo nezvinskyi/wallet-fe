@@ -61,99 +61,10 @@
 .rightContainer {
   flex: 3;
   padding-top: 40px;
-
-  /* outline: red dotted 2px; */
+  padding-left: 40px;
 }
 
-/* 
-@media (min-width: 1280px) {
-  .dashboardPage {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 45px 85px; 
-  }
-} */
-
-/* @media (max-width: 768px) {
-  .rightBarTabletWrapper {
-    display: flex;
-  }
-  .dashboardPage {
-    max-width: 320px;
-  }
-  .navigationWrapper {
-    padding-right: 30px;
-  }
-  .balanceWrapper {
-    margin-bottom: 30px;
-  }
-  .currencyWrapper {
-    display: none;
-  }
-} */
-
-/* @media (min-width: 768px) and (max-width: 1280px) { 
-  .dashboardPage {
-    max-width: 768px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px 40px;
-  }
-  .rightBarWrapper {
-    height: 175px;
-  }
-  .navigationWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    z-index: 1;
-  }
-  .balanceWrapper {
-    height: 0px;
-
-    z-index: 1;
-  }
-  .currencyWrapper {
-    height: 0px;
-
-    z-index: 1;
-  }
-} */
-
-/* 
-@media (max-width: 768px) {
-  .dashboardPage {
-    min-height: 720px;
-    background-color: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(50px);
-    padding-left: 20px;
-    padding-right: 20px;
-    z-index: none;
-  }
-  .tableThead {
-    display: flex;
-  }
-  .elipse_top {
-    display: none;
-  }
-
-  .elipse_bottom {
-    display: none;
-  }
-} */
 @media (min-width: 768px) {
-  /* .elipse_top {
-    position: absolute;
-    width: 520px;
-    height: 813px;
-    right: 50px;
-    top: -250px;
-    transform: rotate(21.94deg);
-    filter: blur(50px);
-    -webkit-filter: blur(150px);
-  } */
-
   table.table-3 {
     border-collapse: collapse;
     border-spacing: 0;
@@ -207,16 +118,4 @@
       border-bottom: 0;
     }
   }
-
-  /* .elipse_bottom {
-    z-index: 1;
-    position: absolute;
-    width: 618px;
-    height: 547px;
-    left: -53.33px;
-    bottom: -50px;
-    transform: rotate(16.86deg);
-    filter: blur(50px);
-    -webkit-filter: blur(50px);
-  } */
 }
