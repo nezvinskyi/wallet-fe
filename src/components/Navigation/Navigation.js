@@ -17,9 +17,17 @@ const Navigation = ({ viewChanger, mainView }) => {
         >
           <div>
             {/* <div className={styles.NavItemHome}></div> */}
-            <img src={home} alt="home" width="44" height="44" />
+            <img
+              src={home}
+              alt="home"
+              width="44"
+              height="44"
+              className={mainView && styles.navImgActive}
+            />
 
-            <span className={styles.NavLinkName}>Главная</span>
+            <span className={mainView ? styles.NavLinkNameActive : styles.NavLinkName}>
+              Главная
+            </span>
           </div>
         </NavLink>
       </li>
@@ -32,9 +40,17 @@ const Navigation = ({ viewChanger, mainView }) => {
           onClick={() => viewChanger(false)}
         >
           <div>
-            <img src={diagram} alt="diagram" width="44" height="44" />
+            <img
+              src={diagram}
+              alt="diagram"
+              width="44"
+              height="44"
+              className={!mainView && styles.navImgActive}
+            />
 
-            <span className={styles.NavLinkName}>Статистика</span>
+            <span className={!mainView ? styles.NavLinkNameActive : styles.NavLinkName}>
+              Статистика
+            </span>
           </div>
         </NavLink>
       </li>
