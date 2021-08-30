@@ -55,3 +55,6 @@ export const addTransaction = transaction => async dispatch => {
   }
 };
 
+export const addFilter = filter => async dispatch => {
+  dispatch(actions.addFilter(filter));
+};

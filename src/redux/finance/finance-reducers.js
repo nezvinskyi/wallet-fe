@@ -19,9 +19,12 @@ const balance = createReducer(null, {
   [userActions.logoutSuccess]: () => null,
 });
 
-const filter = createReducer('', {
-   [actions.addFilter]: (_, { payload }) => payload,
-});
+const filter = createReducer(
+  { year: '', month: '' },
+  {
+    [actions.addFilter]: (state, { payload }) => ({ ...state, ...payload }),
+  },
+);
 
 export default combineReducers({
   transactions,
