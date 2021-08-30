@@ -66,7 +66,7 @@
   height: var(--height);
   width: var(--height);
   background: #24cca7;
-  background-image: url('./img/addBtnBg.svg');
+  background-image: url('../../assets/images/plus.svg');
   background-repeat: no-repeat;
   background-size: 60%;
   background-position: center;
@@ -82,7 +82,7 @@
   background-repeat: no-repeat;
   background-size: 60%;
   background-position: center;
-  background-image: url('./img/addBtnBgMinus.svg');
+  background-image: url('../../assets/images/minus.svg');
   transform: translateX(var(--height));
 }
 
