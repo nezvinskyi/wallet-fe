@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { userOperations } from '../../redux/user';
 import { Link } from 'react-router-dom';
+import * as validate from '../../helpers/validate';
+import { sessionOperations } from '../../redux/session';
 
 const styles = {
   primaryBtn: {
@@ -48,9 +50,13 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   const submitHandler = async e => {
-    e.preventDefault();
-
-    dispatch(userOperations.login({ email, password }));
+    try {
+      e.preventDefault();
+      await validate.login({ email, password });
+      dispatch(userOperations.login({ email, password }));
+    } catch (error) {
+      dispatch(sessionOperations.setError(error.toString()));
+    }
   };
 
   return (

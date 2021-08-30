@@ -12,7 +12,7 @@ import { userOperations } from '../../redux/user';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Logo from '../../components/Logo';
-import validateCredentials from '../../helpers/validate-credentials';
+import * as validate from '../../helpers/validate';
 
 const styles = {
   primaryBtn: {
@@ -54,7 +54,7 @@ const RegistrationPage = () => {
         return;
       }
 
-      await validateCredentials({ name, email, password });
+      await validate.registration({ name, email, password });
 
       dispatch(userOperations.register({ name, email, password }));
     } catch (error) {
