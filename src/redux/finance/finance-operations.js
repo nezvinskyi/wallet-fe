@@ -54,3 +54,4 @@ export const addTransaction = transaction => async dispatch => {
     dispatch(actions.addTransactionError(error.response?.data.message || error.message));
   }
 };
+

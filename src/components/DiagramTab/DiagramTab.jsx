@@ -10,9 +10,9 @@ import {getTotal, getStats, getNames, getValues, getColors } from './statsInfo'
 
 
 export default function DiagramTab() {
-  const balance = useSelector(financeSelectors.getBalance)
-  const allTransactions = useSelector(financeSelectors.getAllTransactions)
-
+  const balance = useSelector(financeSelectors.getBalance);
+  // const allTransactions = useSelector(financeSelectors.getAllTransactions);
+  const allTransactions = useSelector(financeSelectors.getFilteredTransactions);
   const chartStats = {
    categories: getNames(allTransactions),
    values: getValues(allTransactions),
