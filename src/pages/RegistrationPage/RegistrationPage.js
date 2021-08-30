@@ -6,12 +6,13 @@ import { Button } from 'react-bootstrap';
 import scss from './RegistrationPage.module.css';
 import heroPic from './images/registration-image.png';
 // import imaje from './images/Ellipse1.png';
-import { userOperations } from '../../redux/user';
 import { sessionOperations } from '../../redux/session';
-import { ToastContainer, toast } from 'react-toastify';
+import { userOperations } from '../../redux/user';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 import Logo from '../../components/Logo';
+import validateCredentials from '../../helpers/validate-credentials';
 
 const styles = {
   primaryBtn: {
@@ -44,16 +45,21 @@ const RegistrationPage = () => {
   const dispatch = useDispatch();
 
   const submitHandler = async e => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    //TODO dispatch error to redux
-    if (password !== confirmPassword) {
-      const errorMessage = 'Passwords no not match';
-      toast(errorMessage);
-      return;
+      if (password !== confirmPassword) {
+        const errorMessage = 'Passwords no not match';
+        dispatch(sessionOperations.setError(errorMessage));
+        return;
+      }
+
+      await validateCredentials({ name, email, password });
+
+      dispatch(userOperations.register({ name, email, password }));
+    } catch (error) {
+      dispatch(sessionOperations.setError(error.toString()));
     }
-
-    dispatch(userOperations.register({ name, email, password }));
   };
 
   return (
@@ -127,7 +133,6 @@ const RegistrationPage = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

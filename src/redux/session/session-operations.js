@@ -1,7 +1,7 @@
 import * as actions from './session-actions';
 
-export const setError = () => async dispatch => {
-  dispatch(actions.setError());
+export const setError = error => async dispatch => {
+  dispatch(actions.setError(error));
 };
 
 export const resetError = () => async dispatch => {
