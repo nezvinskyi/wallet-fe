@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { globalOperations } from '../../redux/global';
 import { financeSelectors, financeOperations } from '../../redux/finance';
 import Header from '../Header';
+import { addTransactionValidator } from '../../helpers/addTransaction.validate';
 import styles from './AddTransactionForm.module.css';
 
 import Select from 'react-select';
@@ -80,7 +81,7 @@ const AddTransactionForm = () => {
   const [type, setType] = useState(false);
   const [amount, setAmount] = useState('');
   const categories = useSelector(financeSelectors.categoriesForAddTrForm);
-  const [categoryId, setCategoryId] = useState('');
+  const [categoryId, setCategoryId] = useState(categories[7]._id);
   const [comments, setComments] = useState('');
 
   const dispatch = useDispatch();
@@ -111,24 +112,31 @@ const AddTransactionForm = () => {
     return 'income';
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const data = {
-      date,
-      type: stateType(),
-      categoryId,
-      comments,
-      amount,
-    };
-
-    dispatch(financeOperations.addTransaction(data));
-    dispatch(financeOperations.getBalance());
-    reset();
-  };
-
   const reset = () => {
     setAmount('');
     setComments('');
+  };
+
+  const handleSubmit = async e => {
+    try {
+      e.preventDefault();
+      const data = {
+        date,
+        type: stateType(),
+        categoryId,
+        comments,
+        amount,
+      };
+
+      // await validate.addTransaction({ amount });
+      await addTransactionValidator({ amount });
+
+      dispatch(financeOperations.addTransaction(data));
+      dispatch(financeOperations.getBalance());
+      reset();
+    } catch (error) {
+      dispatch(financeOperations.setAddTrError(error.toString()));
+    }
   };
 
   return (
@@ -178,7 +186,6 @@ const AddTransactionForm = () => {
             value={amount}
             onChange={changeAmount}
             placeholder="0.00"
-            required
           />
 
           <input
@@ -197,7 +204,6 @@ const AddTransactionForm = () => {
             value={comments}
             onChange={commentsChange}
             placeholder="Комментарий"
-            required
           />
         </div>
         <div className={styles.btnGroup}>
