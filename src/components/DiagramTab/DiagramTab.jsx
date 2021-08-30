@@ -23,8 +23,7 @@ export default function DiagramTab() {
   const tableStats = getStats(allTransactions)
  
   return (
-    // <Container>
-      <section>
+          <section>
        <div className={styles.statisticWrapper}>
       
         <div className={styles.diagramWrapper}>
@@ -40,6 +39,6 @@ export default function DiagramTab() {
       </div>
 
      </section>
-    // </Container>
+    
   );
 }
