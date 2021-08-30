@@ -9,14 +9,11 @@ export const getAllCategories = state => {
 };
 
 export const categoriesForAddTrForm = state => {
-  const arr = state.finance.categories;
-  const newArr = arr.map(item => ({
-    ...item,
-    label: item.name,
-    value: item._id,
+  return getAllCategories(state).map(category => ({
+    ...category,
+    label: category.name,
+    value: category._id,
   }));
-
-  return newArr;
 };
 
 export const getBalance = state => {
