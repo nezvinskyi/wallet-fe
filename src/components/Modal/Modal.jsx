@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { globalOperations } from '../../redux/global';
+// import { BtnImg } from './img';
+import { closeIcon } from '../../assets/images/close-icon';
 import styles from './Modal.module.css';
 
 const modalRootRef = document.getElementById('modal-root');
@@ -36,9 +38,9 @@ const Modal = ({ children }) => {
   return createPortal(
     <div className={styles.backdrop} onClick={e => handleBackdropClick(e)}>
       <div className={styles.modal}>
-        <button className={styles.button_x} onClick={onClose}>
-          X
-        </button>
+        <div className={styles.closeBtnContainer} onClick={onClose}>
+          <img src={closeIcon.close} alt="" />
+        </div>
         {children}
       </div>
     </div>,
