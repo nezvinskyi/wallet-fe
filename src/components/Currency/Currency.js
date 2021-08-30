@@ -2,6 +2,7 @@ import styles from './Currency.module.css';
 import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { getCurrency } from '../../service/currency-api';
+import Loader from '../Loader/LoaderNew3.jsx'
 
 export default function CurrencyList() {
   const [currencies, setCurrencies] = useState([]);
@@ -16,7 +17,7 @@ export default function CurrencyList() {
 
   return (
     <div className={styles.currency}>
-      <table>
+      {!currencies?<Loader/>:<table>
         <thead key={nanoid(3)}>
           <tr className={styles.theadTr}>
             <td className={styles.tbodyTd_1}>Валюта</td>
@@ -39,7 +40,7 @@ export default function CurrencyList() {
             }
           })}
         </tbody>
-      </table>
+      </table>}
     </div>
   );
 }

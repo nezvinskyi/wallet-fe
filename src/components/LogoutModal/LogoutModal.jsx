@@ -45,10 +45,10 @@ const Modal = ({ children }) => {
       <div className={styles.Modal__content}>
         <h2>Вы действительно хотите выйти?</h2>
         <div className={styles.buttonsGroup}>
-          <button className={styles.button} onClick={onConfirm}>
+          <button className={styles.buttonConfirm} onClick={onConfirm}>
             Да
           </button>
-          <button className={styles.button} onClick={onClose}>
+          <button className={styles.buttonConfirm} onClick={onClose}>
             Нет
           </button>
         </div>

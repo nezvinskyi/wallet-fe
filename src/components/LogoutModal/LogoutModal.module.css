@@ -46,7 +46,7 @@
     padding-bottom: 20px;
 }
 
-.button {
+.buttonConfirm {
     color: #4A56E2;
     background-color: #ffffff;
     width: 200px;
@@ -58,25 +58,25 @@
 }
 
 @media (min-width: 300px) {
-    .button {
+    .buttonConfirm {
         width: 280;
         /* height: 40; */
     }
 }
 
 @media (min-width: 768px) {
-    .button {
+    .buttonConfirm {
         width: 300;
         height: 50;
     }
 }
 
 
-.button + .button {
+.buttonConfirm + .buttonConfirm {
     margin-top: 20px;
 }
 
-.button:hover, .button:focus {
+.buttonConfirm:hover, .buttonConfirm:focus {
     color: #ffffff;
     background-color: #24CCA7;
     border:1px solid #24CCA7;
