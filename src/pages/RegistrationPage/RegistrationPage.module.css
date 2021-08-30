@@ -3,7 +3,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url('./images/ellipse-bottom.svg'), url('./images/ellipse-top.svg');
+  background-image: url('../../assets/images/ellipse-bottom.svg'),
+    url('../../assets/images/ellipse-top.svg');
   background-position: left bottom, right top;
   background-repeat: no-repeat, no-repeat;
 }
@@ -127,7 +128,7 @@ input::placeholder {
   top: 8px;
   width: 20px;
   height: 16px;
-  background: url('./images/email-icon.svg') center / contain no-repeat;
+  background: url('../../assets/images/email-icon.svg') center / contain no-repeat;
 }
 
 .inputLabelPassword {
@@ -140,7 +141,7 @@ input::placeholder {
   top: 4px;
   width: 16px;
   height: 21px;
-  background: url('./images/password-icon.svg') center / contain no-repeat;
+  background: url('../../assets/images/password-icon.svg') center / contain no-repeat;
 }
 
 .inputLabelUser {
@@ -154,7 +155,7 @@ input::placeholder {
   top: 5px;
   width: 16px;
   height: 21px;
-  background: url('./images/user-icon.svg') center / contain no-repeat;
+  background: url('../../assets/images/user-icon.svg') center / contain no-repeat;
 }
 
 .btnGroup {

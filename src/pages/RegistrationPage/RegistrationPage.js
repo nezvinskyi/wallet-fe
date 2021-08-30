@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { Button } from 'react-bootstrap';
 import scss from './RegistrationPage.module.css';
-import heroPic from './images/registration-image.png';
+import heroPic from '../../assets/images/registration-image.png';
 // import imaje from './images/Ellipse1.png';
 import { sessionOperations } from '../../redux/session';
 import { userOperations } from '../../redux/user';

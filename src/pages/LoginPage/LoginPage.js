@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import scss from './LoginPage.module.css';
 import Logo from '../../components/Logo';
-import heroPic from './images/login-image.png';
+import heroPic from '../../assets/images/login-image.png';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { userOperations } from '../../redux/user';
