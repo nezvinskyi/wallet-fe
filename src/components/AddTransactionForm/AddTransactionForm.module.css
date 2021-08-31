@@ -49,13 +49,14 @@
   width: var(--width);
   height: var(--height);
   border-radius: var(--border-radius);
-  background: #e9e9e9;
+  background: #f6f8f8;
+  border: 1px solid #e9e9e9;
 
   transition: background 0.2s;
 }
 
 .toggle__input:checked ~ .toggle__fill {
-  background: #fdf9f9;
+  background: #fdf6f7;
 }
 
 .toggle__fill::after {

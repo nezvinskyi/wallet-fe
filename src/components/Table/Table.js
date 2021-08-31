@@ -33,7 +33,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
     let catName;
     categories.find(cat => {
       if (cat._id === id) {
-        console.log('cat.name :>> ', cat.name);
+        // console.log('cat.name :>> ', cat.name);
         catName = cat.name;
         return null;
       } else return null;
