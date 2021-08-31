@@ -69,7 +69,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
             <th style={inlineStyle.tableTh}>Комментарий</th>
             <th style={inlineStyle.thSumm}>Сумма</th>
             <th style={inlineStyle.thSumm}>Баланс</th>
-            <th style={inlineStyle.thLast}>...</th>
+            <th style={inlineStyle.thLast} className={style.verticalText}>...</th>
           </tr>
         ) : (
           <tr className={style.thead}>
@@ -105,7 +105,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
                 {moneyFormat(calculateBalance(amount, type, idx))}
               </td>
 
-              <td data-label="...">
+              <td className={style.verticalText} style={inlineStyle.tdLast} data-label="...">
                 <div className={style.closeBtnContainer} onClick={() => handleDelete(_id)}>
                   <img src={closeIcon.close} alt="" />
                 </div>
@@ -118,11 +118,11 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
           {statistic.map(({ id, name, amount, color }) => {
             return (
               <tr key={id} style={inlineStyle.tr}>
-                <td style={inlineStyle.tdFirst}>
+                <td style={inlineStyle.tdFirst} className={style.verticalText}>
                   <div className={style.colorBlock} style={{ background: color }}></div>
                   {name}
                 </td>
-                <td style={inlineStyle.tdLast}>{moneyFormat(amount)}</td>
+                <td style={inlineStyle.tdLast} className={style.verticalText}>{moneyFormat(amount)}</td>
               </tr>
             );
           })}

@@ -89,6 +89,10 @@
   border-bottom-style: hidden;
 }
 
+.verticalText {
+  vertical-align: middle;
+}
+
 .closeBtnContainer {
   width: 18px;
   height: 18px;
