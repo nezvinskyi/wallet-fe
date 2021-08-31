@@ -82,5 +82,4 @@ const Navigation = ({ viewChanger, mainView }) => {
   );
 };
 
-
 export default Navigation;

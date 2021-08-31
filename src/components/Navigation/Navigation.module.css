@@ -21,9 +21,9 @@
     align-items: center;
   }
 
-  /* .NavLinkNone {
+  .NavLinkNone {
     display: none;
-  } */
+  }
 
   .NavLinkName {
     display: none;
