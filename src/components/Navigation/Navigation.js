@@ -60,14 +60,14 @@ const Navigation = ({ viewChanger, mainView }) => {
         </NavLink>
       </li>
 
-      <li>
+      <li /* className={styles.NavItemCurrency} */>
         <NavLink
           to={routes.home}
-          className={styles.NavLink}
+          className={styles.NavLink, styles.NavItemCurrency}
           activeClassName={styles.NavLinkActive}
           onClick={() => viewChanger('currency')}
         >
-          <div>
+          <div >
             <img
               className={mainView === 'currency' && styles.navImgActive}
               src={currency}
