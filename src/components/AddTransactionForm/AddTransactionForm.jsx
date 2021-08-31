@@ -78,7 +78,7 @@ const stylesJSX = {
 
 const AddTransactionForm = () => {
   const [date, setDate] = useState(moment(new Date()).format('YYYY-MM-DD'));
-  const [type, setType] = useState(false);
+  const [type, setType] = useState(true);
   const [amount, setAmount] = useState('');
   const categories = useSelector(financeSelectors.categoriesForAddTrForm);
   const [categoryId, setCategoryId] = useState(categories[8]._id);
@@ -106,10 +106,10 @@ const AddTransactionForm = () => {
   const changeType = useCallback(() => setType(!type), [type]);
 
   const stateType = () => {
-    if (type === true) {
-      return 'expense';
+    if (type === false) {
+      return 'income';
     }
-    return 'income';
+    return 'expense';
   };
 
   const reset = () => {
@@ -158,6 +158,7 @@ const AddTransactionForm = () => {
               value={type}
               onChange={changeType}
               id="myToggle"
+              defaultChecked
             ></input>
             <div className={styles.toggle__fill}></div>
           </label>
