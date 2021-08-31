@@ -59,7 +59,7 @@ export default function Filter() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={[styles.selectBoxBox, styles.monthPicker].join(' ')} onClick={dropDownMonths}>
+      <div className={styles.monthPicker} onClick={dropDownMonths}>
         <div className={styles.selectBoxContainer}>
           <div className={styles.selectBoxSelectedItem}>{selectedMonthForm}</div>
 
@@ -83,7 +83,7 @@ export default function Filter() {
       </div>
 
       <div
-        className={[styles.selectBoxBox, styles.yearPicker].join(' ')}
+        className={styles.yearPicker}
         data-year="year"
         onClick={dropDownYears}
       >
