@@ -5,6 +5,8 @@ import { financeOperations, financeSelectors } from '../../redux/finance/';
 import style from './Style.module.css';
 import inlineStyle from './inlineStyle';
 import { closeIcon } from '../../assets/images/close-icon';
+import DeleteForeverRoundedIcon from '@material-ui/icons/DeleteForeverRounded';
+import EditIcon from '@material-ui/icons/Edit';
 
 const OperationsTable = ({ viewCondition, statistic, total }) => {
   const dispatch = useDispatch();
@@ -68,8 +70,8 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
             <th style={inlineStyle.tableTh}>Категория</th>
             <th style={inlineStyle.tableTh}>Комментарий</th>
             <th style={inlineStyle.thSumm}>Сумма</th>
-            <th style={inlineStyle.thSumm}>Баланс</th>
-            <th style={inlineStyle.thLast} className={style.verticalText}>...</th>
+            <th style={inlineStyle.thLast}>Баланс</th>
+            <th style={inlineStyle.thLastEdit} className={style.verticalText}></th>
           </tr>
         ) : (
           <tr className={style.thead}>
@@ -105,9 +107,11 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
                 {moneyFormat(calculateBalance(amount, type, idx))}
               </td>
 
-              <td className={style.verticalText} style={inlineStyle.tdLast} data-label="...">
-                <div className={style.closeBtnContainer} onClick={() => handleDelete(_id)}>
-                  <img src={closeIcon.close} className={style.removeButton}  alt="" />
+              <td className={style.verticalText} style={inlineStyle.tdLastEdit}>
+                <div className={style.BtnsContainer} onClick={() => handleDelete(_id)}>
+                  {/* <img src={closeIcon.close} className={style.removeButton}  alt="" /> */}
+                  <EditIcon className={style.editButton} />
+                  <DeleteForeverRoundedIcon className={style.removeButton} />
                 </div>
               </td>
             </tr>

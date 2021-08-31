@@ -1,3 +1,5 @@
+import { NonceProvider } from "react-select";
+
 const inlineStyle = {
   table: {
     position: 'relative',
@@ -27,6 +29,10 @@ const inlineStyle = {
     borderStyle: 'hidden',
     textAlign: 'right',
     paddingRight: '15px',
+  },
+  // убирает шапку с колонки с кнопками
+  thLastEdit:{
+    borderStyle: 'hidden',
   },
   tableTr: {
     border: '0px solid inherit',
@@ -89,6 +95,11 @@ const inlineStyle = {
     textAlign: 'right',
     backgroundColor: 'inherit',
   },
+  // убирает обводку с ячейки с кнопками
+  tdLastEdit:{
+    borderStyle: 'hidden',
+  },
+  
   tdFirst: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
