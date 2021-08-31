@@ -1,27 +1,36 @@
 import { createPortal } from 'react-dom';
-import Loader from "react-loader-spinner";
 import styles from './Spinner.module.css'
-// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const modalRootRef = document.getElementById('modal-root');
 
-const LoaderSpinner = () => {
+const Loader = () => {
+  return (
+    <div className={styles.gooey}>
+      <span className={styles.dot}></span>
+      <div className={styles.dots}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div className={styles.loading}>loading</div>
+    </div>
+  )
+}
+
+export const LoaderCurrency = () => {
+  return (
+    <div className={styles.LoaderCurrencyInner}>
+      <Loader/>
+    </div>
+  );
+};
+
+export const LoaderSpinner = () => {
     return createPortal (
         <div className={styles.LoaderBackdrop}>
             <div className={styles.LoaderContent}></div>
-            <Loader
-            //   type="MutatingDots"
-              type="TailSpin"
-              color="#24CCA7"
-            //   secondaryColor='#4A56E2'
-              height={250}
-              width={250}
-            //   radius={20}
-            //   timeout={3000}
-            />
+            <Loader/>
         </div>,
         modalRootRef,
     );
 };
-
-export default LoaderSpinner;
