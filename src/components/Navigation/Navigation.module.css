@@ -21,9 +21,9 @@
     align-items: center;
   }
 
-  .NavLinkNone {
+  /* .NavLinkNone {
     display: none;
-  }
+  } */
 
   .NavLinkName {
     display: none;
@@ -49,9 +49,9 @@
     height: 27px;
   }
 
-  .isHidden {
+  /* .isHidden {
     display: none;
-  }
+  } */
 
   .Navigation > li > a > div {
     display: flex;
