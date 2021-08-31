@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { financeOperations, financeSelectors } from '../../redux/finance/';
 import style from './Style.module.css';
 import inlineStyle from './inlineStyle';
-import { closeIcon } from '../../assets/images/close-icon';
+// import { closeIcon } from '../../assets/images/close-icon';
 import DeleteForeverRoundedIcon from '@material-ui/icons/DeleteForeverRounded';
 import EditIcon from '@material-ui/icons/Edit';
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 const OperationsTable = ({ viewCondition, statistic, total }) => {
   const dispatch = useDispatch();
@@ -70,8 +71,10 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
             <th style={inlineStyle.tableTh}>Категория</th>
             <th style={inlineStyle.tableTh}>Комментарий</th>
             <th style={inlineStyle.thSumm}>Сумма</th>
-            <th style={inlineStyle.thLast}>Баланс</th>
-            <th style={inlineStyle.thLastEdit} ></th>
+            <th style={inlineStyle.thSumm}>Баланс</th>
+            <th style={inlineStyle.thLast}> 
+            <SettingsOutlinedIcon/>
+            </th>
           </tr>
         ) : (
           <tr className={style.thead}>

@@ -31,9 +31,9 @@ const inlineStyle = {
     paddingRight: '15px',
   },
   // убирает шапку с колонки с кнопками
-  thLastEdit:{
-    borderStyle: 'hidden',
-  },
+  // thLastEdit:{
+  //   borderStyle: 'hidden',
+  // },
   tableTr: {
     border: '0px solid inherit',
   },
@@ -98,9 +98,9 @@ const inlineStyle = {
     backgroundColor: 'inherit',
    
   },
-  // убирает обводку с ячейки с кнопками
+ 
   tdLastEdit:{
-    borderStyle: 'hidden',
+   borderBottomColor: 'rgba(220, 220, 223, 1)',
   },
   
   tdFirst: {
