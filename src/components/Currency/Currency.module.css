@@ -6,7 +6,7 @@
   width: 280px;
   height: 174px;
   border-radius: 30px;
-  background-color: #4a56e2;
+  background-color: var(--blue);
 }
 /* .currency > table {
   display: flex;
