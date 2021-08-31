@@ -107,7 +107,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
 
               <td className={style.verticalText} style={inlineStyle.tdLast} data-label="...">
                 <div className={style.closeBtnContainer} onClick={() => handleDelete(_id)}>
-                  <img src={closeIcon.close} alt="" />
+                  <img src={closeIcon.close} className={style.removeButton}  alt="" />
                 </div>
               </td>
             </tr>

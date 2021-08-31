@@ -87,6 +87,7 @@ const inlineStyle = {
     paddingRight: '15px',
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     textAlign: 'right',
+    backgroundColor: 'inherit',
   },
   tdFirst: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
