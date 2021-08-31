@@ -22,10 +22,10 @@ const Navigation = ({ viewChanger, mainView }) => {
               alt="home"
               width="44"
               height="44"
-              className={mainView && styles.navImgActive}
+              className={mainView === 'main' && styles.navImgActive}
             />
             <div className={styles.NavLinkNone}>
-              <span className={mainView ? styles.NavLinkNameActive : styles.NavLinkName}>
+              <span className={mainView === 'main' ? styles.NavLinkNameActive : styles.NavLinkName}>
                 Главная
               </span>
             </div>
@@ -46,11 +46,13 @@ const Navigation = ({ viewChanger, mainView }) => {
               alt="diagram"
               width="44"
               height="44"
-              className={!mainView && styles.navImgActive}
+              className={mainView === 'stats' && styles.navImgActive}
             />
 
             <div className={styles.NavLinkNone}>
-              <span className={!mainView ? styles.NavLinkNameActive : styles.NavLinkName}>
+              <span
+                className={mainView === 'stats' ? styles.NavLinkNameActive : styles.NavLinkName}
+              >
                 Статистика
               </span>
             </div>
@@ -66,7 +68,13 @@ const Navigation = ({ viewChanger, mainView }) => {
           onClick={() => viewChanger('currency')}
         >
           <div>
-            <img className={styles.isHidden} src={currency} alt="currency" width="44" height="44" />
+            <img
+              className={mainView === 'currency' && styles.navImgActive}
+              src={currency}
+              alt="currency"
+              width="44"
+              height="44"
+            />
           </div>
         </NavLink>
       </li>
