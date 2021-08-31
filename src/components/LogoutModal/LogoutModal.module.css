@@ -44,11 +44,11 @@
 }
 
 .buttonConfirm {
-    color: #4A56E2;
+    color: var(--blue);
     background-color: #ffffff;
     width: 200px;
     height: 40px;
-    border: 1px solid #4A56E2;
+    border: 1px solid var(--blue);
     border-radius: 20px;  
 }
 
@@ -72,7 +72,7 @@
 
 .buttonConfirm:hover, .buttonConfirm:focus {
     color: #ffffff;
-    background-color: #24CCA7;
-    border:1px solid #24CCA7;
+    background-color: var(--lightGreen);
+    border:1px solid var(--lightGreen);
     outline: none; 
 }
