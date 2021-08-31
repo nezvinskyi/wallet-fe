@@ -76,7 +76,7 @@
   height: 16px;
   margin-left: 16px;
   filter: blur(4px);
-  background: #24CCA7;
+  background: var(--lightGreen);
   border-radius: 50%;
 }
 @-moz-keyframes dot {
