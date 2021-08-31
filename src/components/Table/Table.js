@@ -64,14 +64,14 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
     <Table responsive style={inlineStyle.table} className={style.table}>
       <thead className={style.thead}>
         {mainView ? (
-          <tr className={style.thead}>
+          <tr className={style.thead} >
             <th style={inlineStyle.thFirst}>Дата</th>
             <th style={inlineStyle.tableTypeTh}>Тип</th>
             <th style={inlineStyle.tableTh}>Категория</th>
             <th style={inlineStyle.tableTh}>Комментарий</th>
             <th style={inlineStyle.thSumm}>Сумма</th>
             <th style={inlineStyle.thLast}>Баланс</th>
-            <th style={inlineStyle.thLastEdit} className={style.verticalText}></th>
+            <th style={inlineStyle.thLastEdit} ></th>
           </tr>
         ) : (
           <tr className={style.thead}>
@@ -122,11 +122,11 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
           {statistic.map(({ id, name, amount, color }) => {
             return (
               <tr key={id} style={inlineStyle.tr}>
-                <td style={inlineStyle.tdFirst} className={style.verticalText}>
+                <td style={inlineStyle.tdFirst} >
                   <div className={style.colorBlock} style={{ background: color }}></div>
                   {name}
                 </td>
-                <td style={inlineStyle.tdLast} className={style.verticalText}>{moneyFormat(amount)}</td>
+                <td style={inlineStyle.tdLast} >{moneyFormat(amount)}</td>
               </tr>
             );
           })}

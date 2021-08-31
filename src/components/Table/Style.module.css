@@ -51,6 +51,11 @@
   .table td {
     background-color: #fff;
   }
+
+  .tbody td {
+    vertical-align: middle;
+  }
+
   .category::before {
     content: '';
     width: 24px;
@@ -93,8 +98,8 @@
 .totalAmount {
   border-bottom-style: hidden;
 }
-
-.verticalText {
+/* центрирует текст в табличке */
+.tr td {
   vertical-align: middle;
 }
 
