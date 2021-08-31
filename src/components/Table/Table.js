@@ -1,11 +1,13 @@
 import moment from 'moment';
 import { Table } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { financeSelectors } from '../../redux/finance/';
+import { useDispatch, useSelector } from 'react-redux';
+import { financeOperations, financeSelectors } from '../../redux/finance/';
 import style from './Style.module.css';
 import inlineStyle from './inlineStyle';
+import { closeIcon } from '../../assets/images/close-icon';
 
 const OperationsTable = ({ viewCondition, statistic, total }) => {
+  const dispatch = useDispatch();
   const transactions = useSelector(financeSelectors.getAllSortedTransactions);
   const categories = useSelector(financeSelectors.getAllCategories);
   const balance = useSelector(financeSelectors.getBalance);
@@ -45,6 +47,15 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
       .replace(/(\d)(?=(\d{3})+\.)/g, '$1 ');
   };
 
+  const handleDelete = id => {
+    try {
+      dispatch(financeOperations.deleteContact(id));
+      dispatch(financeOperations.getBalance());
+    } catch (error) {
+      dispatch(financeOperations.setAddTrError(error.toString()));
+    }
+  };
+
   const mainView = viewCondition;
 
   return (
@@ -57,7 +68,8 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
             <th style={inlineStyle.tableTh}>Категория</th>
             <th style={inlineStyle.tableTh}>Комментарий</th>
             <th style={inlineStyle.thSumm}>Сумма</th>
-            <th style={inlineStyle.thLast}>Баланс</th>
+            <th style={inlineStyle.thSumm}>Баланс</th>
+            <th style={inlineStyle.thLast}>...</th>
           </tr>
         ) : (
           <tr className={style.thead}>
@@ -91,6 +103,12 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
               </td>
               <td data-label="Баланс" style={inlineStyle.tdLast}>
                 {moneyFormat(calculateBalance(amount, type, idx))}
+              </td>
+
+              <td data-label="...">
+                <div className={style.closeBtnContainer} onClick={() => handleDelete(_id)}>
+                  <img src={closeIcon.close} alt="" />
+                </div>
               </td>
             </tr>
           </tbody>

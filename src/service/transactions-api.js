@@ -37,6 +37,10 @@ const addTransaction = async transaction => {
   return data;
 };
 
+const deleteTransactionById = async id => {
+  const { data } = await axios.delete(`/api/v1/transactions/${id}`);
+  console.log('data from delete:>> ', data);
+};
 // export const updateTransaction = async ({ id, transaction, token }) => {
 //   const config = {
 //     'Content-Type': 'application/json',
@@ -76,6 +80,6 @@ const addTransaction = async transaction => {
 //   return data;
 // };
 
-const api = { getTransactions, addTransaction, getBalance };
+const api = { getTransactions, addTransaction, getBalance, deleteTransactionById };
 
 export default api;

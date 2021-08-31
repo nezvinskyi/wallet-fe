@@ -88,3 +88,9 @@
 .totalAmount {
   border-bottom-style: hidden;
 }
+
+.closeBtnContainer {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}

@@ -10,6 +10,7 @@ const isLoading = createReducer(false, {
   [userActions.getCurrentUserRequest]: () => true,
 
   [financeActions.addTransactionRequest]: () => true,
+  [financeActions.deleteTransactionRequest]: () => true,
   [financeActions.getTransactionsRequest]: () => true,
   [financeActions.getCategoriesRequest]: () => true,
   [financeActions.getBalanceRequest]: () => true,
@@ -20,6 +21,7 @@ const isLoading = createReducer(false, {
   [userActions.getCurrentUserSuccess]: () => false,
 
   [financeActions.addTransactionSuccess]: () => false,
+  [financeActions.deleteTransactionSuccess]: () => false,
   [financeActions.getTransactionsSuccess]: () => false,
   [financeActions.getCategoriesSuccess]: () => false,
   [financeActions.getBalanceSuccess]: () => false,
@@ -30,6 +32,7 @@ const isLoading = createReducer(false, {
   [userActions.getCurrentUserError]: () => false,
 
   [financeActions.addTransactionError]: () => false,
+  [financeActions.deleteTransactionError]: () => false,
   [financeActions.getTransactionsError]: () => false,
   [financeActions.getCategoriesError]: () => false,
   [financeActions.getBalanceError]: () => false,

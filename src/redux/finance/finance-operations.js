@@ -55,6 +55,17 @@ export const addTransaction = transaction => async dispatch => {
   }
 };
 
+export const deleteContact = id => async dispatch => {
+  dispatch(actions.deleteTransactionRequest());
+
+  try {
+    await apiTrans.deleteTransactionById(id);
+    dispatch(actions.deleteTransactionSuccess(id));
+  } catch (error) {
+    dispatch(actions.deleteTransactionError(error));
+  }
+};
+
 export const addFilter = filter => async dispatch => {
   dispatch(actions.addFilter(filter));
 };

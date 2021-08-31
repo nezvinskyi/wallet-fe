@@ -26,11 +26,13 @@ const error = createReducer(null, {
   [userActions.getCurrentUserError]: (_, { payload }) => payload,
 
   [financeActions.addTransactionRequest]: () => null,
+  [financeActions.deleteTransactionRequest]: () => null,
   [financeActions.getBalanceRequest]: () => null,
   [financeActions.getCategoriesRequest]: () => null,
   [financeActions.getTransactionsRequest]: () => null,
 
   [financeActions.addTransactionError]: (_, { payload }) => payload,
+  [financeActions.deleteTransactionError]: (_, { payload }) => payload,
   [financeActions.getBalanceError]: (_, { payload }) => payload,
   [financeActions.getCategoriesError]: (_, { payload }) => payload,
   [financeActions.addTransactionError]: (_, { payload }) => payload,

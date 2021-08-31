@@ -6,7 +6,9 @@ import * as userActions from '../user/user-actions';
 const transactions = createReducer([], {
   [actions.getTransactionsSuccess]: (_, { payload }) => payload,
   [actions.addTransactionSuccess]: (state, { payload }) => [...state, payload],
-  [userActions.logoutSuccess]: state => [],
+  [actions.deleteTransactionSuccess]: (state, { payload }) =>
+    state.filter(item => item._id !== payload),
+  [userActions.logoutSuccess]: () => [],
 });
 
 const categories = createReducer([], {
