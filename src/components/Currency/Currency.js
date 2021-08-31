@@ -27,7 +27,7 @@ export default function CurrencyList() {
         </thead>
         <tbody key={nanoid(3)}>
           {currencies.map((currency, index) => {
-            if (index < 3) {
+            if (index !== 2) {
               return (
                   <tr className={styles.tbodyTr} key={nanoid(3)}>
                     <td className={styles.tbodyTd_1}>{currency.ccy}</td>
