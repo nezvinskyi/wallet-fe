@@ -38,7 +38,7 @@ const addTransaction = async transaction => {
 };
 
 const deleteTransactionById = async id => {
-  const { data } = await axios.delete(`/api/v1/transactions/${id}`);
+  await axios.delete(`/api/v1/transactions/${id}`);
 };
 // export const updateTransaction = async ({ id, transaction, token }) => {
 //   const config = {

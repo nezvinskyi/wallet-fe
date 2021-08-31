@@ -4,11 +4,11 @@ import Logo from '../Logo';
 import styles from './Header.module.css';
 import { Container } from 'react-bootstrap';
 
-const Header = () => {
+const Header = ({ viewChanger }) => {
   return (
     <header className={styles.headerContainer}>
       <Container className={styles.header}>
-        <Logo />
+        <Logo viewChanger={viewChanger} />
         <UserMenu />
       </Container>
     </header>

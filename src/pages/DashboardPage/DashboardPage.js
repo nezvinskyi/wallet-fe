@@ -32,7 +32,7 @@ const DashboardPage = () => {
 
   return (
     <ContainerAppWrapper>
-      <Header />
+      <Header viewChanger={setMainView} />
       <div className={style.dashboardPage}>
         {/* <div className={style.backdrop}> */}
         <Container className={style.backdrop}>
