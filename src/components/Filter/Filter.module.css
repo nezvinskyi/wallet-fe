@@ -91,16 +91,9 @@ select {
   /* Note: backdrop-filter has minimal browser support */
 }
 
-@media (max-width: 767px) {
-  .selectBoxItemsMonth {
-    position: relative;
-    bottom: 484px;
-  }
-  .monthPicker,
-  .yearPicker {
-    width: 100%;
-    min-width: 280px;
-  }
+.selectBoxItemsMonth {
+  overflow-y: scroll;
+  height: 180px;
 }
 
 .selectBoxItems div,
@@ -125,6 +118,17 @@ select {
 .selectBoxItems div:last-child {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+}
+@media (max-width: 767px) {
+  .selectBoxItemsMonth {
+    position: relative;
+    bottom: 230px;
+  }
+  .monthPicker,
+  .yearPicker {
+    width: 100%;
+    min-width: 280px;
+  }
 }
 
 /* можно удалить,если после тестирования не поломается ничего */
