@@ -50,7 +50,6 @@ export const addTransaction = transaction => async dispatch => {
 
     dispatch(actions.addTransactionSuccess(data.result));
   } catch (error) {
-    console.log('error from finance operations/add Transaction>>', error.message);
     dispatch(actions.addTransactionError(error.response?.data.message || error.message));
   }
 };

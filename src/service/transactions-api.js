@@ -39,7 +39,6 @@ const addTransaction = async transaction => {
 
 const deleteTransactionById = async id => {
   const { data } = await axios.delete(`/api/v1/transactions/${id}`);
-  console.log('data from delete:>> ', data);
 };
 // export const updateTransaction = async ({ id, transaction, token }) => {
 //   const config = {
