@@ -2,8 +2,8 @@ import { useState } from 'react';
 import styles from './Filter.module.css';
 import { nanoid } from 'nanoid';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { financeOperations, financeSelectors } from '../../redux/finance';
+import { useDispatch } from 'react-redux';
+import { financeOperations } from '../../redux/finance';
 // import { financeSelectors, actions } from '../../redux/finance/';
 const months = [
   { id: '01', name: 'Январь' },
@@ -42,7 +42,7 @@ export default function Filter() {
     setShowYears(!showYears);
   };
 
-  const filter = useSelector(financeSelectors.getFilter);
+  // const filter = useSelector(financeSelectors.getFilter);
 
   const handleMonthChange = e => {
     const month = e.target.dataset.month;
@@ -59,7 +59,7 @@ export default function Filter() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={(styles.selectBoxBox, styles.monthPicker)} onClick={dropDownMonths}>
+      <div className={[styles.selectBoxBox, styles.monthPicker].join(' ')} onClick={dropDownMonths}>
         <div className={styles.selectBoxContainer}>
           <div className={styles.selectBoxSelectedItem}>{selectedMonthForm}</div>
 
@@ -83,7 +83,7 @@ export default function Filter() {
       </div>
 
       <div
-        className={(styles.selectBoxBox, styles.yearPicker)}
+        className={[styles.selectBoxBox, styles.yearPicker].join(' ')}
         data-year="year"
         onClick={dropDownYears}
       >

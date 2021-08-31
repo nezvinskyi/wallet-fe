@@ -36,7 +36,7 @@ export const getFilteredTransactions = createSelector(
     return allTransactions.filter(transaction => {
       if (transaction.year.includes(year) && transaction.month.includes(month)) {
         return transaction;
-      }
+      } else return null;
     });
     // .sort((a, b) => a.date.localeCompare(b.date));
   },
