@@ -63,7 +63,7 @@ const Navigation = ({ viewChanger, mainView }) => {
       <li>
         <NavLink
           to={routes.home}
-          className={styles.NavLink}
+          className={styles.NavLink, styles.NavItemCurrency}
           activeClassName={styles.NavLinkActive}
           onClick={() => viewChanger('currency')}
         >
