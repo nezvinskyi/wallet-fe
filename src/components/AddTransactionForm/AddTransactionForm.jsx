@@ -126,15 +126,7 @@ const AddTransactionForm = () => {
     setComments('');
   };
 
-  // const categoryDafault = () => {
-  //   if ((categoryId === categories[8]._id) & (type === false)) {
-  //     return categories[9]._id;
-  //   }
-  //   return categoryId;
-  // };
-
   const handleSubmit = async e => {
-    console.log(type);
     try {
       e.preventDefault();
       const data = {
@@ -145,7 +137,6 @@ const AddTransactionForm = () => {
         amount,
       };
 
-      // await validate.addTransaction({ amount });
       await addTransactionValidator({ amount });
 
       dispatch(financeOperations.addTransaction(data));
