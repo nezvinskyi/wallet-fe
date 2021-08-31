@@ -41,11 +41,11 @@
     margin-left: 20px;
   }
 }
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .currencyContainer {
     display: none;
   }
-}
+} */
 
 .divider {
   width: 0px;

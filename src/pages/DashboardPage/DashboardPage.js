@@ -20,7 +20,8 @@ import style from './Style.module.css';
 
 const DashboardPage = () => {
   const dispatch = useDispatch();
-  const [mainView, setMainView] = useState(true);
+  // const [mainView, setMainView] = useState(true);
+  const [mainView, setMainView] = useState('main');
   const isModalOpen = useSelector(globalSelectors.getIsModalAddTransactionOpen);
 
   useEffect(() => {
@@ -38,9 +39,11 @@ const DashboardPage = () => {
           <div className={style.leftContainer}>
             <div className={style.navAndBalanceContainer}>
               <Navigation viewChanger={setMainView} mainView={mainView} />
-              <div className={style.balanceContainer}>
-                <Balance />
-              </div>
+              {mainView !== 'currency' && (
+                <div className={style.balanceContainer}>
+                  <Balance />
+                </div>
+              )}
             </div>
             <div className={style.currencyContainer}>
               <Currency />
@@ -50,12 +53,13 @@ const DashboardPage = () => {
           <div className={style.divider}></div>
 
           <div className={style.rightContainer}>
-            {mainView ? <OperationsTable viewCondition={mainView} /> : <DiagramTab />}
+            {mainView === 'main' && <OperationsTable viewCondition={mainView} />}
+            {mainView === 'stats' && <DiagramTab />}
           </div>
         </Container>
         {/* </div> */}
       </div>
-      <AddTransactionBtn />
+      {mainView !== 'currency' && <AddTransactionBtn />}
       {isModalOpen && (
         <Modal>
           <AddTransactionForm />

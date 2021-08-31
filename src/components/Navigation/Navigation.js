@@ -13,7 +13,7 @@ const Navigation = ({ viewChanger, mainView }) => {
           to={routes.home}
           className={styles.NavLink}
           activeClassName={styles.NavLinkActive}
-          onClick={() => viewChanger(true)}
+          onClick={() => viewChanger('main')}
         >
           <div>
             {/* <div className={styles.NavItemHome}></div> */}
@@ -38,7 +38,7 @@ const Navigation = ({ viewChanger, mainView }) => {
           to={routes.home}
           className={styles.NavLink}
           activeClassName={styles.NavLinkActive}
-          onClick={() => viewChanger(false)}
+          onClick={() => viewChanger('stats')}
         >
           <div>
             <img
@@ -60,10 +60,10 @@ const Navigation = ({ viewChanger, mainView }) => {
 
       <li>
         <NavLink
-          to={routes.currency}
+          to={routes.home}
           className={styles.NavLink}
           activeClassName={styles.NavLinkActive}
-          onClick={() => viewChanger(false)}
+          onClick={() => viewChanger('currency')}
         >
           <div>
             <img className={styles.isHidden} src={currency} alt="currency" width="44" height="44" />
