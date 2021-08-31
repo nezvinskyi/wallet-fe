@@ -1,12 +1,13 @@
-section {
+.statisticEl {
   display: flex;
   flex-direction: column;
-  z-index: 10;
+  align-items: center;
 }
 
 .heading {
   display: inline-block;
-  font-weight: 400;
+  font-family: Segoe;
+  font-weight: 700;
   font-size: 30px;
   line-height: 45px;
   font-style: normal;
@@ -20,8 +21,12 @@ section {
 
 @media (min-width: 320px) and (max-width: 767px) {
   .diagramWrapper {
-    width: 280px;
+    min-width: 100px;
   }
+}
+
+.noStatsText {
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -31,8 +36,12 @@ section {
   }
 
   .diagramWrapper {
-    width: 320px;
+    max-width: 320px;
     margin-right: 35px;
+  }
+
+  .noStatsDDiagramWrapper {
+    width: 100%;
   }
 }
 
