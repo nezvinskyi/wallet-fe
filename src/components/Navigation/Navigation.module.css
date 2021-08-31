@@ -49,10 +49,6 @@
     height: 27px;
   }
 
-  /* .isHidden {
-    display: none;
-  } */
-
   .Navigation > li > a > div {
     display: flex;
     align-items: center;
