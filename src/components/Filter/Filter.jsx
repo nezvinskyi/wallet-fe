@@ -1,7 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import styles from './Filter.module.css';
 import { nanoid } from 'nanoid';
-// import Select from 'react-select';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { financeOperations, financeSelectors } from '../../redux/finance';
@@ -30,16 +29,6 @@ export default function Filter() {
     years.push(i);
   }
 
-  // const selectedYear = useSelector(financeSelectors.getFilteredTransactions);
-
-  // const selectMonthHandler = useCallback(event => setSelectedMonthForm(event.target.value));
-
-  // const selectYearHandler = useCallback(
-  //   event => dispatch(actions.addFilter(event.target.value)),
-  //   [dispatch],
-  // );
-
-  //то что красивое
   const [selectedMonthForm, setSelectedMonthForm] = useState('Месяц');
   const [selectedYearForm, setSelectedYearForm] = useState('Год');
   const [showMonths, setShowMonths] = useState(false);
@@ -53,136 +42,68 @@ export default function Filter() {
     setShowYears(!showYears);
   };
 
-  // const selectMonth = month => {
-  //   setSelectedMonthForm(month);
-  //   setShowMonths(false);
-  // };
-
-  // const selectYear = year => {
-  //   setSelectedYearForm(year);
-  //   setShowYears(false);
-  // };
-
   const filter = useSelector(financeSelectors.getFilter);
 
   const handleMonthChange = e => {
-    const month = e.target.dataset.month
-    const monthid = e.target.dataset.monthid
+    const month = e.target.dataset.month;
+    const monthid = e.target.dataset.monthid;
     dispatch(financeOperations.addFilter({ month: monthid }));
-    setSelectedMonthForm(month)
-    console.log('filter :>> ', filter);
-    // console.log('month :>> ', month);
+    setSelectedMonthForm(month);
   };
 
   const handleYearChange = e => {
-    const year = e.target.dataset.year
+    const year = e.target.dataset.year;
     dispatch(financeOperations.addFilter({ year: year }));
-    setSelectedYearForm(year)
-    console.log('month :>> ', year);
+    setSelectedYearForm(year);
   };
-  
 
   return (
-    <>
-      <div className={styles.wrapper}>
-        <div className={(styles.selectBoxBox, styles.monthPicker)} onClick={dropDownMonths}>
-          <div className={styles.selectBoxContainer}>
-            <div className={styles.selectBoxSelectedItem}>{selectedMonthForm}</div>
-             
-            <div
-              style={{ display: showMonths ? 'block' : 'none' }}
-              className={styles.selectBoxItems}
-            >
-              {months.map(({ id, name: month }) => (
-                <div
-                  key={id}
-                  onClick={handleMonthChange}
-                  className={selectedMonthForm === month ? styles.selected : styles.selectedM}
-                  data-month={month}
-                  data-monthid={id}
-                >
-                  {month}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+    <div className={styles.wrapper}>
+      <div className={(styles.selectBoxBox, styles.monthPicker)} onClick={dropDownMonths}>
+        <div className={styles.selectBoxContainer}>
+          <div className={styles.selectBoxSelectedItem}>{selectedMonthForm}</div>
 
-        <div className={(styles.selectBoxBox, styles.yearPicker)} data-year='year' onClick={dropDownYears}>
-          <div className={styles.selectBoxContainer}>
-            <div className={styles.selectBoxSelectedItem}>{selectedYearForm}</div>
-            
-            <div
-              style={{ display: showYears ? 'block' : 'none' }}
-              className={styles.selectBoxItems}
-            >
-              {years.map(year => (
-                <div
-                  key={nanoid()}
-                  onClick={handleYearChange}
-                  className={selectedYearForm === year ? styles.selected : styles.selectedM}
-                  data-year={year}
-                >
-                  {year}
-                </div>
-              ))}
-            </div>
+          <div
+            style={{ display: showMonths ? 'block' : 'none' }}
+            className={styles.selectBoxItemsMonth}
+          >
+            {months.map(({ id, name: month }) => (
+              <div
+                key={id}
+                onClick={handleMonthChange}
+                className={selectedMonthForm === month ? styles.selected : styles.selectedM}
+                data-month={month}
+                data-monthid={id}
+              >
+                {month}
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* <form className={styles.wrapper}>
-        <select
-          name="month"
-          // value={selectedMonthForm}
-          className={styles.monthPicker}
-          // onChange={selectMonthHandler}
-          onChange={handleMonthChange}
-        >
-          <option value="" disabled selected hidden>
-            Месяц
-          </option>
-          {months.map(({ id, name: month }) => (
-            <option key={id} value={id}>
-              {month}
-            </option>
-          ))} */}
+      <div
+        className={(styles.selectBoxBox, styles.yearPicker)}
+        data-year="year"
+        onClick={dropDownYears}
+      >
+        <div className={styles.selectBoxContainer}>
+          <div className={styles.selectBoxSelectedItem}>{selectedYearForm}</div>
 
-          {/* <option name="" value="Месяц" className={styles.pickerFirstOpt}>
-            Месяц
-          </option>
-          {months.map(month => (
-            <option key={month} value={month} data-month="month">
-              {month}
-            </option>
-          ))} */}
-        {/* </select>
-
-        <select
-          name="year"
-          // value={selectedYear}
-          className={styles.yearPicker}
-          // onChange={selectYearHandler}
-          onChange={handleYearChange}
-        >
-          <option value="" disabled selected hidden>
-            Год
-          </option>
-          {years.map(year => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))} */}
-          {/* <option name="" value="Год" className={styles.pickerFirstOpt}>
-            Год
-          </option>
-          {years.map(year => (
-            <option key={year} value={year} data-year="year">
-              {year}
-            </option>
-          ))} */}
-        {/* </select>
-      </form> */}
-    </>
+          <div style={{ display: showYears ? 'block' : 'none' }} className={styles.selectBoxItems}>
+            {years.map(year => (
+              <div
+                key={nanoid()}
+                onClick={handleYearChange}
+                className={selectedYearForm === year ? styles.selected : styles.selectedM}
+                data-year={year}
+              >
+                {year}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

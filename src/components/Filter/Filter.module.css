@@ -25,30 +25,21 @@ select {
   margin-bottom: 20px;
 }
 
+.monthPicker {
+  width: 100%;
+  min-width: 166px;
+}
+
 .yearPicker {
   margin-top: 20px;
-}
-
-.pickerFirstOpt {
-  display: none;
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .monthPicker,
-  .yearPicker {
-    width: 280px;
-  }
+  width: 100%;
+  min-width: 166px;
 }
 
 @media (min-width: 768px) {
   .wrapper {
     flex-direction: row;
     margin-top: 60px;
-  }
-
-  .monthPicker,
-  .yearPicker {
-    width: 166px;
   }
 
   .monthPicker {
@@ -65,16 +56,9 @@ select {
   z-index: 10;
   display: block;
   height: 50px;
-  width: 100%;
   margin: 0;
   padding: 0;
   border-radius: 40px;
-}
-
-.selectBoxBox {
-  width: 100%;
-  /* position: absolute; */
-  /* left: 15px; */
 }
 
 .selectBoxSelectedItem {
@@ -99,21 +83,37 @@ select {
   cursor: pointer;
 }
 
-.selectBoxItems {
+.selectBoxItems,
+.selectBoxItemsMonth {
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(50px);
   border-radius: 20px;
   /* Note: backdrop-filter has minimal browser support */
 }
 
-.selectBoxItems div {
+@media (max-width: 767px) {
+  .selectBoxItemsMonth {
+    position: relative;
+    bottom: 484px;
+  }
+  .monthPicker,
+  .yearPicker {
+    width: 100%;
+    min-width: 280px;
+  }
+}
+
+.selectBoxItems div,
+.selectBoxItemsMonth div {
   padding: 6px;
   padding-left: 20px;
   cursor: pointer;
 }
 
 .selectBoxItems div:hover,
-.selectBoxItems div:focus {
+.selectBoxItems div:focus,
+.selectBoxItemsMonth div:hover,
+.selectBoxItemsMonth div:focus {
   background-color: rgba(255, 255, 255, 1);
 }
 
@@ -126,3 +126,10 @@ select {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
 }
+
+/* можно удалить,если после тестирования не поломается ничего */
+/* .selectBoxBox {
+  width: 100%;
+  position: absolute;
+  left: 15px;
+} */

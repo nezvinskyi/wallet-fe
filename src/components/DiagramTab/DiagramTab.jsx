@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { financeSelectors } from '../../redux/finance';
 import DoughnutChart from '../Chart';
@@ -11,19 +10,20 @@ import {getTotal, getStats, getNames, getValues, getColors } from './statsInfo'
 
 export default function DiagramTab() {
   const balance = useSelector(financeSelectors.getBalance);
-  // const allTransactions = useSelector(financeSelectors.getAllTransactions);
   const allTransactions = useSelector(financeSelectors.getFilteredTransactions);
+
   const chartStats = {
    categories: getNames(allTransactions),
    values: getValues(allTransactions),
    balance: balance,
    colors: getColors(allTransactions),
   }
+
   const total = getTotal(allTransactions)
   const tableStats = getStats(allTransactions)
  
   return (
-          <section>
+          <section className={styles.statisticEl}>
        <div className={styles.statisticWrapper}>
       
         <div className={styles.diagramWrapper}>
