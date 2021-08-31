@@ -7,12 +7,18 @@ const hryvnaSign = '\u20B4';
 
 export default function Currency() {
   const balance = useSelector(financeSelectors.getBalance);
+
+  const moneyFormat = n => {
+    return parseFloat(n)
+      .toFixed(2)
+      .replace(/(\d)(?=(\d{3})+\.)/g, '$1 ');
+  };
   return (
     <div className={styles.balance}>
-      <h3>Ваш баланс</h3>
-      <p>
-        {hryvnaSign} {balance}
-      </p>
+      <h3 className={styles.title}>Ваш баланс</h3>
+      <div className={styles.amount}>
+        {hryvnaSign} {moneyFormat(balance)}
+      </div>
     </div>
   );
 }
