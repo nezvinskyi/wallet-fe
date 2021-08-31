@@ -9,7 +9,7 @@ import PrivatRoute from './PrivatRoute';
 import AddTransactionBtn from './AddTransactionBtn';
 import Modal from './Modal';
 import AddTransactionForm from './AddTransactionForm';
-import LoaderSpinner from './Loader';
+import { LoaderSpinner } from './Loader';
 import LogoutModal from './LogoutModal';
 
 export {
