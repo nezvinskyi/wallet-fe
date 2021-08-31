@@ -1,6 +1,6 @@
 .Navigation {
   display: flex;
-  max-width: 200px;
+  /* max-width: 200px; */
   height: 60px;
   padding: 0 60px;
   justify-content: space-between;
@@ -11,26 +11,26 @@
   /* border-radius: 6px; */
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media /* (min-width: 320px) and */ (max-width: 767px) {
   .Navigation {
     display: flex;
-    max-width: 280px;
+    width: 280px;
     height: 60px;
     padding: 10px 40px 0px 40px;
     justify-content: space-between;
     align-items: center;
   }
 
-  .Navigation img {
-    border-radius: 6px;
-  }
-
   .NavLinkNone {
     display: none;
   }
-
+  
   .NavLinkName {
     display: none;
+  }
+
+  .Navigation img {
+    border-radius: 6px;
   }
 
   .Navigation > li > div > img {
