@@ -22,10 +22,10 @@ const Navigation = ({ viewChanger, mainView }) => {
               alt="home"
               width="44"
               height="44"
-              className={mainView === 'main' && styles.navImgActive}
+              className={[mainView === 'main' && styles.navImgActive].join(' ')}
             />
             <div className={styles.NavLinkNone}>
-              <span className={mainView === 'main' ? styles.NavLinkNameActive : styles.NavLinkName}>
+              <span className={[mainView === 'main' ? styles.NavLinkNameActive : styles.NavLinkName].join(' ')}>
                 Главная
               </span>
             </div>
@@ -46,12 +46,12 @@ const Navigation = ({ viewChanger, mainView }) => {
               alt="diagram"
               width="44"
               height="44"
-              className={mainView === 'stats' && styles.navImgActive}
+              className={[mainView === 'stats' && styles.navImgActive].join(' ')}
             />
 
             <div className={styles.NavLinkNone}>
               <span
-                className={mainView === 'stats' ? styles.NavLinkNameActive : styles.NavLinkName}
+                className={[mainView === 'stats' ? styles.NavLinkNameActive : styles.NavLinkName].join(' ')}
               >
                 Статистика
               </span>
@@ -64,12 +64,12 @@ const Navigation = ({ viewChanger, mainView }) => {
         <NavLink
           to={routes.home}
           className={styles.NavLink}
-          activeClassName={styles.NavLinkActive}
+          className={[styles.NavLink, styles.NavItemCurrency].join(' ')}
           onClick={() => viewChanger('currency')}
         >
           <div>
             <img
-              className={mainView === 'currency' && styles.navImgActive}
+              className={[mainView === 'currency' && styles.navImgActive].join(' ')}
               src={currency}
               alt="currency"
               width="44"
