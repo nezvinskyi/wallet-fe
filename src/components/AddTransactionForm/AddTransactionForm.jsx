@@ -103,7 +103,16 @@ const AddTransactionForm = () => {
   const commentsChange = e => {
     setComments(e.target.value);
   };
-  const changeType = useCallback(() => setType(!type), [type]);
+  const changeType = useCallback(() => {
+    if (type & (categoryId === categories[8]._id)) {
+      setCategoryId(categories[11]._id);
+    }
+    if ((categoryId === categories[11]._id) & !type) {
+      setCategoryId(categories[8]._id);
+    }
+
+    setType(!type);
+  }, [type, categoryId, categories]);
 
   const stateType = () => {
     if (type === false) {
@@ -117,7 +126,15 @@ const AddTransactionForm = () => {
     setComments('');
   };
 
+  // const categoryDafault = () => {
+  //   if ((categoryId === categories[8]._id) & (type === false)) {
+  //     return categories[9]._id;
+  //   }
+  //   return categoryId;
+  // };
+
   const handleSubmit = async e => {
+    console.log(type);
     try {
       e.preventDefault();
       const data = {
@@ -133,6 +150,7 @@ const AddTransactionForm = () => {
 
       dispatch(financeOperations.addTransaction(data));
       dispatch(financeOperations.getBalance());
+      onClose();
       reset();
     } catch (error) {
       dispatch(financeOperations.setAddTrError(error.toString()));
