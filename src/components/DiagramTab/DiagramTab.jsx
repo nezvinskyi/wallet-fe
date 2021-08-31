@@ -24,21 +24,26 @@ export default function DiagramTab() {
  
   return (
           <section className={styles.statisticEl}>
-       <div className={styles.statisticWrapper}>
-      
-        <div className={styles.diagramWrapper}>
-         <h1 className={styles.heading}>Статистика</h1>
-         <DoughnutChart transactions={chartStats}/>
-        </div>
-
-        <div>
-         <Filter/>
-          <Table statistic={tableStats} total={total}/>
-        </div>
-        
-      </div>
-
-     </section>
+            {allTransactions.length !== 0 ? 
+            
+            <div className={styles.statisticWrapper}>
+              <div className={styles.diagramWrapper}>
+               <h1 className={styles.heading}>Статистика</h1>
+               <DoughnutChart transactions={chartStats}/>
+             </div>
+             <div>
+               <Filter/>
+               <Table statistic={tableStats} total={total}/>
+             </div>
+            </div>: 
+            <div className={styles.diagramWrapper}>
+              <h1 className={styles.heading}>Статистика</h1>
+              <Filter/>
+              <div className={styles.noStatsText} >За выбранный период транзакций не было</div>
+            </div>
+            }
+       
+          </section>
     
   );
 }
