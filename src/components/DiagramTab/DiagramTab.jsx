@@ -36,7 +36,7 @@ export default function DiagramTab() {
                <Table statistic={tableStats} total={total}/>
              </div>
             </div>: 
-            <div className={styles.diagramWrapper}>
+            <div className={styles.noStatsDDiagramWrapper}>
               <h1 className={styles.heading}>Статистика</h1>
               <Filter/>
               <div className={styles.noStatsText} >За выбранный период транзакций не было</div>

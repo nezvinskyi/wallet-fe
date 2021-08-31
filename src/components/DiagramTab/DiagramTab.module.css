@@ -36,8 +36,12 @@
   }
 
   .diagramWrapper {
-    width: 320px;
+    max-width: 320px;
     margin-right: 35px;
+  }
+
+  .noStatsDDiagramWrapper {
+    width: 100%;
   }
 }
 
