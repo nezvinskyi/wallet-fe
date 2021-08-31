@@ -12,8 +12,13 @@
 }
 
 @media (max-width: 767px) {
+  /* .table .tbody {
+    display: flex;
+    justify-content: center;
+  } */
   .tr {
-    max-width: 280px;
+    width: 100%;
+    /* max-width: 280px; */
     display: flex;
     flex-direction: column;
     border-left: 5px solid rgba(255, 101, 150, 1);

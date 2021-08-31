@@ -38,7 +38,9 @@ const DashboardPage = () => {
         <Container className={style.backdrop}>
           <div className={style.leftContainer}>
             <div className={style.navAndBalanceContainer}>
+              <div className={style.navigationContainer}>
               <Navigation viewChanger={setMainView} mainView={mainView} />
+              </div>
               {mainView !== 'currency' && (
                 <div className={style.balanceContainer}>
                   <Balance />

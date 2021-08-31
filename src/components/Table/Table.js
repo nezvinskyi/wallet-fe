@@ -80,7 +80,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
       </thead>
       {mainView ? (
         transactions.map(({ _id, date, type, categoryId, comments, amount }, idx) => (
-          <tbody key={_id}>
+          <tbody className={style.tbody} key={_id}>
             <tr className={style.tr} style={inlineStyle.tableTr}>
               <td style={inlineStyle.tableDataTd} className={style.tableDataTd} data-label="Дата">
                 {moment(date).format('DD.MM.YYYY')}
