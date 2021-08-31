@@ -48,7 +48,7 @@ const Navigation = ({ viewChanger, mainView }) => {
               height="44"
               className={!mainView && styles.navImgActive}
             />
-            
+
             <div className={styles.NavLinkNone}>
               <span className={!mainView ? styles.NavLinkNameActive : styles.NavLinkName}>
                 Статистика
@@ -63,13 +63,10 @@ const Navigation = ({ viewChanger, mainView }) => {
           to={routes.currency}
           className={styles.NavLink}
           activeClassName={styles.NavLinkActive}
+          onClick={() => viewChanger(false)}
         >
           <div>
-            <img className={styles.isHidden}
-              src={currency}
-              alt="currency"
-              width="44"
-              height="44" />
+            <img className={styles.isHidden} src={currency} alt="currency" width="44" height="44" />
           </div>
         </NavLink>
       </li>
