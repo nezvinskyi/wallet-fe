@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { financeOperations, financeSelectors } from '../../redux/finance/';
 import style from './Style.module.css';
 import inlineStyle from './inlineStyle';
-// import { closeIcon } from '../../assets/images/close-icon';
 import DeleteForeverRoundedIcon from '@material-ui/icons/DeleteForeverRounded';
-import EditIcon from '@material-ui/icons/Edit';
+// import EditIcon from '@material-ui/icons/Edit';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 const OperationsTable = ({ viewCondition, statistic, total }) => {
