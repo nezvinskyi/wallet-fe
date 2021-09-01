@@ -41,8 +41,13 @@ const colors = [
 },
 {
   id: "612d3b21c195c63a7c94edd3",
-  color: 'rgba(10, 10, 160, 1)',
+  color: 'rgba(231, 76, 37, 1)',
 },
+{
+  id: "612e45b836c5e12af0e127c4",
+  color: 'rgba(111, 197, 71, 1)',
+},
+
 ]
 
 export default colors
