@@ -83,16 +83,19 @@
 .category {
   text-align: center;
 }
+.colorBlockWrapper {
+  display: flex;
+  align-items: center;
+  height: inherit;
+  margin-right: 16px;
+}
 
 .colorBlock {
-  position: relative;
-  top: 3px;
   display: inline-block;
   width: 24px;
   height: 24px;
   border-radius: 2px;
   background-color: teal;
-  margin-right: 16px;
 }
 
 .totalAmount {
