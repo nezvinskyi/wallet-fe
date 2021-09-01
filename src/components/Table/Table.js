@@ -61,6 +61,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
   const mainView = viewCondition;
 
   return (
+    <div className={style.tableWrapper}>
     <Table responsive style={inlineStyle.table} className={style.table}>
       <thead className={style.thead}>
         {mainView ? (
@@ -157,6 +158,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
         </tbody>
       )}
     </Table>
+    </div>
   );
 };
 
