@@ -1,5 +1,3 @@
-import { NonceProvider } from "react-select";
-
 const inlineStyle = {
   table: {
     position: 'relative',
@@ -66,13 +64,12 @@ const inlineStyle = {
   tableDataTd: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
-        // paddingLeft: '20px',
+    // paddingLeft: '20px',
   },
 
   tableTypeTd: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
-   
   },
 
   income: {
@@ -82,27 +79,25 @@ const inlineStyle = {
     paddingRight: '15px',
     color: '#24CCA7',
     textAlign: 'right',
-      },
+  },
   expense: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
     paddingRight: '15px',
     color: '#FF6596',
     textAlign: 'right',
-    
   },
   tdLast: {
     paddingRight: '15px',
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     textAlign: 'right',
     backgroundColor: 'inherit',
-   
   },
- 
-  tdLastEdit:{
-   borderBottomColor: 'rgba(220, 220, 223, 1)',
+
+  tdLastEdit: {
+    borderBottomColor: 'rgba(220, 220, 223, 1)',
   },
-  
+
   tdFirst: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',
