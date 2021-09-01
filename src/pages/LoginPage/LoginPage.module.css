@@ -3,10 +3,22 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url('../../assets/images/ellipse-bottom.svg'),
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    background-color: #fff;
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .container {
+    background-image: url('../../assets/images/ellipse-bottom.svg'),
     url('../../assets/images/ellipse-top.svg');
-  background-position: left bottom, right top;
-  background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right top;
+    background-repeat: no-repeat, no-repeat;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -30,6 +42,7 @@
     justify-content: space-around;
     width: 540px;
     padding-bottom: 0;
+    height: 30vh;
   }
 }
 @media screen and (max-width: 767px) {
@@ -76,6 +89,14 @@
   .formContainer {
     background-color: transparent;
     backdrop-filter: none;
+    /* height: 68vh; */
+    padding-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .formContainer {
+    height: 100vh;
   }
 }
 
@@ -88,8 +109,15 @@
   display: flex;
   width: 540px;
   /* height: 470px; */
-  border-radius: 20px;
-  padding: 25px 40px 65px;
+  /* border-radius: 20px; */
+  
+}
+
+@media screen and (min-width: 768px) {
+  .formWrapper {
+    border-radius: 20px;
+    padding: 25px 40px 65px;
+  }
 }
 
 .logo {
@@ -106,8 +134,14 @@
   outline: none;
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  width: 410px;
+  /* width: 410px; */
   margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .inputItem {
+    width: 410px;
+  }
 }
 
 input {
