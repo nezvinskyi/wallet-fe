@@ -79,6 +79,7 @@ const inlineStyle = {
     paddingRight: '15px',
     color: '#24CCA7',
     textAlign: 'right',
+    whiteSpace: 'nowrap',
   },
   expense: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
@@ -86,12 +87,14 @@ const inlineStyle = {
     paddingRight: '15px',
     color: '#FF6596',
     textAlign: 'right',
+    whiteSpace: 'nowrap',
   },
   tdLast: {
     paddingRight: '15px',
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     textAlign: 'right',
     backgroundColor: 'inherit',
+    whiteSpace: 'nowrap',
   },
 
   tdLastEdit: {
