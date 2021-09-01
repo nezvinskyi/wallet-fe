@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { financeOperations, financeSelectors } from '../../redux/finance/';
 import style from './Style.module.css';
 import inlineStyle from './inlineStyle';
-import { closeIcon } from '../../assets/images/close-icon';
+// import { closeIcon } from '../../assets/images/close-icon';
+import DeleteForeverRoundedIcon from '@material-ui/icons/DeleteForeverRounded';
+import EditIcon from '@material-ui/icons/Edit';
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 const OperationsTable = ({ viewCondition, statistic, total }) => {
   const dispatch = useDispatch();
@@ -62,14 +65,16 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
     <Table responsive style={inlineStyle.table} className={style.table}>
       <thead className={style.thead}>
         {mainView ? (
-          <tr className={style.thead}>
+          <tr className={style.thead} >
             <th style={inlineStyle.thFirst}>Дата</th>
             <th style={inlineStyle.tableTypeTh}>Тип</th>
             <th style={inlineStyle.tableTh}>Категория</th>
             <th style={inlineStyle.tableTh}>Комментарий</th>
             <th style={inlineStyle.thSumm}>Сумма</th>
             <th style={inlineStyle.thSumm}>Баланс</th>
-            <th style={inlineStyle.thLast} className={style.verticalText}>...</th>
+            <th style={inlineStyle.thLast}> 
+            <SettingsOutlinedIcon/>
+            </th>
           </tr>
         ) : (
           <tr className={style.thead}>
@@ -105,9 +110,11 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
                 {moneyFormat(calculateBalance(amount, type, idx))}
               </td>
 
-              <td className={style.verticalText} style={inlineStyle.tdLast} data-label="...">
-                <div className={style.closeBtnContainer} onClick={() => handleDelete(_id)}>
-                  <img src={closeIcon.close} alt="" />
+              <td className={style.verticalText} style={inlineStyle.tdLastEdit}>
+                <div className={style.BtnsContainer} onClick={() => handleDelete(_id)}>
+                  {/* <img src={closeIcon.close} className={style.removeButton}  alt="" /> */}
+                  <EditIcon className={style.editButton} />
+                  <DeleteForeverRoundedIcon className={style.removeButton} />
                 </div>
               </td>
             </tr>
@@ -118,11 +125,9 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
           {statistic.map(({ id, name, amount, color }) => {
             return (
               <tr key={id} style={inlineStyle.tr}>
-                <td style={inlineStyle.tdFirst} className={style.verticalText}>
-                  <div className={style.colorBlock} style={{ background: color }}></div>
-                  {name}
-                </td>
-                <td style={inlineStyle.tdLast} className={style.verticalText}>{moneyFormat(amount)}</td>
+                <td style={inlineStyle.tdFirst} >
+               <span className={style.colorBlockWrapper}><div className={style.colorBlockWrapper}><span className={style.colorBlock} style={{ background: color }}></span></div>{name}</span></td>
+                <td style={inlineStyle.tdLast} className={style.totalValue}>{moneyFormat(amount)}</td>
               </tr>
             );
           })}

@@ -29,20 +29,25 @@ const colors = [
 },
 {
   id: "612d33814956d5042863f994",
-  color: 'rgba(36, 204, 167, 1)',
+  color: 'rgba(231, 76, 37, 1)',
 },
 {
   id: "612d33b44956d5042863f997",
-  color: 'rgba(0, 173, 132, 1)',
-},
-{
-  id: "612d3b0dc195c63a7c94edd0",
   color: 'rgba(255, 101, 153, 1)',
 },
 {
-  id: "612d3b21c195c63a7c94edd3",
-  color: 'rgba(10, 10, 160, 1)',
+  id: "612d3b0dc195c63a7c94edd0",
+  color: 'rgba(0, 173, 132, 1)',
 },
+{
+  id: "612d3b21c195c63a7c94edd3",
+  color: 'rgba(36, 204, 167, 1)', 
+},
+{
+  id: "612e45b836c5e12af0e127c4",
+  color: 'rgba(111, 197, 71, 1)',
+},
+
 ]
 
 export default colors

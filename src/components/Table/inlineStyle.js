@@ -28,6 +28,10 @@ const inlineStyle = {
     textAlign: 'right',
     paddingRight: '15px',
   },
+  // убирает шапку с колонки с кнопками
+  // thLastEdit:{
+  //   borderStyle: 'hidden',
+  // },
   tableTr: {
     border: '0px solid inherit',
   },
@@ -87,7 +91,13 @@ const inlineStyle = {
     paddingRight: '15px',
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     textAlign: 'right',
+    backgroundColor: 'inherit',
   },
+
+  tdLastEdit: {
+    borderBottomColor: 'rgba(220, 220, 223, 1)',
+  },
+
   tdFirst: {
     borderBottomColor: 'rgba(220, 220, 223, 1)',
     backgroundColor: 'inherit',

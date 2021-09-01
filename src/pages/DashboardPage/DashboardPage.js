@@ -61,7 +61,8 @@ const DashboardPage = () => {
         </Container>
         {/* </div> */}
       </div>
-      {mainView !== 'currency' && <AddTransactionBtn />}
+      {/* убрала кнопку со добавления со страницы статистики */}
+      {mainView !== 'currency' && mainView !=='stats'&& <AddTransactionBtn />}
       {isModalOpen && (
         <Modal>
           <AddTransactionForm />

@@ -29,12 +29,12 @@
   }
 
   .table td {
-    font-weight: 400;
+    /* font-weight: 400; */
     font-size: 16px;
     line-height: 1.437;
     border-top-right-radius: 10px;
     border-bottom-color: rgb(189, 189, 189);
-    padding-left: 0px;
+    padding-left: 15px;
     text-align: right;
   }
 
@@ -51,6 +51,11 @@
   .table td {
     background-color: #fff;
   }
+
+  .tbody td {
+    vertical-align: middle;
+  }
+
   .category::before {
     content: '';
     width: 24px;
@@ -65,6 +70,10 @@
 
 .countText {
   font-weight: 700;
+  vertical-align: middle;
+}
+.totalValue {
+  vertical-align: middle;
 }
 .income {
   font-weight: 700;
@@ -78,28 +87,47 @@
 .category {
   text-align: center;
 }
+.colorBlockWrapper {
+  display: flex;
+  align-items: center;
+  height: inherit;
+  margin-right: 16px;
+}
 
 .colorBlock {
-  position: relative;
-  top: 3px;
   display: inline-block;
   width: 24px;
   height: 24px;
   border-radius: 2px;
   background-color: teal;
-  margin-right: 16px;
 }
 
 .totalAmount {
   border-bottom-style: hidden;
 }
-
-.verticalText {
+/* центрирует текст в табличке */
+.tr td {
   vertical-align: middle;
 }
 
-.closeBtnContainer {
-  width: 18px;
-  height: 18px;
+.BtnsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.removeButton,
+.editButton {
   cursor: pointer;
+  color: rgb(204, 204, 204);
+}
+.removeButton:hover,
+.removeButton:focus {
+  color: rgba(255, 101, 150, 1);
+  transition: color 0.5s;
+}
+
+.editButton:hover,
+.editButton:focus {
+  color: rgba(36, 204, 167, 1);
 }
