@@ -14,18 +14,19 @@
 .balanceContainer {
   margin-top: 10px;
 }
-.backdrop {
+.dashboardPage .backdrop {
   display: flex;
   min-height: 90vh;
-  justify-content: center;
+  /* justify-content: center; */
+  flex-direction: column;
 }
-@media screen and (max-width: 1279px) {
+@media screen and (min-width: 1280px) {
   .backdrop {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 .leftContainer {
-  flex: 1;
+  /* flex: 1; */
   padding-top: 40px;
   /* outline: red dotted 2px; */
 }
@@ -34,8 +35,16 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    align-items: flex-end;
   }
 }
+
+@media (min-width: 1280px) {
+  .leftContainer {
+    flex-direction: column;
+  }
+}
+
 .currencyContainer {
   padding-top: 30px;
 }

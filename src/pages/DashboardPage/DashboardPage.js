@@ -14,7 +14,8 @@ import {
   Modal,
   AddTransactionForm,
 } from '../../components';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
+import { DashboardContainer } from '../../components/Container'
 
 import style from './Style.module.css';
 
@@ -35,7 +36,7 @@ const DashboardPage = () => {
       <Header viewChanger={setMainView} />
       <div className={style.dashboardPage}>
         {/* <div className={style.backdrop}> */}
-        <Container className={style.backdrop}>
+        <DashboardContainer className={style.backdrop}>
           <div className={style.leftContainer}>
             <div className={style.navAndBalanceContainer}>
               <div className={style.navigationContainer}>
@@ -63,7 +64,7 @@ const DashboardPage = () => {
             {mainView === 'main' && <OperationsTable viewCondition={mainView} />}
             {mainView === 'stats' && <DiagramTab />}
           </div>
-        </Container>
+        </DashboardContainer>
         {/* </div> */}
       </div>
       {/* убрала кнопку со добавления со страницы статистики */}
