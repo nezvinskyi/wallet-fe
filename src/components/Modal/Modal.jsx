@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { globalOperations } from '../../redux/global';
-// import { BtnImg } from './img';
 import { closeIcon } from '../../assets/images/close-icon';
 import styles from './Modal.module.css';
 

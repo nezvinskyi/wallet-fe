@@ -35,14 +35,6 @@ const customStyles = {
 };
 
 const stylesJSX = {
-  select: {
-    width: '410px',
-  },
-  '@media screen and (max-width: 767px)': {
-    select: {
-      width: '100%',
-    },
-  },
   primaryBtn: {
     color: '#ffffff',
     background: '#24CCA7',
@@ -53,13 +45,6 @@ const stylesJSX = {
     border: 'none',
     borderRadius: '20px',
   },
-  '@media screen and max-width: 700px': {
-    primaryBtn: {
-      width: 280,
-      height: 50,
-    },
-  },
-
   secondaryBtn: {
     color: '#4A56E2',
     background: 'white',
@@ -67,12 +52,6 @@ const stylesJSX = {
     height: 50,
     border: '1px solid #4A56E2',
     borderRadius: '20px',
-  },
-  '@media screen and min-width: 300px': {
-    secondaryBtn: {
-      width: 280,
-      height: 50,
-    },
   },
 };
 
@@ -155,6 +134,7 @@ const AddTransactionForm = () => {
       </div>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
         <h1 className={styles.title}>Добавить транзакцию</h1>
+
         <div className={styles.typeWrapper}>
           <span className={styles.transType}>
             <span className={styles.income}>Доход</span>
@@ -177,7 +157,7 @@ const AddTransactionForm = () => {
         </div>
 
         <div className={styles.categoryWrapper}>
-          <div style={stylesJSX.select}>
+          <div className={styles.category}>
             <Select
               styles={customStyles}
               placeholder="Выберите категорию"
@@ -216,6 +196,7 @@ const AddTransactionForm = () => {
             placeholder="Комментарий"
           />
         </div>
+
         <div className={styles.btnGroup}>
           <Button variant="primary" type="submit" style={stylesJSX.primaryBtn}>
             ДОБАВИТЬ
