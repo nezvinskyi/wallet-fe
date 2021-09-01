@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { Button } from 'react-bootstrap';
 import { useState, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector,useDispatch } from 'react-redux';
 import { globalOperations } from '../../redux/global';
 import { financeSelectors, financeOperations } from '../../redux/finance';
 import Header from '../Header';
@@ -59,12 +59,28 @@ const AddTransactionForm = () => {
   const [date, setDate] = useState(moment(new Date()).format('YYYY-MM-DD'));
   const [type, setType] = useState(true);
   const [amount, setAmount] = useState('');
-  const categories = useSelector(financeSelectors.categoriesForAddTrForm);
   const [categoryId, setCategoryId] = useState(categories[8]._id);
   const [comments, setComments] = useState('');
+  const categories = useSelector(financeSelectors.categoriesForAddTrForm);
+
+  // это для того чтобы при определенном типе транзакции можно было выбрать только определенные категории
+  const categoriesIncome = categories.filter(el=> el.name === "Регулярный доход" || 
+  el.name ==="Нерегулярный доход" ||
+  el.name ==="Общие доходы");
+
+  const categoriesExpense =  categories.filter(el=> el.name === "Основные расходы" || 
+  el.name === "Продукты" ||
+  el.name === "Машина" ||
+  el.name === "Забота о себе" ||
+  el.name === "Забота о детях" ||
+  el.name === "Образование" ||
+  el.name === "Другие расходы" ||
+  el.name === "Досуг");
 
   const dispatch = useDispatch();
+  console.log(categories);
 
+  
   const onClose = () => {
     dispatch(globalOperations.closeModalAddTransaction());
   };
@@ -163,7 +179,8 @@ const AddTransactionForm = () => {
               placeholder="Выберите категорию"
               name="categoryId"
               onChange={categoryChangeREACTSELECT}
-              options={categories}
+              // options= {categories}
+              options= { type? categoriesExpense : categoriesIncome}
             />
           </div>
         </div>
