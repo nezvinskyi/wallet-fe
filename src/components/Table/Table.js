@@ -127,7 +127,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
               <tr key={id} style={inlineStyle.tr}>
                 <td style={inlineStyle.tdFirst} >
                <span className={style.colorBlockWrapper}><div className={style.colorBlockWrapper}><span className={style.colorBlock} style={{ background: color }}></span></div>{name}</span></td>
-                <td style={inlineStyle.tdLast} >{moneyFormat(amount)}</td>
+                <td style={inlineStyle.tdLast} className={style.totalValue}>{moneyFormat(amount)}</td>
               </tr>
             );
           })}

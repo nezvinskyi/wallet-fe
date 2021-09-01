@@ -70,6 +70,10 @@
 
 .countText {
   font-weight: 700;
+  vertical-align: middle;
+}
+.totalValue {
+  vertical-align: middle;
 }
 .income {
   font-weight: 700;
