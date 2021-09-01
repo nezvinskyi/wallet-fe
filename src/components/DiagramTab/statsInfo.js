@@ -31,7 +31,8 @@ export const getStats = transactions =>{
     const categoryId = transaction.categoryId._id;
     
     categoryColors.forEach(color => {
-          if (color.id === categoryId && transaction.type === "expense") {
+          // if (color.id === categoryId && transaction.type === "expense") {
+          if (color.id === categoryId) {
           notFilteredStats.push( {
             id: transaction.categoryId._id,
             amount: transaction.amount,
