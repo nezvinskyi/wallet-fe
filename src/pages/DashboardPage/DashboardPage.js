@@ -39,15 +39,20 @@ const DashboardPage = () => {
           <div className={style.leftContainer}>
             <div className={style.navAndBalanceContainer}>
               <div className={style.navigationContainer}>
-              <Navigation viewChanger={setMainView} mainView={mainView} />
+                <Navigation viewChanger={setMainView} mainView={mainView} />
               </div>
               {mainView !== 'currency' && (
                 <div className={style.balanceContainer}>
                   <Balance />
                 </div>
               )}
+              {mainView === 'currency' && (
+                <div className={style.currencyContainer}>
+                  <Currency />
+                </div>
+              )}
             </div>
-            <div className={style.currencyContainer}>
+            <div className={style.currencyContainerTD}>
               <Currency />
             </div>
           </div>
