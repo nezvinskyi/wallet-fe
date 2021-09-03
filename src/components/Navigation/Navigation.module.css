@@ -11,6 +11,11 @@
   /* border-radius: 6px; */
 }
 
+.Navigation > li > button {
+  border: none;
+  padding: 0;
+}
+
 @media /* (min-width: 320px) and */ (max-width: 767px) {
   .Navigation {
     display: flex;
@@ -24,7 +29,7 @@
   .NavLinkNone {
     display: none;
   }
-  
+
   .NavLinkName {
     display: none;
   }
@@ -42,7 +47,7 @@
 @media (min-width: 768px) {
   .Navigation {
     display: block;
-    width: 143px;
+    min-width: 143px;
     height: 64px;
     padding: 0;
   }
@@ -53,7 +58,7 @@
     height: 27px;
   }
 
-  .Navigation > li > a > div {
+  .Navigation > li > button > div {
     display: flex;
     align-items: center;
   }
@@ -90,7 +95,7 @@
     margin-top: 10px;
   }
 
-  .Navigation > li > a > div > img {
+  .Navigation > li > button > div > div > img {
     width: 18px;
     height: 18px;
   }
