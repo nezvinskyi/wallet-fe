@@ -11,12 +11,12 @@ const Navigation = ({ viewChanger, mainView }) => {
             <li className={styles.NavLink}>
                 <button onClick={() => viewChanger('main')} /* className={styles.NavBtn} */>
                     <div>   
-                        <div>
+                        <div className={styles.NavLinkImg}>
                             <img
                               src={home}
                               alt="home"
-                              width="44"
-                              height="44"
+                              width="38"
+                              height="38"
                               className={mainView === 'main' ? styles.navImgActive : null}                                
                             />
                         </div>
@@ -32,12 +32,12 @@ const Navigation = ({ viewChanger, mainView }) => {
             <li className={styles.NavLink}>
                 <button onClick={() => viewChanger('stats')} /* className={styles.NavBtn} */>
                     <div>    
-                        <div>                            
+                        <div className={styles.NavLinkImg}>                            
                             <img
                               src={diagram}
                               alt="diagram"
-                              width="44"
-                              height="44"
+                              width="38"
+                              height="38"
                               className={mainView === 'stats' ? styles.navImgActive : null}
                             />
                         </div>
@@ -55,13 +55,13 @@ const Navigation = ({ viewChanger, mainView }) => {
                 
             <li className={styles.NavLink}>
                 <button onClick={() => viewChanger('currency')} className={mainView !== 'currency' ? styles.NavItemCurrency : null}>
-                    <div>
+                    <div className={styles.NavLinkImg}>
                       <img
                         className={mainView === 'currency' ? styles.navImgActive : null}
                         src={currency}
                         alt="currency"
-                        width="44"
-                        height="44"
+                        width="38"
+                        height="38"
                       />
                     </div>
                 </button>
