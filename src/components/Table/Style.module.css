@@ -1,6 +1,23 @@
 .headWrapper {
   background-color: black;
 }
+
+.tableWrapper {
+  overflow: auto;
+  max-height: calc(100vh - 360px);
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .tableWrapper {
+    max-height: calc(100vh - 410px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .tableWrapper {
+    max-height: calc(100vh - 170px);
+  }
+}
+
 .table {
   max-width: 700px;
 }
