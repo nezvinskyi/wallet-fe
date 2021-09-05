@@ -1,6 +1,5 @@
 .Navigation {
   display: flex;
-  /* max-width: 200px; */
   height: 60px;
   padding: 0 60px;
   justify-content: space-between;
@@ -8,10 +7,14 @@
 
 .navImgActive {
   box-shadow: 0px 3px 10px rgba(74, 86, 226, 0.5);
-  /* border-radius: 6px; */
 }
 
-@media /* (min-width: 320px) and */ (max-width: 767px) {
+.Navigation > li > button {
+  border: none;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
   .Navigation {
     display: flex;
     width: 280px;
@@ -24,7 +27,7 @@
   .NavLinkNone {
     display: none;
   }
-  
+
   .NavLinkName {
     display: none;
   }
@@ -34,6 +37,10 @@
   }
 
   .Navigation > li > div > img {
+    width: 38px;
+    height: 38px;
+  }
+  .navImgActive {
     width: 44px;
     height: 44px;
   }
@@ -42,7 +49,7 @@
 @media (min-width: 768px) {
   .Navigation {
     display: block;
-    width: 143px;
+    min-width: 143px;
     height: 64px;
     padding: 0;
   }
@@ -53,7 +60,7 @@
     height: 27px;
   }
 
-  .Navigation > li > a > div {
+  .Navigation > li > button > div {
     display: flex;
     align-items: center;
   }
@@ -90,7 +97,7 @@
     margin-top: 10px;
   }
 
-  .Navigation > li > a > div > img {
+  .Navigation > li > button > div > div > img {
     width: 18px;
     height: 18px;
   }
