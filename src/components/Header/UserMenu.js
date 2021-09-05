@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 // import { userSelectors, userOperations } from '../../redux/user';
 import { userSelectors } from '../../redux/user';
-import { globalOperations, /* globalSelectors */ } from '../../redux/global';
+import { globalOperations /* globalSelectors */ } from '../../redux/global';
 // import { LogoutModal } from '../../components';
 
 export default function UserMenu() {
@@ -27,7 +27,7 @@ export default function UserMenu() {
       <div className={styles.divider}></div>
       <div onClick={handleLogout} className={styles.exit}>
         <div className={styles.logoutItem}></div>
-        <div className={styles.logoutText}>Выйти</div>
+        <div className={styles.logoutText}>Log out</div>
       </div>
       {/* {logoutModalIsOpen && <LogoutModal />} */}
     </div>

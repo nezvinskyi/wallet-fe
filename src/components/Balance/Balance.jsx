@@ -15,7 +15,7 @@ export default function Currency() {
   };
   return (
     <div className={styles.balance}>
-      <h3 className={styles.title}>Ваш баланс</h3>
+      <h3 className={styles.title}>Outstanding balance</h3>
       <div className={styles.amount}>
         {hryvnaSign} {moneyFormat(balance)}
       </div>

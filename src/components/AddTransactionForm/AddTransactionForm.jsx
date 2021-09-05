@@ -66,21 +66,21 @@ const AddTransactionForm = () => {
   // это для того чтобы при определенном типе транзакции можно было выбрать только определенные категории
   const categoriesIncome = categories.filter(
     el =>
-      el.name === 'Регулярный доход' ||
-      el.name === 'Нерегулярный доход' ||
-      el.name === 'Общие доходы',
+      el.name === 'Regular income' ||
+      el.name === 'Irregular income' ||
+      el.name === 'General income',
   );
 
   const categoriesExpense = categories.filter(
     el =>
-      el.name === 'Основные расходы' ||
-      el.name === 'Продукты' ||
-      el.name === 'Машина' ||
-      el.name === 'Забота о себе' ||
-      el.name === 'Забота о детях' ||
-      el.name === 'Образование' ||
-      el.name === 'Другие расходы' ||
-      el.name === 'Досуг',
+      el.name === 'General expenses' ||
+      el.name === 'Food' ||
+      el.name === 'Car' ||
+      el.name === 'Wellbeing' ||
+      el.name === 'Family&children' ||
+      el.name === 'Education' ||
+      el.name === 'Other expenses' ||
+      el.name === 'Entertainment',
   );
 
   const dispatch = useDispatch();
@@ -153,11 +153,11 @@ const AddTransactionForm = () => {
         <Header />
       </div>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
-        <h1 className={styles.title}>Добавить транзакцию</h1>
+        <h1 className={styles.title}>Add transaction</h1>
 
         <div className={styles.typeWrapper}>
           <span className={styles.transType}>
-            <span className={styles.income}>Доход</span>
+            <span className={styles.income}>Income</span>
           </span>
           <label htmlFor="myToggle" className={styles.toggle}>
             <input
@@ -172,7 +172,7 @@ const AddTransactionForm = () => {
             <div className={styles.toggle__fill}></div>
           </label>
           <span className={styles.transType}>
-            <span className={styles.expense}>Расход</span>
+            <span className={styles.expense}>Expense</span>
           </span>
         </div>
 
@@ -180,7 +180,7 @@ const AddTransactionForm = () => {
           <div className={styles.category}>
             <Select
               styles={customStyles}
-              placeholder="Выберите категорию"
+              placeholder="Select category"
               name="categoryId"
               onChange={categoryChangeREACTSELECT}
               // options= {categories}
@@ -214,17 +214,17 @@ const AddTransactionForm = () => {
             name="comments"
             value={comments}
             onChange={commentsChange}
-            placeholder="Комментарий"
+            placeholder="Comment"
           />
         </div>
 
         <div className={styles.btnGroup}>
           <Button variant="primary" type="submit" style={stylesJSX.primaryBtn}>
-            ДОБАВИТЬ
+            ADD
           </Button>
 
           <Button onClick={onClose} variant="primary" type="submit" style={stylesJSX.secondaryBtn}>
-            ОТМЕНА
+            CANCEL
           </Button>
         </div>
       </form>

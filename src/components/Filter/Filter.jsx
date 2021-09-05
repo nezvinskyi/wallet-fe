@@ -6,18 +6,18 @@ import { useDispatch } from 'react-redux';
 import { financeOperations } from '../../redux/finance';
 // import { financeSelectors, actions } from '../../redux/finance/';
 const months = [
-  { id: '01', name: 'Январь' },
-  { id: '02', name: 'Февраль' },
-  { id: '03', name: 'Март' },
-  { id: '04', name: 'Апрель' },
-  { id: '05', name: 'Май' },
-  { id: '06', name: 'Июнь' },
-  { id: '07', name: 'Июль' },
-  { id: '08', name: 'Август' },
-  { id: '09', name: 'Сентябрь' },
-  { id: '10', name: 'Октябрь' },
-  { id: '11', name: 'Ноябрь' },
-  { id: '12', name: 'Декабрь' },
+  { id: '01', name: 'January' },
+  { id: '02', name: 'February' },
+  { id: '03', name: 'March' },
+  { id: '04', name: 'April' },
+  { id: '05', name: 'May' },
+  { id: '06', name: 'June' },
+  { id: '07', name: 'July' },
+  { id: '08', name: 'August' },
+  { id: '09', name: 'September' },
+  { id: '10', name: 'October' },
+  { id: '11', name: 'November' },
+  { id: '12', name: 'December' },
 ];
 
 export default function Filter() {
@@ -29,8 +29,8 @@ export default function Filter() {
     years.push(i);
   }
 
-  const [selectedMonthForm, setSelectedMonthForm] = useState('Месяц');
-  const [selectedYearForm, setSelectedYearForm] = useState('Год');
+  const [selectedMonthForm, setSelectedMonthForm] = useState('Month');
+  const [selectedYearForm, setSelectedYearForm] = useState('Year');
   const [showMonths, setShowMonths] = useState(false);
   const [showYears, setShowYears] = useState(false);
 
@@ -82,11 +82,7 @@ export default function Filter() {
         </div>
       </div>
 
-      <div
-        className={styles.yearPicker}
-        data-year="year"
-        onClick={dropDownYears}
-      >
+      <div className={styles.yearPicker} data-year="year" onClick={dropDownYears}>
         <div className={styles.selectBoxContainer}>
           <div className={styles.selectBoxSelectedItem}>{selectedYearForm}</div>
 

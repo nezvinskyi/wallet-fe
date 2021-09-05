@@ -94,7 +94,7 @@ const RegistrationPage = () => {
               type="password"
               name="password"
               required
-              placeholder="Пароль"
+              placeholder="Password"
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
@@ -105,7 +105,7 @@ const RegistrationPage = () => {
               type="password"
               name="confirmPassword"
               required
-              placeholder="Подтвердите пароль"
+              placeholder="Confirm password"
               value={confirmPassword}
               onChange={e => setConfirmPassword(e.target.value)}
             />
@@ -116,18 +116,18 @@ const RegistrationPage = () => {
               type="name"
               name="name"
               required
-              placeholder="Ваше имя"
+              placeholder="Your name"
               value={name}
               onChange={e => setName(e.target.value)}
             />
 
             <div className={scss.btnGroup}>
               <Button variant="primary" type="submit" style={styles.primaryBtn}>
-                РЕГИСТРАЦИЯ
+                REGISTER
               </Button>
 
               <Button variant="primary" type="button" style={styles.secondaryBtn}>
-                <Link to="/login">ВХОД</Link>
+                <Link to="/login">LOGIN</Link>
               </Button>
             </div>
           </form>

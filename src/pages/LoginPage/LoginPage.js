@@ -90,18 +90,18 @@ const LoginPage = () => {
               className={scss.inputItem}
               type="password"
               name="password"
-              placeholder="Пароль"
+              placeholder="Password"
               value={password}
               onChange={event => setPassword(event.target.value)}
             />
 
             <div className={scss.btnGroup}>
               <Button variant="primary" type="submit" style={styles.primaryBtn}>
-                ВХОД
+                LOGIN
               </Button>
 
               <Button variant="primary" type="submit" style={styles.secondaryBtn}>
-                <Link to="/register">РЕГИСТРАЦИЯ</Link>
+                <Link to="/register">REGISTRATION</Link>
               </Button>
             </div>
           </form>
