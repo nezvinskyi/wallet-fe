@@ -42,13 +42,13 @@ const Modal = ({ children }) => {
   return createPortal(
     <div className={styles.Modal__backdrop} onClick={e => handleBackdropClick(e)}>
       <div className={styles.Modal__content}>
-        <h2>Вы действительно хотите выйти?</h2>
+        <h2>Are you sure you would like to log out?</h2>
         <div className={styles.buttonsGroup}>
           <button className={styles.buttonConfirm} onClick={onConfirm}>
-            Да
+            Yes
           </button>
           <button className={styles.buttonConfirm} onClick={onClose}>
-            Нет
+            No
           </button>
         </div>
         {children}

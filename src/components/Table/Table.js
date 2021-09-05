@@ -66,20 +66,20 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
         <thead className={style.thead}>
           {mainView ? (
             <tr className={style.thead}>
-              <th style={inlineStyle.thFirst}>Дата</th>
-              <th style={inlineStyle.tableTypeTh}>Тип</th>
-              <th style={inlineStyle.tableTh}>Категория</th>
-              <th style={inlineStyle.tableTh}>Комментарий</th>
-              <th style={inlineStyle.thSumm}>Сумма</th>
-              <th style={inlineStyle.thSumm}>Баланс</th>
+              <th style={inlineStyle.thFirst}>Date</th>
+              <th style={inlineStyle.tableTypeTh}>Type</th>
+              <th style={inlineStyle.tableTh}>Category</th>
+              <th style={inlineStyle.tableTh}>Comment</th>
+              <th style={inlineStyle.thSumm}>Amount</th>
+              <th style={inlineStyle.thSumm}>Balance</th>
               <th style={inlineStyle.thLast}>
                 <SettingsOutlinedIcon />
               </th>
             </tr>
           ) : (
             <tr className={style.thead}>
-              <th style={inlineStyle.thFirst}>Категория</th>
-              <th style={inlineStyle.thLast}>Сумма</th>
+              <th style={inlineStyle.thFirst}>Category</th>
+              <th style={inlineStyle.thLast}>Total</th>
             </tr>
           )}
         </thead>
@@ -87,26 +87,26 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
           transactions.map(({ _id, date, type, categoryId, comments, amount }, idx) => (
             <tbody className={style.tbody} key={_id}>
               <tr className={style.tr} style={inlineStyle.tableTr}>
-                <td style={inlineStyle.tableDataTd} className={style.tableDataTd} data-label="Дата">
+                <td style={inlineStyle.tableDataTd} className={style.tableDataTd} data-label="Date">
                   {moment(date).format('DD.MM.YYYY')}
                 </td>
-                <td data-label="Тип" style={inlineStyle.tableTypeTd}>
+                <td data-label="Type" style={inlineStyle.tableTypeTd}>
                   {type === 'income' ? '+' : '-'}
                 </td>
-                <td data-label="Категория" style={inlineStyle.tableTd}>
+                <td data-label="Category" style={inlineStyle.tableTd}>
                   {categoryId?.name || findCategoryName(categoryId)}
                 </td>
-                <td data-label="Комментарий" style={inlineStyle.tableTd}>
+                <td data-label="Comment" style={inlineStyle.tableTd}>
                   {comments}
                 </td>
 
                 <td
-                  data-label="Сумма"
+                  data-label="Amount"
                   style={type === 'income' ? inlineStyle.income : inlineStyle.expense}
                 >
                   {moneyFormat(amount)}
                 </td>
-                <td data-label="Баланс" style={inlineStyle.tdLast}>
+                <td data-label="Balance" style={inlineStyle.tdLast}>
                   {moneyFormat(calculateBalance(amount, type, idx))}
                 </td>
 
@@ -120,8 +120,8 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
               </tr>
             </tbody>
           ))
-          ) : (
-            <tbody>
+        ) : (
+          <tbody>
             {statistic.map(({ id, name, amount, color }) => {
               return (
                 <tr key={id} style={inlineStyle.tr}>
@@ -141,7 +141,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
             })}
             <tr style={inlineStyle.tr} className={style.totalAmount}>
               <td style={inlineStyle.tdFirst} className={style.countText}>
-                Расходы:
+                Total expense:
               </td>
               <td style={inlineStyle.tdLast} className={style.outcome}>
                 {moneyFormat(total.expense)}
@@ -149,7 +149,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
             </tr>
             <tr style={inlineStyle.tr} className={style.totalAmount}>
               <td style={inlineStyle.tdFirst} className={style.countText}>
-                Доходы:
+                Total income:
               </td>
               <td style={inlineStyle.tdLast} className={style.income}>
                 {moneyFormat(total.income)}
