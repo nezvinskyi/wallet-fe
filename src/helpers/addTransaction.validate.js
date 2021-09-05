@@ -6,8 +6,8 @@ export const addTransactionValidator = async data => {
   };
 
   const messages = {
-    required: () => `Вы не заполнили поле сумма!`,
-    'amount.above': 'Сумма должна быть больше нуля',
+    required: () => `Please enter amount`,
+    'amount.above': 'Amount must be a positive number',
   };
 
   try {
