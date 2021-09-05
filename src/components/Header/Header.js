@@ -7,12 +7,12 @@ import { HeaderContainer } from '../Container'
 
 const Header = ({ viewChanger }) => {
   return (
-    <header className={styles.headerContainer}>
-      <HeaderContainer className={styles.header}>
+    <HeaderContainer className={styles.headerContainer}>
+      <header className={styles.header}>
         <Logo viewChanger={viewChanger} />
         <UserMenu />
-      </HeaderContainer>
-    </header>
+      </header>
+    </HeaderContainer>
   );
 };
 
