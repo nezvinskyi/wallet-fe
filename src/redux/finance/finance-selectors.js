@@ -5,7 +5,7 @@ export const getAllTransactions = state => {
 };
 
 export const getAllCategories = state => {
-  return state?.finance?.categories;
+  return state.finance.categories;
 };
 
 export const categoriesForAddTrForm = state => {
@@ -19,7 +19,6 @@ export const categoriesForAddTrForm = state => {
 export const getBalance = state => {
   return state.finance.balance;
 };
-
 
 export const getAllSortedTransactions = createSelector([getAllTransactions], transactions => {
   return [...transactions].sort((a, b) => b.date.localeCompare(a.date));
@@ -40,4 +39,3 @@ export const getFilteredTransactions = createSelector(
     // .sort((a, b) => a.date.localeCompare(b.date));
   },
 );
-
