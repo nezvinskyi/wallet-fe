@@ -131,10 +131,3 @@ select {
     min-width: 280px;
   }
 }
-
-/* можно удалить,если после тестирования не поломается ничего */
-/* .selectBoxBox {
-  width: 100%;
-  position: absolute;
-  left: 15px;
-} */
