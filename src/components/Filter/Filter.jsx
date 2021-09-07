@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 
 import { useDispatch } from 'react-redux';
 import { financeOperations } from '../../redux/finance';
-// import { financeSelectors, actions } from '../../redux/finance/';
+
 const months = [
   { id: '01', name: 'January' },
   { id: '02', name: 'February' },
@@ -42,8 +42,7 @@ export default function Filter() {
     setShowYears(!showYears);
   };
 
-  // const filter = useSelector(financeSelectors.getFilter);
-
+ 
   const handleMonthChange = e => {
     const month = e.target.dataset.month;
     const monthid = e.target.dataset.monthid;
@@ -57,6 +56,14 @@ export default function Filter() {
     setSelectedYearForm(year);
   };
 
+  const resetMonthFilter = e => {
+    dispatch(financeOperations.addFilter({  month:'' }));
+  };
+  const resetYearFilter = e => {
+    dispatch(financeOperations.addFilter({ year: ''}));
+  }
+
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.monthPicker} onClick={dropDownMonths}>
@@ -67,6 +74,7 @@ export default function Filter() {
             style={{ display: showMonths ? 'block' : 'none' }}
             className={styles.selectBoxItemsMonth}
           >
+            <div onClick={resetMonthFilter}>All</div>
             {months.map(({ id, name: month }) => (
               <div
                 key={id}
@@ -87,6 +95,7 @@ export default function Filter() {
           <div className={styles.selectBoxSelectedItem}>{selectedYearForm}</div>
 
           <div style={{ display: showYears ? 'block' : 'none' }} className={styles.selectBoxItems}>
+          <div  onClick={resetYearFilter}>All</div>
             {years.map(year => (
               <div
                 key={nanoid()}
