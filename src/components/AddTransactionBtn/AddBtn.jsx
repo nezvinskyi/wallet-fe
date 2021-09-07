@@ -1,6 +1,5 @@
 import { Button } from 'react-bootstrap';
-import { BtnImg } from './img';
-import style from './Style.module.css';
+import { BtnImg } from '../../assets/images/addTransBtnIcon';
 
 import { useDispatch } from 'react-redux';
 import { globalOperations } from '../../redux/global';
@@ -28,7 +27,7 @@ const AddTransactionBtn = () => {
 
   return (
     <>
-      <Button onClick={openModal} className={style.addBtnBg} style={inlineStyles.addBtn}>
+      <Button onClick={openModal} style={inlineStyles.addBtn}>
         <img src={BtnImg.addBtnBg} alt="" />
       </Button>
     </>
