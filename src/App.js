@@ -3,6 +3,8 @@ import { Switch } from 'react-router-dom';
 import { LoginPage, RegistrationPage, DashboardPage } from './pages/';
 
 import { PublicRoute, PrivatRoute, LoaderSpinner, LogoutModal } from './components';
+import { useDispatch } from 'react-redux';
+import { userOperations } from './redux/user';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,10 +21,10 @@ function App() {
     toast(error);
   }, [error]);
 
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(userOperations.getCurrentUser());
-  // }, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(userOperations.getCurrentUser());
+  }, [dispatch]);
   const logoutModalIsOpen = useSelector(globalSelectors.getIsLogoutModalOpen);
   const showLoader = useSelector(globalSelectors.getShowLoader);
 
