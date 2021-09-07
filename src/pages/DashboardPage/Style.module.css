@@ -14,12 +14,7 @@
 .balanceContainer {
   margin-top: 10px;
 }
-/* .dashboardPage .backdrop {
-  display: flex;
-  min-height: 90vh;
-  justify-content: center;
-  flex-direction: column;
-} */
+
 @media screen and (min-width: 1280px) {
   .backdrop {
     flex-direction: row;
@@ -115,13 +110,6 @@
 .rightContainer {
   /* flex: 3; */
   padding-top: 30px;
-
-  /* outline: red dotted 2px; */
-
-  /* @media screen and (max-width: 767px) {
-  .rightContainer {
-    padding-top: 20px;
-  } */
   overflow: auto;
   /* height: calc(100vh - 130px); */
 }

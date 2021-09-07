@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { financeOperations } from '../../redux/finance';
-import React, { useEffect, /* useState */ } from 'react';
+import React, { useEffect } from 'react';
 import DiagramTab from '../../components/DiagramTab';
 import {
   Navigation,
@@ -15,8 +15,6 @@ import style from './Style.module.css';
 
 const MobileDashboard = ({ viewChanger, mainView }) => {
     const dispatch = useDispatch();
-    // const [mainView, setMainView] = useState(true);
-    // const [mainView, setMainView] = useState('main');
   
     useEffect(() => {
       dispatch(financeOperations.getTransactions());
