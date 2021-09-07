@@ -65,7 +65,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
       <Table responsive style={inlineStyle.table} className={style.table}>
         <thead className={style.thead}>
           {mainView ? (
-            <tr className={style.thead}>
+            <tr className={style.theadTrans}>
               <th style={inlineStyle.thFirst}>Date</th>
               <th style={inlineStyle.tableTypeTh}>Type</th>
               <th style={inlineStyle.tableTh}>Category</th>
@@ -77,7 +77,7 @@ const OperationsTable = ({ viewCondition, statistic, total }) => {
               </th>
             </tr>
           ) : (
-            <tr className={style.thead}>
+            <tr className={style.theadStats}>
               <th style={inlineStyle.thFirst}>Category</th>
               <th style={inlineStyle.thLast}>Total</th>
             </tr>

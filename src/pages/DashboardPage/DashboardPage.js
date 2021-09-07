@@ -11,14 +11,14 @@ import {
   // Balance,
   // OperationsTable,
   ContainerAppWrapper,
-  // AddTransactionBtn,
+  AddTransactionBtn,
   Modal,
   AddTransactionForm,
 } from '../../components';
 // import { Container } from 'react-bootstrap';
 // import { DashboardContainer } from '../../components/Container'
 import MobileDashboard from './MobileDashboard';
-import TabletDashboard from './TabletDashboard';
+import OtherDashboard from './OtherDashboard';
 
 import style from './Style.module.css';
 
@@ -41,10 +41,72 @@ import style from './Style.module.css';
 //         {/* <div className={style.backdrop}> */}
 //         <Media queries={{
 //           mobile: "(max-width: 767px)",
-//           tablet: "(min-width: 768px) and (max-width: 1279px)",
-//           desktop: "(min-width: 1280px)"
+//           other: "(min-width: 768px)",
+//           // desktop: "(min-width: 1280px)"
 //         }}>
-//         <DashboardContainer className={style.backdrop}>
+//           {matches => (
+//             <Fragment>
+//               {matches.mobile && 
+//                 <DashboardContainer className={style.backdrop}>
+//                   <div className={style.leftContainer}>
+//                     <div className={style.navAndBalanceContainer}>
+//                       <div className={style.navigationContainer}>
+//                         <Navigation viewChanger={setMainView} mainView={mainView} />
+//                       </div>
+//                       {mainView === 'main' && (
+//                         <div className={style.balanceContainer}>
+//                             <Balance />
+//                         </div>
+//                       )}
+//                     </div>
+//                     {mainView === 'currency' && (
+//                         <div className={style.currencyContainer}>
+//                             <Currency />
+//                         </div>
+//                     )}    
+//                   </div>
+      
+//                   <div className={style.divider}></div>
+      
+//                   <div className={style.rightContainer}>
+//                     {mainView === 'main' && <OperationsTable viewCondition={mainView} />}
+//                     {mainView === 'stats' && <DiagramTab />}
+//                   </div>
+//                   {/* {mainView !== 'currency' && mainView !=='stats'&& <AddTransactionBtn />} */}
+//                 </DashboardContainer>
+//               }
+//               {matches.other && 
+//                 <DashboardContainer className={style.backdrop}>
+//                   <div className={style.leftContainer}>
+//                     <div className={style.navAndBalanceContainer}>
+//                       <div className={style.navigationContainer}>
+//                           <Navigation viewChanger={setMainView} mainView={mainView} />
+//                       </div>
+//                       {mainView !== 'currency' && (
+//                         <div className={style.balanceContainer}>
+//                           <Balance />
+//                         </div>
+//                       )}
+//                     </div>
+//                     {mainView !== 'currency' && (
+//                       <div className={style.currencyContainer}>
+//                         <Currency />
+//                       </div>
+//                     )}    
+//                   </div>
+      
+//                   <div className={style.divider}></div>
+      
+//                   <div className={style.rightContainer}>
+//                     {mainView === 'main' && <OperationsTable viewCondition={mainView} />}
+//                     {mainView === 'stats' && <DiagramTab />}
+//                   </div>
+//                   {/* {mainView !== 'currency' && mainView !=='stats'&& <AddTransactionBtn />} */}
+//                 </DashboardContainer>
+//               }
+//             </Fragment>
+//           )}
+//         {/* <DashboardContainer className={style.backdrop}>
 //           <div className={style.leftContainer}>
 //             <div className={style.navAndBalanceContainer}>
 //               <div className={style.navigationContainer}>
@@ -73,7 +135,7 @@ import style from './Style.module.css';
 //             {mainView === 'main' && <OperationsTable viewCondition={mainView} />}
 //             {mainView === 'stats' && <DiagramTab />}
 //           </div>
-//         </DashboardContainer>
+//         </DashboardContainer> */}
 //         </Media>
 //         {/* </div> */}
 //       </div>
@@ -90,8 +152,8 @@ import style from './Style.module.css';
 
 const DashboardPage = () => {
   // const dispatch = useDispatch();
-  // const [mainView, setMainView] = useState('main');
-  const [setMainView] = useState('main');
+  const [mainView, setMainView] = useState('main');
+  // const [setMainView] = useState('main');
   const isModalOpen = useSelector(globalSelectors.getIsModalAddTransactionOpen);
 
   return (
@@ -100,20 +162,20 @@ const DashboardPage = () => {
       <div className={style.dashboardPage}>
         <Media queries={{
            mobile: "(max-width: 767px)",
-           tablet: "(min-width: 768px) and (max-width: 1279px)",
-           desktop: "(min-width: 1280px)"
+           other: "(min-width: 768px)",
+          //  desktop: "(min-width: 1280px)"
          }}>
           {matches => (
             <Fragment>
-              {matches.mobile && <MobileDashboard/>}
-              {matches.tablet && <TabletDashboard/>}
-              {matches.desktop && <TabletDashboard/>}
+              {matches.mobile && <MobileDashboard viewChanger={setMainView} mainView={mainView}/>}
+              {matches.other && <OtherDashboard viewChanger={setMainView} mainView={mainView}/>}
+              {/* {matches.desktop && <OtherDashboard viewChanger={setMainView} mainView={mainView}/>} */}
             </Fragment>
           )}
         </Media>
       </div>
       {/* убрала кнопку со добавления со страницы статистики */}
-      {/* {mainView !== 'currency' && mainView !=='stats'&& <AddTransactionBtn />} */}
+      {mainView !== 'currency' && mainView !=='stats'&& <AddTransactionBtn />}
       {isModalOpen && (
         <Modal>
            <AddTransactionForm />

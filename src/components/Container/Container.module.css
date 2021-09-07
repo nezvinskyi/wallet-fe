@@ -8,7 +8,7 @@
 .dashboardContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -40,8 +40,11 @@
         padding-left: 85px;
         padding-right: 85px;
     }
-    .dashboardContainer {
+    /* .dashboardContainer {
         height: calc(100vh - 80px);
-    }
+    } */
+    /* .dashboardContainer {
+        height: calc(100% - 80px);
+    } */
 }
 
