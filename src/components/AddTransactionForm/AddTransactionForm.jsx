@@ -6,9 +6,15 @@ import { globalOperations } from '../../redux/global';
 import { financeSelectors, financeOperations } from '../../redux/finance';
 import Header from '../Header';
 import { addTransactionValidator } from '../../helpers/addTransaction.validate';
+import { sanitize } from 'indicative/sanitizer';
 import styles from './AddTransactionForm.module.css';
 
 import Select from 'react-select';
+
+const schema = {
+  comments: 'strip_tags',
+};
+
 const customStyles = {
   option: (provided, state) => ({
     ...provided,
@@ -137,6 +143,7 @@ const AddTransactionForm = () => {
       };
 
       await addTransactionValidator({ amount });
+      sanitize(data, schema);
 
       dispatch(financeOperations.addTransaction(data));
       dispatch(financeOperations.getBalance());
